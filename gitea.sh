@@ -6,13 +6,13 @@
 #     command: '~{INSTALL_PATH_RELATIVE}/gitea web'
 #     path_trim: true
 # database:
-#     type: mysql
+#     type: postgresql
 
 set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget -qO gitea https://dl.gitea.io/gitea/1.5.3/gitea-1.5.3-linux-amd64
+wget -qO gitea https://dl.gitea.io/gitea/1.6.0/gitea-1.6.0-linux-amd64
 chmod +x gitea
 
 mkdir -p custom/conf data indexers public log
@@ -28,8 +28,8 @@ ROOT_URL = https://$INSTALL_URL
 ENABLE_GZIP = true
 
 [database]
-DB_TYPE  = mysql
-HOST     = $DATABASE_HOST:3306
+DB_TYPE  = postgres
+HOST     = $DATABASE_HOST:5432
 NAME     = $DATABASE_NAME
 USER     = $DATABASE_USERNAME
 PASSWD   = \`$DATABASE_PASSWORD\`
