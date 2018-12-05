@@ -10,7 +10,7 @@
 
 set -e
 
-wget -O- https://github.com/NeoFragCMS/neofrag-cms/archive/alpha0.2.0.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/NeoFragCMS/neofrag-cms/archive/alpha0.2.1.tar.gz | tar -xz --strip-components=1
 
 mysql -h "$DATABASE_HOST" -u "$DATABASE_USERNAME" -p"$DATABASE_PASSWORD" "$DATABASE_NAME" < DATABASE.sql
 
