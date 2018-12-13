@@ -18,10 +18,10 @@ cat << EOF > config/db.php
 <?php
 
 \$db[] = [
-    'hostname' => '"$DATABASE_HOST"',
-    'username' => '"$DATABASE_USERNAME"',
-    'password' => '"$DATABASE_PASSWORD"',
-    'database' => '"$DATABASE_NAME"',
+    'hostname' => '$DATABASE_HOST',
+    'username' => '$DATABASE_USERNAME',
+    'password' => '$DATABASE_PASSWORD',
+    'database' => '$DATABASE_NAME',
     'driver'   => 'mysqli'
 ];    
 EOF
