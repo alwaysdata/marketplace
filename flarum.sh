@@ -15,11 +15,12 @@
 #         label: Email
 #     admin_username:
 #         label: Administrator username
-#         regex: ^[ a-zA-Z0-9.@_-]+$
+#         regex: ^[a-zA-Z0-9_-]+$
 #         max_length: 255
 #     admin_password:
 #         type: password
 #         label: Administrator password
+#         regex: ^[a-zA-Z0-9!#$€%&'[]()*+,./:;<=>?@^_`{|}~-]+$
 #         max_length: 255
 #         min_length: 8
 
