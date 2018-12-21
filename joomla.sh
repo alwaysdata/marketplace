@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.2'
+#     php_version: '7.3'
 # database:
 #     type: mysql
 # form:
@@ -20,7 +20,7 @@ composer global require joomlatools/console
 php .composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
 php .composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default
 
-sed -i "s|'default'|'$FORM_TITLE'|" joomla-new/configuration.php
+sed -i "s|'default'|'$FORM_TITLE'|" default/configuration.php
 
 rm -rf .composer .joomlatools .subversion
 
