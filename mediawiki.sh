@@ -32,7 +32,7 @@
 
 set -e
 
-wget -O- https://github.com/wikimedia/mediawiki/archive/1.31.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/wikimedia/mediawiki/archive/1.32.0.tar.gz | tar -xz --strip-components=1
 
 composer install
 php maintenance/install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="http://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
