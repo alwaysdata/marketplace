@@ -2,7 +2,7 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.5'
+#     ruby_version: '2.6'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     environment: 'RAILS_ENV=production'
 #     bundler: true
