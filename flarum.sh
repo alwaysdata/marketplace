@@ -4,6 +4,7 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '7.3'
+#     ssl_force: true
 # database:
 #     type: mysql
 # form:
