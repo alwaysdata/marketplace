@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# name: MediaWiki
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -36,6 +35,11 @@ wget -O- https://github.com/wikimedia/mediawiki/archive/1.32.0.tar.gz | tar -xz 
 
 composer install
 php maintenance/install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="http://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
+
+if [ "$INSTALL_URL_PATH" = "/" ]
+then
+    sed -i 's|\$wgScriptPath = "/";|\$wgScriptPath = "";|' LocalSettings.php
+fi
 
 # Install the default skin (no skin is installed by default):
 # https://www.mediawiki.org/wiki/Skin:Vector
