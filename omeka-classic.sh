@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # site:
 #     type: php
@@ -26,7 +26,7 @@
 
 set -e
 
-wget -O- https://github.com/omeka/Omeka/archive/v2.6.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/Omeka/archive/v2.7.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/docs/user-manual/install/
 
