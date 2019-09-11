@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.2'
+#     php_version: '7.3'
 # form:
 #     language:
 #         type: choices
