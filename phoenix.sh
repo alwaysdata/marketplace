@@ -16,7 +16,7 @@ export MIX_HOME=$INSTALL_PATH/.mix
 
 echo 'Y' | mix local.hex 
 mix local.rebar 
-echo 'Y' | mix archive.install hex phx_new 1.4.9
+echo 'Y' | mix archive.install hex phx_new 1.4.10
 echo 'Y' | mix phx.new hello --no-ecto 
 cd hello
 
