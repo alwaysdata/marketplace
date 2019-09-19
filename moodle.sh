@@ -52,7 +52,7 @@ EOF
 
 chmod 755 moodledata
 
-php moodle/admin/cli/install.php --dbtype=mariadb --dbhost="$DATABASE_HOST" --dbname="$DATABASE_NAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --lang="FORM_LANGUAGE" --wwwroot="https://$INSTALL_URL" --dataroot="$INSTALL_PATH/moodledata/" --adminuser="$FORM_ADMIN_USERNAME" --adminpass="$FORM_ADMIN_PASSWORD" --adminemail="$FORM_EMAIL" --fullname="$FORM_TITLE" --shortname="$FORM_TITLE" --agree-license --non-interactive
+php moodle/admin/cli/install.php --dbtype=mariadb --dbhost="$DATABASE_HOST" --dbname="$DATABASE_NAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --lang="$FORM_LANGUAGE" --wwwroot="https://$INSTALL_URL" --dataroot="$INSTALL_PATH/moodledata/" --adminuser="$FORM_ADMIN_USERNAME" --adminpass="$FORM_ADMIN_PASSWORD" --adminemail="$FORM_EMAIL" --fullname="$FORM_TITLE" --shortname="$FORM_TITLE" --agree-license --non-interactive
 
 rm -rf .composer
 
