@@ -23,7 +23,7 @@
 
 set -e
 
-wget -O- http://www.redmine.org/releases/redmine-4.0.4.tar.gz | tar -xz --strip-components=1
+wget -O- http://www.redmine.org/releases/redmine-4.0.5.tar.gz | tar -xz --strip-components=1
 
 # Database configuration
 cat << EOF > config/database.yml
