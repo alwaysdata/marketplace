@@ -13,7 +13,7 @@ set -e
 
 python -m venv myenv
 source myenv/bin/activate
-wget -O- https://download.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.tar.gz | tar -xz --strip-components=1
+wget -O- https://download.odoocdn.com/13.0/nightly/src/odoo_13.0.latest.tar.gz | tar -xz --strip-components=1
 
 pip install -r requirements.txt
 python setup.py install
