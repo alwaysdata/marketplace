@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # site:
-#     python_version: '3.7'
+#     python_version: '3.8'
 #     type: 'wsgi'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
