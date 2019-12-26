@@ -5,7 +5,7 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node server/index.js'
 #     environment: 'WIKI_JS_HEROKU=true WIKI_ADMIN_EMAIL={FORM_EMAIL}'
-#     nodejs_version: '11'
+#     nodejs_version: '12'
 # database:
 #     type: mongodb
 # form:
