@@ -20,7 +20,7 @@ set -e
 
 npm install -g tiddlywiki
 
-tiddlywiki . --init server
+.npm-packages/bin/tiddlywiki . --init server
 
 cat << EOF > users.csv
 username,password
