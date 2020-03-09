@@ -3,11 +3,12 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.2'
+#     php_version: '7.3'
 #     php_ini: |
 #         extension=intl.so
 #         extension=soap.so
 #         extension=bcmath.so
+#         extension=sockets.so
 # database:
 #     type: mysql
 # form:
