@@ -22,7 +22,7 @@ cat << EOF > custom/conf/app.ini
 RUN_MODE = prod
     
 [server]
-HTTP_ADDR = $IP
+HTTP_ADDR = 0.0.0.0
 HTTP_PORT = $PORT
 ROOT_URL = https://$INSTALL_URL
 ENABLE_GZIP = true

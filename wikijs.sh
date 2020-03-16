@@ -35,7 +35,7 @@ cat << EOF > config.yml
 # https://docs-legacy.requarks.io/wiki/install/configuration
 # GENERAL
 title: $FORM_TITLE
-host: $IP:$PORT
+listenAddress: "$(test $(head -c1 /etc/debian_version) == 8 && echo '0.0.0.0' || echo '')"
 port: $PORT
 paths.repo: ./repo
 paths.data: ./data

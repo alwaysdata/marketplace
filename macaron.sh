@@ -28,7 +28,7 @@ func main() {
         return "Hello world!"
     })  
 
-    m.Run(os.Getenv("IP"), os.Getenv("PORT"))
+    m.Run(os.Getenv("$(test $(head -c1 /etc/debian_version) == 8 && echo 'IP' || echo '0.0.0.0')"), os.Getenv("PORT"))
 }
 EOF
 

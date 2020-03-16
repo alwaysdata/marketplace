@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.listen(process.env.PORT, '0.0.0.0', function () {
+  $(test $(head -c1 /etc/debian_version) == 8 && echo "app.listen(process.env.PORT, '0.0.0.0', function () {" || echo "app.listen(process.env.PORT, function () {")
   console.log('Example app started!')
 })
 EOF
