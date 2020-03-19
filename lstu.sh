@@ -13,12 +13,18 @@ set -e
 # https://framagit.org/fiat-tux/hat-softwares/lstu/wikis/installation
 
 # Dependencies
-cpan Carton
 export PATH="${INSTALL_PATH}perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="${INSTALL_PATH}perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="${INSTALL_PATH}perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"${INSTALL_PATH}perl5\""
 export PERL_MM_OPT="INSTALL_BASE=${INSTALL_PATH}perl5"
+
+# Use http://search.cpan.org/dist/App-cpanminus instead of cpan installer
+# for automation
+curl -L http://cpanmin.us | perl - --self-upgrade
+
+# Install Carton package manager
+cpan Carton
 
 # Install
 git clone https://framagit.org/luc/lstu.git app
@@ -26,6 +32,14 @@ cd app
 carton install --without=cache --without=ldap --without=test --without=mysql
 
 # Config
+## Buster IPv6 hotfix
+if [ $(head -c1 /etc/debian_version) -eq 8 ]
+then
+    export IP='0.0.0.0'
+else
+    export IP=''
+fi
+
 sed -e "s/127.0.0.1:8080/$IP:$PORT/" \
     -e "s/#proxy/proxy/" \
     -e "s/#contact/contact/" \
