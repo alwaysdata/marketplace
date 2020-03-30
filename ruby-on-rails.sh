@@ -2,20 +2,26 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.5'
-#     path:  '{INSTALL_PATH_RELATIVE}/config.ru'
+#     ruby_version: '2.6'
+#     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     bundler: true
-#     path_trim: true
-
-set -e 
+#     path_trim: false
+#     environment: RAILS_ENV=development
 
 # https://guides.rubyonrails.org/getting_started.html
 
 gem install rails
-rails new default
+rails new .
 
-shopt -s dotglob nullglob
-mv default/* .
-rmdir default
+bundle config set deployment 'true'
+bundle install
 
-bundle install --deployment
+echo "Rails.application.config.hosts << '${INSTALL_URL_HOSTNAME}'" >> config/environments/development.rb
+
+cat << EOF > config.ru
+require_relative 'config/environment'
+
+map '${INSTALL_URL_PATH}' do
+  run Rails.application
+end
+EOF
