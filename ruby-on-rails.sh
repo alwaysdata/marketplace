@@ -10,9 +10,8 @@
 
 # https://guides.rubyonrails.org/getting_started.html
 
-gem install bundle
 gem install rails
-rails new .
+.gem/ruby/2.6.0/bin/rails new .
 
 bundle config set deployment 'true'
 bundle install
