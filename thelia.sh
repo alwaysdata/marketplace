@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.1'
+#     php_version: '7.2'
 #     php_ini: |
 #         extension=intl.so
 #         extension=calendar.so
@@ -29,7 +29,7 @@
 
 set -e
 
-composer create-project thelia/thelia default 2.3.5
+composer create-project thelia/thelia default 2.4.0
 
 cd default
 
