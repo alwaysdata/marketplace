@@ -10,6 +10,7 @@
 
 # https://guides.rubyonrails.org/getting_started.html
 
+gem install bundle
 gem install rails
 rails new .
 
