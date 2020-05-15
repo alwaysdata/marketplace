@@ -5,17 +5,20 @@
 #     python_version: '3.7'
 #     path: '{INSTALL_PATH_RELATIVE}/setup/odoo-wsgi.py'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
-#     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/myenv'
+#     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 # database:
 #     type: postgresql
 
 set -e
 
-python -m venv myenv
-source myenv/bin/activate
+python -m venv env
+source env/bin/activate
 wget -O- https://download.odoocdn.com/13.0/nightly/src/odoo_13.0.latest.tar.gz | tar -xz --strip-components=1
 
+# Avoid segmentation fault issues, see: https://github.com/psycopg/psycopg2/issues/543
+sed -i 's/psycopg2==\(2\.7.*\);/psycopg2==2.8;/' requirements.txt
 pip install -r requirements.txt
+
 python setup.py install
 
 mkdir -p odoo-data addons
