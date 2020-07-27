@@ -2,7 +2,7 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.6'
+#     ruby_version: '2.5'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     environment: 'RAILS_ENV=production'
 #     bundler: true
@@ -23,7 +23,7 @@
 
 set -e
 
-wget -O- http://www.redmine.org/releases/redmine-4.1.1.tar.gz | tar -xz --strip-components=1
+wget -O- --no-check-certificate https://www.redmine.org/releases/redmine-4.1.1.tar.gz | tar -xz --strip-components=1
 
 # Database configuration
 cat << EOF > config/database.yml
