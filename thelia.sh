@@ -29,7 +29,7 @@
 
 set -e
 
-composer create-project thelia/thelia default 2.4.0
+composer create-project thelia/thelia default 2.4.1
 
 cd default
 
