@@ -2,7 +2,7 @@
 
 # site:
 #     type: php
-#     path: '{INSTALL_PATH_RELATIVE}'
+#     path: '{INSTALL_PATH_RELATIVE}/web'
 #     php_version: '7.4'
 # database:
 #     type: mysql
@@ -42,7 +42,7 @@ echo "y" | php vendor/drush/drush/drush.php si --db-url=mysql://"$DATABASE_USERN
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
-    sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" drupal/.htaccess
+    sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" recommended-project/web/.htaccess
 fi
 
 rm -rf .composer .drush .subversion vendor composer.json composer.lock
