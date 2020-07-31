@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '7.3'
+#     php_version: '7.4'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -46,6 +46,18 @@ settings :
 EOF
 
 php default/flarum install -f config.yml
+
+# https://flarum.org/docs/install.html#customizing-paths
+if [ "$INSTALL_URL_PATH" != "/" ]
+then
+  sed -i 's|\ \ \#\ RewriteRule \/\\\.git \/ \[F,L\]|\ \ RewriteRule \/\\\.git \/ \[F,L\]|' default/public/.htaccess
+    sed -i 's|\ \ \#\ RewriteRule \^auth\\\.json\$ \/ \[F,L\]|\ \ RewriteRule \^auth\\\.json\$ \/ \[F,L\]|' default/public/.htaccess
+  sed -i 's|\ \ \#\ RewriteRule \^composer\\\.(lock\|json)\$ \/ \[F,L\]|\ \ RewriteRule \^composer\\\.(lock\|json)\$ \/ \[F,L\]|' default/public/.htaccess
+  sed -i 's|\ \ \#\ RewriteRule \^config.php\$ \/ \[F,L\]|\ \ RewriteRule \^config.php\$ \/ \[F,L\]|' default/public/.htaccess
+  sed -i 's|\ \ \#\ RewriteRule \^flarum\$ \/ \[F,L\]|\ \ RewriteRule \^flarum\$ \/ \[F,L\]|' default/public/.htaccess
+  sed -i 's|\ \ \#\ RewriteRule \^storage\/(.*)?\$ \/ \[F,L\]|\ \ RewriteRule \^storage\/(.*)?\$ \/ \[F,L\]|' default/public/.htaccess
+  sed -i 's|\ \ \#\ RewriteRule \^vendor\/(.*)?\$ \/ \[F,L\]|\ \ RewriteRule \^vendor\/(.*)?\$ \/ \[F,L\]|' default/public/.htaccess
+fi
 
 rm -rf .composer config.yml
 
