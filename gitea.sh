@@ -25,6 +25,7 @@ RUN_MODE = prod
 HTTP_ADDR = 0.0.0.0
 HTTP_PORT = $PORT
 ROOT_URL = https://$INSTALL_URL/
+LOCAL_ROOT_URL = https://$INSTALL_URL/
 ENABLE_GZIP = true
 
 [database]
