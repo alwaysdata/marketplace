@@ -32,7 +32,7 @@
 
 set -e
 
-composer create-project magento/community-edition community-edition 2.3.5
+composer create-project magento/community-edition community-edition 2.3.6
 
 # Magento CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
 
