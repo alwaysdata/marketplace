@@ -3,53 +3,40 @@
 # site:
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH}'
-#     command: 'node server/index.js'
-#     environment: 'WIKI_JS_HEROKU=true WIKI_ADMIN_EMAIL={FORM_EMAIL}'
-#     nodejs_version: '12'
+#     command: 'node server'
+#     nodejs_version: '14'
 # database:
-#     type: mongodb
-# form:
-#     language:
-#         type: choices
-#         label: Language
-#         initial: en
-#         choices:
-#             en: English
-#             es: Spanish
-#             fr: French
-#     email:
-#         type: email
-#         label: Admin email
-#     title:
-#         label: Wiki title
-#         max_length: 255
-#         regex: ^[ a-zA-Z0-9!"#$%&()*+,./:;<=>?@\^_`{|}~-]+$
+#     type: postgresql
 
 set -e
 
-# https://docs.requarks.io/wiki/install/installation
+## Buster IPv6 detection
+if [ $(head -c1 /etc/debian_version) -eq 8 ]
+then
+    export IP='0.0.0.0'
+else
+    export IP=''
+fi
 
-curl -sSo- https://wiki.js.org/install.sh | bash
-    
+# https://docs.requarks.io/install/linux
+
+wget https://github.com/Requarks/wiki/releases/download/2.5.159/wiki-js.tar.gz
+
+tar xzf wiki-js.tar.gz -C .
+rm wiki-js.tar.gz
+
 cat << EOF > config.yml
-# https://docs-legacy.requarks.io/wiki/install/configuration
-# GENERAL
-title: $FORM_TITLE
-listenAddress: "$(test $(head -c1 /etc/debian_version) == 8 && echo '0.0.0.0' || echo '')"
+### https://docs.requarks.io/install/config
+#
+
 port: $PORT
-paths.repo: ./repo
-paths.data: ./data
-lang: $FORM_LANGUAGE
+bindIP: '$IP'
 
-# AUTHENTIFICATION
-public: false
-auth.local.enabled: true
-defaultReadAccess: false
-sessionSecret: $(dd if=/dev/urandom bs=32 count=1 2>/dev/null | sha256sum -b | sed 's/ .*//')
-
-# DATABASE
-db: mongodb://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST:27017/$DATABASE_NAME
-
-# GIT REPOSITORY
-git: false
+db:
+  type: postgres
+  host: $DATABASE_HOST
+  port: 5432
+  user: $DATABASE_USERNAME
+  pass: $DATABASE_PASSWORD
+  db: $DATABASE_NAME
 EOF
