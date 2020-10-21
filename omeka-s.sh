@@ -34,7 +34,7 @@
 
 set -e
 
-wget -O- https://github.com/omeka/omeka-s/archive/v3.0.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/omeka-s/archive/v3.0.1.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/s/docs/user-manual/install/
 
