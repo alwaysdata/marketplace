@@ -2,7 +2,7 @@
 
 # site:
 #     type: elixir
-#     elixir_version: '1.7'
+#     elixir_version: '1.11'
 #     working_directory: '{INSTALL_PATH}/hello'
 #     command: 'mix phx.server'
 #     environment: 'MIX_HOME={INSTALL_PATH}/.mix MIX_ENV=prod'
@@ -16,7 +16,7 @@ export MIX_HOME=$INSTALL_PATH/.mix
 
 echo 'Y' | mix local.hex 
 mix local.rebar 
-echo 'Y' | mix archive.install hex phx_new 1.5.6
+echo 'Y' | mix archive.install hex phx_new 1.5.7
 echo 'Y' | mix phx.new hello --no-ecto 
 cd hello
 
