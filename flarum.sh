@@ -27,7 +27,7 @@
 
 set -e
 
-composer create-project flarum/flarum default --stability=beta
+COMPOSER_CACHE_DIR=/dev/null composer create-project flarum/flarum default --stability=beta
 
 cat << EOF > config.yml
 baseUrl : "https://$INSTALL_URL"

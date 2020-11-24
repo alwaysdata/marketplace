@@ -8,7 +8,7 @@
 set -e
 
 # https://symfony.com/doc/current/setup.html
-composer create-project symfony/website-skeleton default
+COMPOSER_CACHE_DIR=/dev/null composer create-project symfony/website-skeleton default
 
 rm -rf .composer
 

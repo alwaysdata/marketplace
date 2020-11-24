@@ -15,7 +15,7 @@ set -e
 
 # Joomlatools console: https://www.joomlatools.com/developer/tools/console/commands/
 
-composer global require joomlatools/console
+COMPOSER_CACHE_DIR=/dev/null composer global require joomlatools/console
 
 php .composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
 php .composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default

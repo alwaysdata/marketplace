@@ -41,7 +41,7 @@ set -e
 
 # https://docs.moodle.org/36/en/Installing_Moodle
 
-composer create-project moodle/moodle
+COMPOSER_CACHE_DIR=/dev/null composer create-project moodle/moodle
 
 mkdir moodledata/
 

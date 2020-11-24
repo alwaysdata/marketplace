@@ -9,7 +9,7 @@ set -e
 
 # https://laravel.com/docs/
 
-composer create-project --prefer-dist laravel/laravel default
+COMPOSER_CACHE_DIR=/dev/null composer create-project --prefer-dist laravel/laravel default
 # composer require/laravel new fails because of tty
 
 sed -i "s|APP_URL=http://localhost|APP_URL=http://$INSTALL_URL|" default/.env

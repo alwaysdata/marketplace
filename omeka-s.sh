@@ -38,7 +38,7 @@ wget -O- https://github.com/omeka/omeka-s/archive/v3.0.1.tar.gz | tar -xz --stri
 
 # https://omeka.org/s/docs/user-manual/install/
 
-composer install
+COMPOSER_CACHE_DIR=/dev/null composer install
 
 cat << EOF > config/database.ini
 user = '$DATABASE_USERNAME'

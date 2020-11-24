@@ -30,7 +30,7 @@ wget -O- https://github.com/omeka/Omeka/archive/v2.7.1.tar.gz | tar -xz --strip-
 
 # https://omeka.org/docs/user-manual/install/
 
-composer install
+COMPOSER_CACHE_DIR=/dev/null composer install
 
 cat << EOF > db.ini
 [database]
