@@ -37,7 +37,7 @@ set -e
 # We use http://wp-cli.org
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-php wp-cli.phar core download --locale="$FORM_LANGUAGE" --path="$INSTALL_PATH"
+php -d sys_temp_dir=/tmp wp-cli.phar core download --locale="$FORM_LANGUAGE" --path="$INSTALL_PATH"
 php wp-cli.phar config create --dbname="$DATABASE_NAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbhost="$DATABASE_HOST" --path="$INSTALL_PATH" --extra-php <<PHP
 define( 'WP_SITEURL', 'http://$INSTALL_URL' );
 PHP
