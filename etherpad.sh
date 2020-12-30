@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '15'
+#     nodejs_version: '14'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'bin/run.sh'
 # database:
