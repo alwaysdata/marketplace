@@ -2,7 +2,7 @@
 
 # site:
 #     type: wsgi
-#     python_version: '3.7'
+#     python_version: '3.9'
 #     path: '{INSTALL_PATH_RELATIVE}/setup/odoo-wsgi.py'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'

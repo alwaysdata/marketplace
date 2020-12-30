@@ -2,7 +2,7 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.6'
+#     ruby_version: '2.7'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     bundler: true
 #     path_trim: false
@@ -11,7 +11,7 @@
 # https://guides.rubyonrails.org/getting_started.html
 
 gem install rails
-.gem/ruby/2.6.0/bin/rails new .
+.gem/ruby/2.7.0/bin/rails new .
 
 bundle config set deployment 'true'
 bundle install
