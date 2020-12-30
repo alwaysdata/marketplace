@@ -3,8 +3,8 @@
 # site:
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH}'
-#     nodejs_version: '12'
-#     command: '.npm-packages/bin/tiddlywiki ~{INSTALL_PATH_RELATIVE} --listen host=$(test $(head -c1 /etc/debian_version) == 8 && echo "0.0.0.0" || echo "::") port=$PORT credentials=users.csv "readers=(authenticated)" "writers={FORM_USERNAME}"'
+#     nodejs_version: '15'
+#     command: './node_modules/.bin/tiddlywiki ~{INSTALL_PATH_RELATIVE} --listen host="::" port=$PORT credentials=users.csv "readers=(authenticated)" "writers={FORM_USERNAME}"'
 #     path_trim: true
 #     ssl_force: true
 # form:
@@ -18,9 +18,9 @@
 
 set -e
 
-npm install -g tiddlywiki
+npm install tiddlywiki
 
-.npm-packages/bin/tiddlywiki . --init server
+node_modules/.bin/tiddlywiki default --init server
 
 cat << EOF > users.csv
 username,password
@@ -36,3 +36,7 @@ title: $:/config/tiddlyweb/host
 \$protocol\$//\$host\$$INSTALL_URL_PATH/
 EOF
 fi
+
+shopt -s dotglob nullglob
+mv default/* .
+rmdir default
