@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '12'
+#     nodejs_version: '15'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'bin/run.sh'
 # database:
@@ -10,7 +10,7 @@
 
 set -e
 
-wget -O- https://github.com/ether/etherpad-lite/archive/1.8.6.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/ether/etherpad-lite/archive/1.8.7.tar.gz | tar -xz --strip-components=1
 
 cp settings.json.template settings.json
 
