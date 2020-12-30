@@ -32,13 +32,6 @@ cd app
 carton install --without=cache --without=ldap --without=test --without=mysql
 
 # Config
-## Buster IPv6 hotfix
-if [ $(head -c1 /etc/debian_version) -eq 8 ]
-then
-    export IP='0.0.0.0'
-else
-    export IP='[::]'
-fi
 
 sed -e "s/127.0.0.1:8080/$IP:$PORT/" \
     -e "s/#proxy/proxy/" \

@@ -4,9 +4,7 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.3'
-#     php_ini: |
-#         extension=intl.so
-#         extension=calendar.so
+#     php_ini: extension=intl.so
 # database:
 #     type: mysql
 # form:

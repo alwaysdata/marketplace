@@ -36,7 +36,7 @@ secret_key_base = '$(mix phx.gen.secret| sha256sum -b | sed 's/ .*//')'
 #    """
 
 config :hello, HelloWeb.Endpoint,
-  http: [$(test $(head -c1 /etc/debian_version) == 8 && echo ':inet' || echo ':inet6'), port: String.to_integer(System.get_env("PORT") || "4000")],
+  http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
   secret_key_base: secret_key_base
 EOF
 

@@ -4,7 +4,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
-#     php_ini: extension=xmlreader.so
 # database:
 #     type: mysql
 # form:
