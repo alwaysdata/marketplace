@@ -7,20 +7,20 @@
 #     nodejs_version: '14'
 # database:
 #     type: postgresql
-
+# form:
+#     email:
+#         type: email
+#         label: Email
+#     admin_password:
+#         type: password
+#         label: Administrator password
+#         min_lenght: 8
+#         max_length: 255
 set -e
-
-## Buster IPv6 detection
-if [ $(head -c1 /etc/debian_version) -eq 8 ]
-then
-    export IP='0.0.0.0'
-else
-    export IP=''
-fi
 
 # https://docs.requarks.io/install/linux
 
-wget https://github.com/Requarks/wiki/releases/download/2.5.159/wiki-js.tar.gz
+wget https://github.com/Requarks/wiki/releases/download/2.5.170/wiki-js.tar.gz
 
 tar xzf wiki-js.tar.gz -C .
 rm wiki-js.tar.gz
@@ -30,7 +30,7 @@ cat << EOF > config.yml
 #
 
 port: $PORT
-bindIP: '$IP'
+bindIP: ''
 
 db:
   type: postgres
@@ -40,3 +40,5 @@ db:
   pass: $DATABASE_PASSWORD
   db: $DATABASE_NAME
 EOF
+
+# The rest is GUI
