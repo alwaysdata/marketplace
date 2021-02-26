@@ -10,7 +10,7 @@
 
 set -e
 
-wget -O- https://github.com/ether/etherpad-lite/archive/1.8.9.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/ether/etherpad-lite/archive/1.8.10.tar.gz | tar -xz --strip-components=1
 
 cp settings.json.template settings.json
 
