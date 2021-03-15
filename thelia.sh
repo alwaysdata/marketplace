@@ -27,7 +27,7 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer create-project thelia/thelia default 2.4.3
+COMPOSER_CACHE_DIR=/dev/null composer create-project thelia/thelia default 2.4.4
 
 cd default
 
