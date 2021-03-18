@@ -14,7 +14,7 @@
 #     admin_password:
 #         type: password
 #         label: Administrator password
-#         min_lenght: 8
+#         min_length: 8
 #         max_length: 255
 set -e
 
