@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.3'
+#     php_version: '7.4'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -41,5 +41,8 @@ if [ "$INSTALL_URL_PATH" = "/" ]
 then
     sed -i 's|\$wgScriptPath = "/";|\$wgScriptPath = "";|' LocalSettings.php
 fi
+
+# Temporary fix for https://phabricator.wikimedia.org/T235554
+sed -i '/Content-Encoding: identity/d' includes/MediaWiki.php
 
 rm -rf .composer
