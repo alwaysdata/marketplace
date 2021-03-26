@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8'
 # database:
 #     type: mysql
 # form:
@@ -25,7 +25,7 @@
 
 set -e
 
-wget -O- https://github.com/omeka/Omeka/archive/v2.7.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/Omeka/archive/v2.8.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/docs/user-manual/install/
 
