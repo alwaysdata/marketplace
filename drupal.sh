@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
-#     php_version: '7.4'
+#     php_version: '8'
 # database:
 #     type: mysql
 # form:
@@ -34,8 +34,10 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer require drush/drush
-COMPOSER_CACHE_DIR=/dev/null composer create-project drupal/recommended-project
+# https://www.drupal.org/docs/system-requirements
+
+COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 # https://drushcommands.com
 echo "y" | php vendor/drush/drush/drush.php si --db-url=mysql://"$DATABASE_USERNAME":"$DATABASE_PASSWORD"@"$DATABASE_HOST"/"$DATABASE_NAME" --account-name="$FORM_ADMIN_USERNAME" --account-pass="$FORM_ADMIN_PASSWORD" --account-mail="$FORM_EMAIL" --site-name="$FORM_SITE_NAME" --locale="$FORM_LANGUAGE" --root=recommended-project

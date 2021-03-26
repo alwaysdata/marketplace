@@ -32,6 +32,8 @@
 
 set -e
 
+# https://www.mediawiki.org/wiki/Compatibility
+
 wget -O- https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.1.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer install

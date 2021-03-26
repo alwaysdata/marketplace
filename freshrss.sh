@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8'
 #     php_ini: extension=pdo_sqlite.so
 # database:
 #     type: mysql
@@ -31,6 +31,8 @@
 #         max_length: 255
 
 set -e
+
+# https://freshrss.github.io/FreshRSS/en/admins/02_Prerequisites.html
 
 wget -O- https://github.com/FreshRSS/FreshRSS/archive/1.18.0.tar.gz | tar -xz --strip-components=1
 

@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '7.4'
+#     php_version: '8'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -27,7 +27,9 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer create-project flarum/flarum default --stability=beta
+# https://docs.flarum.org/install.html#server-requirements
+
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project flarum/flarum default --stability=beta
 
 cat << EOF > config.yml
 baseUrl : "https://$INSTALL_URL"

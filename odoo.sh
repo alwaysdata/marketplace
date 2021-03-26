@@ -11,6 +11,8 @@
 
 set -e
 
+# https://www.odoo.com/documentation/14.0/setup/install.html#setup-install-source
+
 python -m venv env
 source env/bin/activate
 wget -O- https://download.odoocdn.com/14.0/nightly/src/odoo_14.0.latest.tar.gz | tar -xz --strip-components=1

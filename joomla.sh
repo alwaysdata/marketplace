@@ -13,16 +13,17 @@
 
 set -e
 
+# https://downloads.joomla.org/technical-requirements
 # Joomlatools console: https://www.joomlatools.com/developer/tools/console/commands/
 
-COMPOSER_CACHE_DIR=/dev/null composer global require joomlatools/console
+COMPOSER_CACHE_DIR=/dev/null composer2 global require joomlatools/console
 
-php .composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
-php .composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default
+php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
+php .config/composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default
 
 sed -i "s|'default'|'$FORM_TITLE'|" default/configuration.php
 
-rm -rf .composer .joomlatools .subversion
+rm -rf .config .local .subversion
 
 shopt -s dotglob nullglob
 mv default/* .

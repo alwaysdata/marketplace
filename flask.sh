@@ -10,7 +10,7 @@
 
 set -e
 
-# http://flask.pocoo.org/docs/1.0/quickstart/
+# https://flask.palletsprojects.com/en/1.1.x/installation/
 
 python -m venv env
 env/bin/pip install Flask

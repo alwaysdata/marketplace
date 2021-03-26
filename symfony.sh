@@ -3,12 +3,12 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
-#     php_version: '7.4'
+#     php_version: '8'
 
 set -e
 
 # https://symfony.com/doc/current/setup.html
-COMPOSER_CACHE_DIR=/dev/null composer create-project symfony/website-skeleton default
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project symfony/website-skeleton default
 
 rm -rf .composer
 

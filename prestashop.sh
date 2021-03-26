@@ -38,7 +38,9 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer require gskema/prestashop-installer
+# http://doc.prestashop.com/display/PS17/What+you+need+to+get+started
+
+COMPOSER_CACHE_DIR=/dev/null composer2 require gskema/prestashop-installer
 vendor/bin/prestashop new default
 
 php default/install/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --langage="$FORM_LANGUAGES" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
