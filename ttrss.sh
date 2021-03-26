@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8'
 #     php_ini: extension=intl.so
 # database:
 #     type: postgresql
@@ -14,17 +14,18 @@ set -e
 
 git clone https://tt-rss.org/git/tt-rss.git .
 
-actions=( 'installschema' 'saveconfig' )
-for action in "${actions[@]}"
-do
-    curl -sL -o /dev/null \
-        --data "op=$action" \
-        --data "DB_USER=$DATABASE_USERNAME" \
-        --data "DB_PASS=$DATABASE_PASSWORD" \
-        --data "DB_NAME=$DATABASE_NAME" \
-        --data "DB_HOST=$DATABASE_HOST" \
-        --data "DB_PORT=5432" \
-        --data "DB_TYPE=pgsql" \
-        --data "SELF_URL_PATH=http://$INSTALL_URL/" \
-        http://$INSTALL_URL/install/
-done
+cat << EOF > config.php
+
+<?php
+
+putenv('TTRSS_DB_TYPE=pgsql');
+putenv('TTRSS_DB_HOST=$DATABASE_HOST');
+putenv('TTRSS_DB_USER=$DATABASE_USERNAME');
+putenv('TTRSS_DB_NAME=$DATABASE_NAME');
+putenv('TTRSS_DB_PASS=$DATABASE_PASSWORD');
+putenv('TTRSS_DB_PORT=5432');
+putenv('TTRSS_SELF_URL_PATH=http://$INSTALL_URL');
+
+EOF
+
+echo "yes" | php update.php --update-schema
