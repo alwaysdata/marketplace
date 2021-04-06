@@ -2,16 +2,18 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.7'
+#     ruby_version: '3.0'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     bundler: true
 #     path_trim: false
 #     environment: RAILS_ENV=development
 
+set -e
+
 # https://guides.rubyonrails.org/getting_started.html
 
 gem install rails
-.gem/ruby/2.7.0/bin/rails new .
+.local/share/gem/ruby/3.0.0/bin/rails new .
 
 bundle config set deployment 'true'
 bundle install
