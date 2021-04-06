@@ -25,7 +25,7 @@ set -e
 
 # https://www.redmine.org/projects/redmine/wiki/RedmineInstall
 
-wget -O- --no-check-certificate https://www.redmine.org/releases/redmine-4.1.2.tar.gz | tar -xz --strip-components=1
+wget -O- --no-check-certificate https://www.redmine.org/releases/redmine-4.2.0.tar.gz | tar -xz --strip-components=1
 
 # Database configuration
 cat << EOF > config/database.yml
