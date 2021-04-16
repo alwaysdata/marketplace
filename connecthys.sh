@@ -17,7 +17,7 @@ source env/bin/activate
 
 pip install pycrypto flask six
 
-wget -O- https://github.com/Noethys/Connecthys/archive/0.9.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/Noethys/Connecthys/archive/0.9.1.tar.gz | tar -xz --strip-components=1
 
 shopt -s dotglob nullglob
 mv connecthys/* .
