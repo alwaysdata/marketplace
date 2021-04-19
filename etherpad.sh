@@ -18,7 +18,7 @@ cp settings.json.template settings.json
 
 cat << EOF > credentials.json
 {
-"ip": "$(test $(head -c1 /etc/debian_version) == 8 && echo '0.0.0.0' || echo '')",
+"ip": "",
 "port" : $PORT,
 
 "dbType" : "mysql",
