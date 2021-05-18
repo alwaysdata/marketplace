@@ -26,10 +26,12 @@
 #     admin_username:
 #         label: Administrator username
 #         regex: ^[ a-zA-Z0-9.@_-]+$
+#         min_length: 5
 #         max_length: 255
 #     admin_password:
 #         type: password
 #         label: Administrator password
+#         min_length: 5
 #         max_length: 255
 
 set -e
