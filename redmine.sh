@@ -53,3 +53,5 @@ bundle exec rake generate_secret_token
 
 RAILS_ENV=production bundle exec rake db:migrate
 RAILS_ENV=production REDMINE_LANG=$FORM_LANGUAGE bundle exec rake redmine:load_default_data
+
+# default credentials: admin / admin - to change at the first logging

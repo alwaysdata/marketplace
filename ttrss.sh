@@ -29,3 +29,5 @@ putenv('TTRSS_SELF_URL_PATH=http://$INSTALL_URL');
 EOF
 
 echo "yes" | php update.php --update-schema
+
+# default credentials: admin / password - to change at the first logging

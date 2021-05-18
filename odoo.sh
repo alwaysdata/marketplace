@@ -60,3 +60,5 @@ odoo.service.server.load_server_wide_modules()
 EOF
 
 python setup/odoo --without-demo=WITHOUT_DEMO --init=INIT --database="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_host="$DATABASE_HOST" --data-dir=odoo-data --stop-after-init
+
+# default credentials: admin / admin - to change at the first logging
