@@ -32,4 +32,4 @@ shopt -s dotglob nullglob
 mv BookStack/* .
 rmdir BookStack
 
-# default credentials: admin@admin.com / password - to change at the first logging
+# default credentials: admin@admin.com / password

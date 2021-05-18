@@ -30,4 +30,4 @@ EOF
 
 echo "yes" | php update.php --update-schema
 
-# default credentials: admin / password - to change at the first logging
+# default credentials: admin / password
