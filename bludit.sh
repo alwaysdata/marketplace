@@ -7,12 +7,7 @@
 
 set -e
 
-wget https://www.bludit.com/releases/bludit-3-13-1.zip
-
-unzip bludit-3-13-1.zip
-shopt -s dotglob nullglob
-mv bludit-3-13-1/* .
-rm -rf bludit-3-13-1*
+wget -O- https://www.bludit.com/releases/bludit-3-13-1.zip | bsdtar --strip-components=1 -xf -
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then

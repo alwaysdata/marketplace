@@ -31,12 +31,6 @@
 #         min_length: 8
 set -e
 
-wget https://www.pluxml.org/download/pluxml-latest.zip
-unzip pluxml-latest.zip
-rm pluxml-latest.zip
-
-shopt -s dotglob nullglob
-mv PluXml/* .
-rmdir PluXml
+wget -O- https://www.pluxml.org/download/pluxml-latest.zip | bsdtar --strip-components=1 -xf -
 
 curl -X POST -F default_lang="$FORM_LANGUAGE" -F data=1 -F name="$FORM_ADMIN_NAME" -F login="$FORM_ADMIN_USERNAME" -F pwd="$FORM_ADMIN_PASSWORD" -F pwd2="$FORM_ADMIN_PASSWORD" -F email="$FORM_EMAIL" -F timezone="Europe\/Paris" -F install=Installer http://$INSTALL_URL/install.php

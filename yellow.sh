@@ -7,10 +7,4 @@
 
 set -e
 
-curl -L -O https://github.com/datenstrom/yellow/archive/master.zip
-unzip master.zip
-
-rm master.zip
-shopt -s dotglob nullglob
-mv yellow-master/* .
-rmdir yellow-master
+wget -O- https://github.com/datenstrom/yellow/archive/master.zip | bsdtar --strip-components=1 -xf -
