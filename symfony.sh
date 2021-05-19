@@ -12,6 +12,6 @@ COMPOSER_CACHE_DIR=/dev/null composer2 create-project symfony/website-skeleton d
 
 rm -rf .composer
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

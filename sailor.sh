@@ -23,6 +23,6 @@ EOF
 
 chmod +x hello/start-server.sh
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv hello/* .
 rmdir hello

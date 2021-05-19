@@ -54,6 +54,6 @@ php moodle/admin/cli/install.php --dbtype=mariadb --dbhost="$DATABASE_HOST" --db
 
 rm -rf .composer
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv moodle/* .
 rmdir moodle

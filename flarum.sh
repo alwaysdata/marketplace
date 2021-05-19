@@ -63,6 +63,6 @@ fi
 
 rm -rf .composer config.yml
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

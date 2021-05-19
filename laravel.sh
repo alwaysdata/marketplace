@@ -16,6 +16,6 @@ sed -i "s|APP_URL=http://localhost|APP_URL=http://$INSTALL_URL|" default/.env
 
 rm -rf .composer .subversion vendor composer.json composer.lock
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

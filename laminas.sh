@@ -11,7 +11,7 @@ set -e
 
 echo 'Y' | COMPOSER_CACHE_DIR=/dev/null composer2 create-project -s dev laminas/laminas-mvc-skeleton default
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default
 

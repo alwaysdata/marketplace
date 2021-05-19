@@ -25,6 +25,6 @@ sed -i "s|'default'|'$FORM_TITLE'|" default/configuration.php
 
 rm -rf .config .local .subversion
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

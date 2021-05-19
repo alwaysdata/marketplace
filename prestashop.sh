@@ -47,6 +47,6 @@ php default/install/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$
 
 rm -rf default/install .composer .subversion composer.json composer.lock vendor
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

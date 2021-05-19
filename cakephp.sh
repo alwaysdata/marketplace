@@ -17,6 +17,6 @@ sed -i "1i \ \ \ \ RewriteBase $INSTALL_URL_PATH" default/webroot/.htaccess
 
 rm -rf .composer
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

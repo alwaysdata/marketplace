@@ -10,6 +10,6 @@ set -e
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project getgrav/grav default
 rm -rf .composer .config .local .subversion
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

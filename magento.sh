@@ -42,6 +42,6 @@ sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH/pub/static/|" com
 
 rm -rf .composer
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv community-edition/* .
 rmdir community-edition

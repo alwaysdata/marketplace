@@ -37,6 +37,6 @@ title: $:/config/tiddlyweb/host
 EOF
 fi
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

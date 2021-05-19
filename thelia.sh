@@ -40,6 +40,6 @@ cd ..
 
 rm -rf .composer .subversion
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv default/* .
 rmdir default

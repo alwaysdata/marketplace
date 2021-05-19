@@ -28,7 +28,7 @@ echo "yes" |php artisan migrate
 cd ..
 rm -rf .config .local
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv BookStack/* .
 rmdir BookStack
 

@@ -51,6 +51,6 @@ fi
 
 rm -rf .composer .drush .subversion vendor composer.json composer.lock
 
-shopt -s dotglob nullglob
+shopt -s dotglob
 mv recommended-project/* .
 rmdir recommended-project
