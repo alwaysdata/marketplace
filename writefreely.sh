@@ -12,7 +12,7 @@
 #         label: Site name
 #         max_length: 255
 #     admin_username:
-#         label: Admin username
+#         label: Administrator username
 #         regex: ^[ a-zA-Z0-9.@_-]+$
 #         min_length: 5
 #         max_length: 255

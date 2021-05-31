@@ -18,4 +18,4 @@ sed -i "s|port: 80|port: $PORT|" config.yml
 sed -i '/name:/d' config.yml
 sed -i '/pass:/d' config.yml
 
-# default credentials : admin / admin
+# default credentials: admin / admin
