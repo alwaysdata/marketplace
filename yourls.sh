@@ -33,6 +33,7 @@ sed -i "s|'username' => 'password'|'$FORM_ADMIN_USERNAME' => '$FORM_ADMIN_PASSWO
 curl -X POST -F install="Install YOURLS" http://$INSTALL_URL/admin/install.php
 curl https://$INSTALL_URL/admin/index.php?action=logout
 
+# https://github.com/YOURLS/YOURLS/wiki/.htaccess
 cat << EOF > .htaccess
 # BEGIN YOURLS
 <IfModule mod_rewrite.c>
