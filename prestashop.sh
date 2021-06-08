@@ -44,7 +44,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 create-project prestashop/prestashop defa
 
 php default/install-dev/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --langage="$FORM_LANGUAGES" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
 
-rm -rf default/install .composer .subversion composer.json composer.lock vendor
+rm -rf default/install .config/ .local/ .subversion/
 
 shopt -s dotglob
 mv default/* .
