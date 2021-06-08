@@ -4,7 +4,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8'
-#     php_ini: extension=pdo_sqlite.so
 # database:
 #     type: mysql
 # form:
@@ -34,7 +33,7 @@ set -e
 
 # https://freshrss.github.io/FreshRSS/en/admins/02_Prerequisites.html
 
-wget -O- https://github.com/FreshRSS/FreshRSS/archive/1.18.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/FreshRSS/FreshRSS/archive/1.18.1.tar.gz | tar -xz --strip-components=1
 
 ./cli/do-install.php --default_user admin --auth_type form --environment production --base_url https://$INSTALL_URL --language "$FORM_LANGUAGE" --title "$FORM_TITLE" --db-type mysql --db-host "$DATABASE_HOST":3306 --db-user "$DATABASE_USERNAME" --db-password "$DATABASE_PASSWORD" --db-base "$DATABASE_NAME"
 
