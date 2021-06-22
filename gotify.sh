@@ -7,7 +7,7 @@
 
 set -e
 
-wget -O- https://github.com/gotify/server/releases/download/v2.0.22/gotify-linux-amd64.zip | bsdtar -xf -
+wget -O- https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-amd64.zip | bsdtar -xf -
 chmod +x gotify-linux-amd64
 
 wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/config.example.yml
