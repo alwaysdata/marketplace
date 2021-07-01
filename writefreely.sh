@@ -24,7 +24,7 @@
 
 set -e
 
-wget -O- https://github.com/writefreely/writefreely/releases/download/v0.13.0/writefreely_0.13.0_linux_amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/writefreely/writefreely/releases/download/v0.13.1/writefreely_0.13.1_linux_amd64.tar.gz|tar -xz --strip-components=1
 
 ./writefreely config generate
 
