@@ -38,7 +38,7 @@ set -e
 
 # https://www.drupal.org/docs/system-requirements
 
-COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush
+COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush 10
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 # https://drushcommands.com
