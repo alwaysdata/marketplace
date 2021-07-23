@@ -4,7 +4,10 @@
 #     type: nodejs
 #     nodejs_version: '14'
 #     working_directory: '{INSTALL_PATH}'
-#     command: 'bin/run.sh'
+#     command: 'node src/node/server.js'
+#     environment: |
+#         NODE_ENV=production
+#         HOME='{INSTALL_PATH}'
 # database:
 #     type: mysql
 
@@ -32,3 +35,5 @@ cat << EOF > credentials.json
   },
 }
 EOF
+
+./src/bin/installDeps.sh
