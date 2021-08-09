@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#site:
+# site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8'
