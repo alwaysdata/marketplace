@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8'
 # database:
 #     type: mysql
 # form:
@@ -19,9 +19,9 @@ set -e
 
 # https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/occ_command.html?highlight=occ#command-line-installation-label
 
-wget -O- https://github.com/nextcloud/server/archive/v22.1.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/nextcloud/server/archive/v22.1.1.tar.gz | tar -xz --strip-components=1
 # Although not specified in the documentation, the 3rdparty directory must be downloaded separately, otherwise the occ command will complain.
-wget -O- https://github.com/nextcloud/3rdparty/archive/v22.1.0.tar.gz | tar -C 3rdparty -xz --strip-components=1
+wget -O- https://github.com/nextcloud/3rdparty/archive/v22.1.1.tar.gz | tar -C 3rdparty -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
