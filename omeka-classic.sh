@@ -25,7 +25,7 @@
 
 set -e
 
-wget -O- https://github.com/omeka/Omeka/archive/v2.8.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/Omeka/archive/v3.0.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/docs/user-manual/install/
 
