@@ -20,7 +20,7 @@
 
 set -e
 
-wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.6.6/mytinytodo-v1.6.6.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.6.7/mytinytodo-v1.6.7.zip | bsdtar --strip-components=1 -xf -
 
 sed -i "s|\['db'\] = '';|\['db'\] = 'mysql';|" db/config.php
 sed -i "s|localhost|$DATABASE_HOST|" db/config.php
