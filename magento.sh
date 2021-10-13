@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.3'
+#     php_version: '7.4'
 #     php_ini: |
 #         extension=intl.so
 #         extension=sockets.so
@@ -30,7 +30,7 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer create-project magento/community-edition community-edition 2.3.7-p1
+COMPOSER_CACHE_DIR=/dev/null composer create-project magento/community-edition community-edition 2.3.7-p2
 
 # Magento CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
 
