@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.3'
+#     php_version: '7.4'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -38,14 +38,12 @@
 
 set -e
 
-# http://doc.prestashop.com/display/PS17/What+you+need+to+get+started
+# https://doc.prestashop.com/display/PS17/Installing+PrestaShop+using+the+command-line+script
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project prestashop/prestashop default 1.7.7.8
+wget -O- https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.0/prestashop_1.7.8.0.zip | bsdtar --strip-components=0 -xf -
+unzip -o prestashop.zip
+rm prestashop.zip
 
-php default/install-dev/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --langage="$FORM_LANGUAGES" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
+php install/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --language="$FORM_LANGUAGES" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
 
-rm -rf default/install-dev .config/ .local/ .subversion/
-
-shopt -s dotglob
-mv default/* .
-rmdir default
+rm -rf install
