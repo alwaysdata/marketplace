@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.2'
+#     php_version: '7.3'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -40,11 +40,11 @@ set -e
 
 # http://doc.prestashop.com/display/PS17/What+you+need+to+get+started
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project prestashop/prestashop default
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project prestashop/prestashop default 1.7.7.8
 
 php default/install-dev/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --langage="$FORM_LANGUAGES" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
 
-rm -rf default/install .config/ .local/ .subversion/
+rm -rf default/install-dev .config/ .local/ .subversion/
 
 shopt -s dotglob
 mv default/* .
