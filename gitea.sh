@@ -7,12 +7,14 @@
 #     path_trim: true
 # database:
 #     type: postgresql
+# requirements:
+#     disk: 100
 
 set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget -qO gitea https://dl.gitea.io/gitea/1.15.4/gitea-1.15.4-linux-amd64
+wget -qO gitea https://dl.gitea.io/gitea/1.15.5/gitea-1.15.5-linux-amd64
 chmod +x gitea
 
 mkdir -p custom/conf data indexers public log
