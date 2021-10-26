@@ -9,6 +9,8 @@
 #         MIX_HOME={INSTALL_PATH}/.mix
 #         MIX_ENV=prod
 #     path_trim: true
+# requirements:
+#     disk: 100
 
 set -e
 
@@ -46,3 +48,5 @@ mix deps.get
 
 MIX_ENV=prod mix compile
 MIX_ENV=prod mix phx.digest
+
+# To run Phoenix 1.6, we need Elixir 1.12 which depends on Erlang 22 and will be upgraded during the next software infrastructure migration.
