@@ -9,22 +9,34 @@
 #         extension=sockets.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     admin_firstname:
-#         label: Administrator first name
+#         label:
+#             en: Administrator first name
+#             fr: Prénom de l'administrateur
 #         max_length: 40
 #     admin_lastname:
-#         label: Administrator last name
+#         label:
+#             en: Administrator last name
+#             fr: Nom de l'administrateur
 #         max_length: 40
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         max_length: 40
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 7
 #         regex: ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$
 
@@ -45,3 +57,5 @@ rm -rf .composer
 shopt -s dotglob
 mv community-edition/* .
 rmdir community-edition
+
+# Magento 2.4 requires Elasticsearch which is not compliant with the Public Cloud.
