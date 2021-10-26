@@ -8,6 +8,8 @@
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 # database:
 #     type: postgresql
+# requirements:
+#     disk: 100
 
 set -e
 
@@ -15,7 +17,7 @@ set -e
 
 python -m venv env
 source env/bin/activate
-wget -O- https://download.odoocdn.com/14.0/nightly/src/odoo_14.0.latest.tar.gz | tar -xz --strip-components=1
+wget -O- https://download.odoocdn.com/15.0/nightly/src/odoo_15.0.latest.tar.gz | tar -xz --strip-components=1
 
 # Avoid segmentation fault issues, see: https://github.com/psycopg/psycopg2/issues/543
 sed -i 's/psycopg2==\(2\.7.*\);/psycopg2==2.8;/' requirements.txt
