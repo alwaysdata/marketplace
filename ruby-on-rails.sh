@@ -7,6 +7,8 @@
 #     bundler: true
 #     path_trim: false
 #     environment: RAILS_ENV=development
+# requirements:
+#     disk: 100
 
 set -e
 

@@ -6,6 +6,8 @@
 #     working_directory: '{INSTALL_PATH}/cryptpad'
 #     command: 'node server.js'
 #     ssl: true
+# requirements:
+#     disk: 100
 
 set -e
 

@@ -6,6 +6,8 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node app.js'
 #     environment: 'NODE_ENV=production'
+# requirements:
+#     disk: 100
 
 set -e
 

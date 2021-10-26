@@ -7,15 +7,9 @@
 #     nodejs_version: '14'
 # database:
 #     type: postgresql
-# form:
-#     email:
-#         type: email
-#         label: Email
-#     admin_password:
-#         type: password
-#         label: Administrator password
-#         min_length: 8
-#         max_length: 255
+# requirements:
+#     disk: 100
+
 set -e
 
 # https://docs.requarks.io/install/linux

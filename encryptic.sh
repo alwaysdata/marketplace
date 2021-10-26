@@ -6,6 +6,8 @@
 #     working_directory: '{INSTALL_PATH}/encryptic'
 #     command: '~{INSTALL_PATH_RELATIVE}/node_modules/gulp/bin/gulp.js'
 #     path_trim: true
+# requirements:
+#     disk: 100
 
 set -e
 

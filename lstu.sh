@@ -7,6 +7,8 @@
 #       environment: 'PERL5LIB={INSTALL_PATH}/perl5/lib/perl5 PERL_LOCAL_LIB_ROOT={INSTALL_PATH}/perl5'
 # database:
 #       type: postgresql
+# requirements:
+#     disk: 100
 
 set -e
 

@@ -10,6 +10,8 @@
 #         HOME='{INSTALL_PATH}'
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 
 set -e
 
