@@ -7,22 +7,29 @@
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             fr: French
+#             fr: Français
 #     username:
-#         label: Username
+#         label:
+#             en: Username
+#             fr: Nom d'utilisateur
 #         max_length: 255
 #     password:
 #         type: password
-#         label: Password
+#         label:
+#             en: Password
+#             fr: Mot de passe
 #         max_length: 255
 #         min_length: 8
 #     title:
-#         label: Shaarli title
+#         label:
+#             en: Title
+#             fr: Titre
 #         max_length: 255
 set -e
 

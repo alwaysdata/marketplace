@@ -9,7 +9,9 @@
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
 # form:
 #     project:
-#         label: Project name
+#         label:
+#             en: Project name
+#             fr: Nom du projet
 #         regex: ^[a-zA-Z0-9_]+$
 #         max_length: 255
 

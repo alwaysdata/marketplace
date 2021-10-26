@@ -7,14 +7,17 @@
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
 #             en: English
-#             fr: French
+#             fr: Français
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe administrateur
 #         min_length: 5
 #         max_length: 255
 

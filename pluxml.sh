@@ -7,26 +7,35 @@
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     admin_name:
-#         label: Administrator name
+#         label:
+#             en: Administrator name
+#             fr: Nom de l'administrateur
 #         max_length: 255
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         max_length: 255
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         max_length: 255
 #         min_length: 8
 set -e

@@ -7,22 +7,34 @@
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         max_length: 255
 #     admin_firstname:
-#         label: Administrator firstname
+#         label:
+#             en: Administrator firstname
+#             fr: Prénom de l'administrateur
 #         max_length: 255
 #     admin_lastname:
-#         label: Administrator lastname
+#         label:
+#             en: Administrator lastname
+#             fr: Nom de l'administrateur
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         max_length: 255
 
 set -e

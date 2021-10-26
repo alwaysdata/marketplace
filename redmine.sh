@@ -9,17 +9,20 @@
 #     path_trim: true
 # database:
 #     type: postgresql
+# requirements:
+#     disk: 100
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 
 set -e
 

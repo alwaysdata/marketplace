@@ -9,11 +9,15 @@
 #     ssl_force: true
 # form:
 #     username:
-#         label: Administrator Username
+#         label:
+#             en: Username
+#             fr: Nom d'utilisateur
 #         max_length: 255
 #     password:
 #         type: password
-#         label: Administrator Password
+#         label:
+#             en: Password
+#             fr: Mot de passe
 #         max_length: 255
 
 set -e

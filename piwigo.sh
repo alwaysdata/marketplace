@@ -9,23 +9,30 @@
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en_US
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de_DE: German
+#             de_DE: Deutsch
 #             en_US: English
-#             es_ES: Spanish
-#             fr_FR: French
-#             it_IT: Italian
+#             es_ES: Español
+#             fr_FR: Français
+#             it_IT: Italiano
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     username:
-#         label: Username
+#         label:
+#             en: Username
+#             fr: Nom d'utilisateur
 #         max_length: 255
 #     password:
 #         type: password
-#         label: Password
+#         label:
+#             en: Password
+#             fr: Mot de passe
 #         max_length: 255
 #         min_length: 8
 

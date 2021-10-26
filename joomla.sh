@@ -8,7 +8,9 @@
 #     type: mysql
 # form:
 #     title:
-#         label: Site title
+#         label:
+#             en: Site title
+#             fr: Titre du site
 #         max_length: 255
 
 set -e

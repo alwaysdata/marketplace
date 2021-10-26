@@ -6,31 +6,42 @@
 #     php_version: '8'
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     site_name:
-#         label: Site name
+#         label:
+#             en: Site name
+#             fr: Nom du site
 #         max_length: 255
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
 #         min_length: 5
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 5
 #         max_length: 255
 

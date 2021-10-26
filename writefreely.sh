@@ -9,16 +9,22 @@
 #     type: mysql
 # form:
 #     site_name:
-#         label: Site name
+#         label:
+#             en: Site name
+#             fr: Nom du site
 #         max_length: 255
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
 #         min_length: 5
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 5
 #         max_length: 255
 

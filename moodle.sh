@@ -7,30 +7,41 @@
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     title:
-#         label: Learning platform title
+#         label:
+#             en: Learning platform title
+#             fr: Titre de la plateforme d'enseignement
 #         max_length: 255
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         regex: ^(?=.*[A-Z])(?=.*[0-9])(?=.*[!"#$€%&'()[]*+,./:;<=>?@\^_`{|}~-])+$
 #         min_length: 8
 #         max_length: 255

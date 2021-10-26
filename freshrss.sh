@@ -9,24 +9,31 @@
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en_US
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en_US: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     title:
-#         label: Feed title
+#         label:
+#             en: Feed title
+#             fr: Titre du flux
 #         max_length: 255
 #     username:
-#         label: Administrator username
+#         label:
+#             en: Username
+#             fr: Nom d'utilisateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
 #         max_length: 255
 #     password:
 #         type: password
-#         label: Username password
+#         label:
+#             en: Password
+#             fr: Mot de passe
 #         max_length: 255
 
 set -e

@@ -7,26 +7,35 @@
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     title:
-#         label: Wiki title
+#         label:
+#             en: Wiki title
+#             fr: Titre du wiki
 #         max_length: 255
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 10
 #         max_length: 255
 

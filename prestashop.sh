@@ -7,32 +7,45 @@
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 100
 # form:
 #     language:
 #         type: choices
-#         label: Language
-#         initial: en
+#         label:
+#             en: Language
+#             fr: Langue
 #         choices:
-#             de: German
+#             de: Deutsch
 #             en: English
-#             es: Spanish
-#             fr: French
-#             it: Italian
+#             es: Español
+#             fr: Français
+#             it: Italiano
 #     shop_name:
-#         label: Shop name
+#         label:
+#             en: Shop name
+#             fr: Nom du Magasin
 #         max_length: 255
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_firstname:
-#         label: Administrator first name
+#         label:
+#             en: Administrator first name
+#             fr: Prénom de l'administrateur
 #         max_length: 255
 #     admin_lastname:
-#         label: Administrator last name
+#         label:
+#             en: Administrator last name
+#             fr: Nom de l'administrateur
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         max_length: 255
 #         min_length: 8
 
