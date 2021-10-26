@@ -8,24 +8,32 @@
 #     type: mysql
 # form:
 #     title:
-#         label: Title
+#         label:
+#             en: Title
+#             fr: Titre
 #         max_length: 255
 #     email:
 #         type: email
-#         label: Email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[a-zA-Z0-9]+$
 #         max_length: 30
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 6
 #         max_length: 255
 
 set -e
 
-wget -O- https://github.com/omeka/Omeka/archive/v3.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/Omeka/archive/v3.0.1.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/docs/user-manual/install/
 
