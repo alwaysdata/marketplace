@@ -14,4 +14,4 @@ then
     sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" .htaccess
 fi
 
-# After is GUI (langage & admin credentials)
+# After is GUI (language & admin credentials)
