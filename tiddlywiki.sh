@@ -3,7 +3,7 @@
 # site:
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH}'
-#     nodejs_version: '14'
+#     nodejs_version: '16'
 #     command: './node_modules/.bin/tiddlywiki ~{INSTALL_PATH_RELATIVE} --listen host="::" port=$PORT credentials=users.csv "readers=(authenticated)" "writers={FORM_USERNAME}"'
 #     path_trim: true
 #     ssl_force: true

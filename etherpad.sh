@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '14'
+#     nodejs_version: '16'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node src/node/server.js'
 #     environment: |
