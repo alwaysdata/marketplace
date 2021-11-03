@@ -10,7 +10,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 100
+#     disk: 130
 # form:
 #     language:
 #         type: choices

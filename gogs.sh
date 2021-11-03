@@ -7,6 +7,8 @@
 #     path_trim: true
 # database:
 #     type: postgresql
+# requirements:
+#     disk: 60
 
 set -e
 

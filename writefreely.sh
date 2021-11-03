@@ -7,6 +7,8 @@
 #     path_trim: true
 # database:
 #     type: mysql
+# requirements:
+#     disk: 60
 # form:
 #     site_name:
 #         label:

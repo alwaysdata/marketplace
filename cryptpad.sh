@@ -7,7 +7,7 @@
 #     command: 'node server.js'
 #     ssl: true
 # requirements:
-#     disk: 100
+#     disk: 1100
 
 set -e
 

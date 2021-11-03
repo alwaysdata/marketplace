@@ -6,6 +6,8 @@
 #     php_version: '7.4'
 # database:
 #     type: mysql
+# requirements:
+#     disk: 50
 
 set -e
 

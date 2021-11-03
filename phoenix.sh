@@ -10,7 +10,7 @@
 #         MIX_ENV=prod
 #     path_trim: true
 # requirements:
-#     disk: 100
+#     disk: 160
 
 set -e
 

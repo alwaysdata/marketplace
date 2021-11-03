@@ -9,7 +9,7 @@
 #     ssl_force: true
 #     environment: HOME='{INSTALL_PATH}'
 # requirements:
-#     disk: 100
+#     disk: 700
 
 set -e
 

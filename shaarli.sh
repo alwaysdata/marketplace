@@ -4,6 +4,8 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
+# requirements:
+#     disk: 20
 # form:
 #     language:
 #         type: choices

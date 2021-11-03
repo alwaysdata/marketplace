@@ -6,6 +6,8 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     path_trim: true
+# requirements:
+#     disk: 20
 
 set -e
 

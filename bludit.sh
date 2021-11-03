@@ -4,6 +4,8 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8'
+# requirements:
+#     disk: 10
 
 set -e
 

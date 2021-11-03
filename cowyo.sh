@@ -4,6 +4,8 @@
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/cowyo --port $PORT --host "[::]"'
+# requirements:
+#     disk: 20
 
 set -e 
 

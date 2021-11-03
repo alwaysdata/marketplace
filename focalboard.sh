@@ -5,6 +5,8 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/bin/focalboard-server'
 #     path_trim: true
+# requirements:
+#     disk: 30
 
 set -e
 

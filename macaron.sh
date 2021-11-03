@@ -5,6 +5,8 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/hello'
 #     path_trim: true
+# requirements:
+#     disk: 15
 
 set -e
 

@@ -5,6 +5,8 @@
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8'
 #     php_ini: extension=intl.so
+# requirements:
+#     disk: 45
 
 set -e
 

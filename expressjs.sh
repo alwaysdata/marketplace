@@ -6,6 +6,8 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node ~{INSTALL_PATH_RELATIVE}/app.js'
 #     path_trim: true
+# requirements:
+#     disk: 5
 
 set -e
 

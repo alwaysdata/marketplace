@@ -7,6 +7,8 @@
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}:app'
 #     path_trim: true
+# requirements:
+#     disk: 20
 
 set -e
 

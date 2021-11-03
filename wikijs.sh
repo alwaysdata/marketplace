@@ -8,7 +8,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 100
+#     disk: 370
 
 set -e
 

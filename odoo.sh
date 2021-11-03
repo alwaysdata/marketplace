@@ -9,7 +9,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 100
+#     disk: 2800
 
 set -e
 

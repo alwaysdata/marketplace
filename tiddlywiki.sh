@@ -7,6 +7,8 @@
 #     command: './node_modules/.bin/tiddlywiki ~{INSTALL_PATH_RELATIVE} --listen host="::" port=$PORT credentials=users.csv "readers=(authenticated)" "writers={FORM_USERNAME}"'
 #     path_trim: true
 #     ssl_force: true
+# requirements:
+#     disk: 50
 # form:
 #     username:
 #         label:

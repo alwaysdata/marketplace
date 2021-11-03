@@ -7,7 +7,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 100
+#     disk: 300
 # form:
 #     admin_username:
 #         label:

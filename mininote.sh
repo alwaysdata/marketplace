@@ -9,7 +9,7 @@
 #        MININOTE_PORT=PORT
 #        HOME='{INSTALL_PATH}'
 # requirements:
-#     disk: 100
+#     disk: 800
 
 set -e
 

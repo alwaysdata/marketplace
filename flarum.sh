@@ -7,6 +7,8 @@
 #     ssl_force: true
 # database:
 #     type: mysql
+# requirements:
+#     disk: 75
 # form:
 #     title:
 #         label:

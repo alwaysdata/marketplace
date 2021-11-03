@@ -7,6 +7,8 @@
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/connecthys.wsgi'
 #     path_trim: true
+# requirements:
+#     disk: 60
 
 set -e
 

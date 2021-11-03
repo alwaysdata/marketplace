@@ -7,7 +7,7 @@
 #     command: '~{INSTALL_PATH_RELATIVE}/node_modules/gulp/bin/gulp.js'
 #     path_trim: true
 # requirements:
-#     disk: 100
+#     disk: 800
 
 set -e
 

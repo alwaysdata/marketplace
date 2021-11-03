@@ -6,7 +6,9 @@
 #     php_version: '8'
 #     ssl_force: true
 # database:
-#     type: mysql 
+#     type: mysql
+# requirements:
+#     disk: 130
 # form:
 #     email:
 #         type: email

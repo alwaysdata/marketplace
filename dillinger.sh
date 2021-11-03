@@ -7,7 +7,7 @@
 #     command: 'node app.js'
 #     environment: 'NODE_ENV=production'
 # requirements:
-#     disk: 100
+#     disk: 680
 
 set -e
 

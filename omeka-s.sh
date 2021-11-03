@@ -7,6 +7,8 @@
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
+# requirements:
+#     disk: 90
 # form:
 #     language:
 #         type: choices

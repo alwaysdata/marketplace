@@ -7,7 +7,7 @@
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
 # requirements:
-#     disk: 100
+#     disk: 160
 # form:
 #     project:
 #         label:

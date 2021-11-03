@@ -4,6 +4,8 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
 #     php_version: '7.4'
+# requirements:
+#     disk: 15
 
 set -e
 

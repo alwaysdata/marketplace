@@ -6,6 +6,8 @@
 #     php_version: '8'
 # database:
 #     type: mysql
+# requirements:
+#     disk: 5
 # form:
 #     language:
 #         type: choices

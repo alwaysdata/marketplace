@@ -8,7 +8,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 100
+#     disk: 140
 
 set -e
 
