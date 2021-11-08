@@ -24,7 +24,7 @@
 #     shop_name:
 #         label:
 #             en: Shop name
-#             fr: Nom du Magasin
+#             fr: Nom de la boutique
 #         max_length: 255
 #     email:
 #         type: email
@@ -36,11 +36,13 @@
 #             en: Administrator first name
 #             fr: Prénom de l'administrateur
 #         max_length: 255
+#         regex: ^[a-zA-Z0-9.'`* _-]+$
 #     admin_lastname:
 #         label:
 #             en: Administrator last name
 #             fr: Nom de l'administrateur
 #         max_length: 255
+#         regex: ^[a-zA-Z0-9.'`* _-]+$
 #     admin_password:
 #         type: password
 #         label:
