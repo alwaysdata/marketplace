@@ -7,7 +7,7 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
-#     static_paths:/static=static
+#     static_paths: /static=static
 # database:
 #     type: postgresql
 # requirements:
