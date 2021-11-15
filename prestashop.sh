@@ -55,7 +55,7 @@ set -e
 
 # https://doc.prestashop.com/display/PS17/Installing+PrestaShop+using+the+command-line+script
 
-wget -O- https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.0/prestashop_1.7.8.0.zip | bsdtar --strip-components=0 -xf -
+wget -O- https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.1/prestashop_1.7.8.1.zip | bsdtar --strip-components=0 -xf -
 unzip -o prestashop.zip
 rm prestashop.zip
 
