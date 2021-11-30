@@ -32,7 +32,7 @@
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
 #         type: password
-#         min_lenght: 5
+#         min_length: 5
 #         max_length: 255
 #     admin_email:
 #         type: email
