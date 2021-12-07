@@ -31,7 +31,7 @@
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
-#         regex: ^[a-zA-Z0-9!#$€%&'[]()*+,./:;<=>?@^_`{|}~-]+$
+#         regex: ^[a-zA-Z0-9!#$€%&'\[\]()*+,./:;<=>?@^_`{|}~-]+$
 #         max_length: 255
 #         min_length: 8
 
@@ -39,7 +39,7 @@ set -e
 
 # https://docs.flarum.org/install.html#server-requirements
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project flarum/flarum default --stability=beta
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project flarum/flarum default
 
 cat << EOF > config.yml
 baseUrl : "https://$INSTALL_URL"
