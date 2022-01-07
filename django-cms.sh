@@ -11,7 +11,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 100
+#     disk: 90
 # form:
 #     project:
 #         label:
@@ -44,7 +44,7 @@ source env/bin/activate
 
 # Django-CMS setup
 # https://docs.django-cms.org/en/latest/how_to/install.html
-python -m pip install django-cms
+python -m pip install django-cms Django==3.2
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
@@ -63,7 +63,8 @@ sed -i "/'django.contrib.messages.context_processors.messages',/a \ \ \ \ \ \ \ 
 sed -i "/'sekizai.context_processors.sekizai',/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'cms.context_processors.cms_settings'," $FORM_PROJECT/settings.py
 sed -i "/'cms.context_processors.cms_settings',/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'django.template.context_processors.i18n'," $FORM_PROJECT/settings.py
 sed -i "s|en-us|en|" $FORM_PROJECT/settings.py
-sed -i "/STATIC_URL = '\/static\/'/a import os" $FORM_PROJECT/settings.py
+sed -i "s|STATIC_URL = '\/static\/'|STATIC_URL = 'static\/'|" $FORM_PROJECT/settings.py
+sed -i "/STATIC_URL = 'static\/'/a import os" $FORM_PROJECT/settings.py
 sed -i "/import os/a STATIC_ROOT = os.path.join(BASE_DIR, \"static\")" $FORM_PROJECT/settings.py
 
 echo "X_FRAME_OPTIONS = 'SAMEORIGIN'" >> $FORM_PROJECT/settings.py
@@ -86,10 +87,10 @@ cat << EOF > $FORM_PROJECT/templates/home.html
 </html>
 EOF
 
-sed -i "s|'DIRS':\[\],|'DIRS': ['templates'],|" $FORM_PROJECT/settings.py
-echo "CMS_TEMPLATES = [" >> $FORM_PROJECT/settings.py
-echo "    ('home.html', 'Home page template')," >> $FORM_PROJECT/settings.py
-echo "]" >> $FORM_PROJECT/settings.py
+sed -i "s|'DIRS': \[\],|'DIRS': ['templates'],|" $FORM_PROJECT/settings.py
+echo "CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),
+]" >> $FORM_PROJECT/settings.py
 
 # Urls
 sed -i "s|from django.urls import path|from django.urls import path, include|" $FORM_PROJECT/urls.py
@@ -105,7 +106,10 @@ sed -i "/'$DATABASE_HOST',/a \ \ \ \ \ \ \ 'PORT': '5432'," $FORM_PROJECT/settin
 python -m pip install psycopg2
 python manage.py migrate
 
-python manage.py collectstatic
+echo "yes"| python manage.py collectstatic
 
 # First admin user
 DJANGO_SUPERUSER_PASSWORD="$FORM_ADMIN_PASSWORD" python manage.py createsuperuser --username $FORM_ADMIN_USERNAME --email $FORM_EMAIL --noinput
+
+# Cleaning
+rm -rf ~/.cache
