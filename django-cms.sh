@@ -48,27 +48,44 @@ python -m pip install django-cms Django==3.2
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
-sed -i "/INSTALLED_APPS = \[/a \ \ \ \ 'djangocms_admin_style'," $FORM_PROJECT/settings.py
-sed -i "/'django.contrib.staticfiles',/a \ \ \ \ 'django.contrib.sites'," $FORM_PROJECT/settings.py
-sed -i "/'django.contrib.sites',/a \ \ \ \ 'cms'," $FORM_PROJECT/settings.py
-sed -i "/'cms',/a \ \ \ \ 'menus'," $FORM_PROJECT/settings.py
-sed -i "/'menus',/a \ \ \ \ 'treebeard'," $FORM_PROJECT/settings.py
-sed -i "/'treebeard',/a \ \ \ \ 'sekizai'," $FORM_PROJECT/settings.py
-sed -i "/'django.middleware.clickjacking.XFrameOptionsMiddleware',/a \ \ \ \ 'django.middleware.locale.LocaleMiddleware'," $FORM_PROJECT/settings.py
-sed -i "/'django.middleware.locale.LocaleMiddleware',/a \ \ \ \ 'cms.middleware.user.CurrentUserMiddleware'," $FORM_PROJECT/settings.py
-sed -i "/'cms.middleware.user.CurrentUserMiddleware',/a \ \ \ \ 'cms.middleware.page.CurrentPageMiddleware'," $FORM_PROJECT/settings.py
-sed -i "/'cms.middleware.page.CurrentPageMiddleware',/a \ \ \ \ 'cms.middleware.toolbar.ToolbarMiddleware'," $FORM_PROJECT/settings.py
-sed -i "/'cms.middleware.toolbar.ToolbarMiddleware',/a \ \ \ \ 'cms.middleware.language.LanguageCookieMiddleware'," $FORM_PROJECT/settings.py
-sed -i "/'django.contrib.messages.context_processors.messages',/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'sekizai.context_processors.sekizai'," $FORM_PROJECT/settings.py
-sed -i "/'sekizai.context_processors.sekizai',/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'cms.context_processors.cms_settings'," $FORM_PROJECT/settings.py
-sed -i "/'cms.context_processors.cms_settings',/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'django.template.context_processors.i18n'," $FORM_PROJECT/settings.py
-sed -i "s|en-us|en|" $FORM_PROJECT/settings.py
-sed -i "s|STATIC_URL = '\/static\/'|STATIC_URL = 'static\/'|" $FORM_PROJECT/settings.py
-sed -i "/STATIC_URL = 'static\/'/a import os" $FORM_PROJECT/settings.py
-sed -i "/import os/a STATIC_ROOT = os.path.join(BASE_DIR, \"static\")" $FORM_PROJECT/settings.py
 
-echo "X_FRAME_OPTIONS = 'SAMEORIGIN'" >> $FORM_PROJECT/settings.py
-echo "SITE_ID = 1" >> $FORM_PROJECT/settings.py
+sed -i "/INSTALLED_APPS = \[/a \ \ \ \ 'djangocms_admin_style'," $FORM_PROJECT/settings.py
+cat << EOF | sed -i "/'django.contrib.staticfiles',/r /dev/stdin" $FORM_PROJECT/settings.py
+    'django.contrib.sites',
+    'cms',
+    'menus',
+    'treebeard',
+    'sekizai',
+EOF
+
+cat << EOF | sed -i "/'django.middleware.clickjacking.XFrameOptionsMiddleware',/r /dev/stdin" $FORM_PROJECT/settings.py
+    'django.middleware.locale.LocaleMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
+EOF
+
+cat << EOF | sed -i "/'django.contrib.messages.context_processors.messages',/r /dev/stdin" $FORM_PROJECT/settings.py
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
+                'django.template.context_processors.i18n',
+EOF
+
+sed -i "s|en-us|en|" $FORM_PROJECT/settings.py
+
+# Statics
+sed -i "s|STATIC_URL = '\/static\/'|STATIC_URL = 'static\/'|" $FORM_PROJECT/settings.py
+cat << EOF  | sed -i "/'static\/'/r /dev/stdin" $FORM_PROJECT/settings.py
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+EOF
+
+echo "
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SITE_ID = 1
+" >> $FORM_PROJECT/settings.py
 
 # Templates
 mkdir $FORM_PROJECT/templates
@@ -99,10 +116,12 @@ sed -i "/admin.site.urls),/a \ \ \ \ path(\'\', include('cms.urls'))," $FORM_PRO
 # Database
 sed -i "s|django.db.backends.sqlite3|django.db.backends.postgresql|" $FORM_PROJECT/settings.py
 sed -i "s|BASE_DIR / 'db.sqlite3'|'$DATABASE_NAME'|" $FORM_PROJECT/settings.py
-sed -i "/'$DATABASE_NAME',/a \ \ \ \ \ \ \ 'USER': '$DATABASE_USERNAME'," $FORM_PROJECT/settings.py
-sed -i "/'$DATABASE_USERNAME',/a \ \ \ \ \ \ \ 'PASSWORD': '$DATABASE_PASSWORD'," $FORM_PROJECT/settings.py
-sed -i "/'$DATABASE_PASSWORD',/a \ \ \ \ \ \ \ 'HOST': '$DATABASE_HOST'," $FORM_PROJECT/settings.py
-sed -i "/'$DATABASE_HOST',/a \ \ \ \ \ \ \ 'PORT': '5432'," $FORM_PROJECT/settings.py
+cat << EOF  | sed -i "/'$DATABASE_NAME',/r /dev/stdin" $FORM_PROJECT/settings.py
+        'USER': '$DATABASE_USERNAME',
+        'PASSWORD': '$DATABASE_PASSWORD',
+        'HOST': '$DATABASE_HOST',
+        'PORT': '5432',
+EOF
 python -m pip install psycopg2
 python manage.py migrate
 
