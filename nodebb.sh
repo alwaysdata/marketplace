@@ -11,7 +11,7 @@
 # database:
 #      type: postgresql
 # requirements:
-#     disk: 600
+#     disk: 650
 # form:
 #     email:
 #         type: email
@@ -31,7 +31,7 @@
 #         max_length: 255
 set -e
 
-wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v1.18.6.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v1.19.0.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
