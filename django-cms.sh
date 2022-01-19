@@ -56,6 +56,7 @@ cat << EOF | sed -i "/'django.contrib.staticfiles',/r /dev/stdin" $FORM_PROJECT/
     'menus',
     'treebeard',
     'sekizai',
+    '$FORM_PROJECT',
 EOF
 
 cat << EOF | sed -i "/'django.middleware.clickjacking.XFrameOptionsMiddleware',/r /dev/stdin" $FORM_PROJECT/settings.py
@@ -104,7 +105,6 @@ cat << EOF > $FORM_PROJECT/templates/home.html
 </html>
 EOF
 
-sed -i "s|'DIRS': \[\],|'DIRS': ['templates'],|" $FORM_PROJECT/settings.py
 echo "CMS_TEMPLATES = [
     ('home.html', 'Home page template'),
 ]" >> $FORM_PROJECT/settings.py
