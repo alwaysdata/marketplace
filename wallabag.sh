@@ -21,6 +21,11 @@
 #             es: Español
 #             fr: Français
 #             it: Italiano
+#     admin_email:
+#         type: email
+#         label:
+#             en: Email
+#             fr: Email
 #     admin_username:
 #         label:
 #             en: Administrator username
@@ -34,15 +39,10 @@
 #         type: password
 #         min_length: 5
 #         max_length: 255
-#     admin_email:
-#         type: email
-#         label:
-#             en: Email
-#             fr: Email
 
 set -e
 
-wget -qO- https://static.wallabag.org/releases/wallabag-release-2.4.2.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/wallabag/wallabag/releases/download/2.4.3/wallabag-2.4.3.tar.gz | tar -xz --strip-components=1
 
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
