@@ -3,13 +3,13 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.2'
+#     php_version: '8.1'
 #     php_ini: |
-#         extension=mcrypt.so
+#         extension={INSTALL_PATH}/mcrypt.so
 # database:
 #     type: mysql
 # requirements:
-#     disk: 270
+#     disk: 400
 # form:
 #     email:
 #         type: email
@@ -30,13 +30,15 @@
 #         min_length: 8
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer create-project microweber/microweber --no-interaction
+ad_install_pecl mcrypt
+
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project microweber/microweber --no-interaction
 
 cd microweber
 echo "yes" | php artisan key:generate
 
 # http://docs.microweber.com/guides/installation_cli.md
-php artisan microweber:install $FORM_EMAIL $FORM_ADMIN_USERNAME $FORM_ADMIN_PASSWORD $DATABASE_HOST $DATABASE_NAME $DATABASE_USERNAME $DATABASE_PASSWORD mysql -t liteness -d 1
+php artisan microweber:install $FORM_EMAIL $FORM_ADMIN_USERNAME $FORM_ADMIN_PASSWORD $DATABASE_HOST $DATABASE_NAME $DATABASE_USERNAME $DATABASE_PASSWORD mysql -t default -d 1
 
 # Nettoyage
 cd
