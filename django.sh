@@ -3,7 +3,7 @@
 # site:
 #     type: wsgi
 #     path_trim: true
-#     python_version: '3.9'
+#     python_version: '3.10'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
