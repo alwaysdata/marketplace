@@ -8,13 +8,13 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 370
+#     disk: 380
 
 set -e
 
 # https://docs.requarks.io/install/linux
 
-wget https://github.com/Requarks/wiki/releases/download/v2.5.275/wiki-js.tar.gz
+wget https://github.com/Requarks/wiki/releases/download/v2.5.276/wiki-js.tar.gz
 
 tar xzf wiki-js.tar.gz -C .
 rm wiki-js.tar.gz
