@@ -29,7 +29,7 @@
 
 set -e
 
-wget -O- https://builds.matomo.org/matomo.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://builds.matomo.org/matomo-4.6.2.zip | bsdtar --strip-components=1 -xf -
 
 # https://github.com/matomo-org/matomo/issues/15738
 wget https://raw.githubusercontent.com/matomo-org/matomo/4.x-dev/composer.lock
