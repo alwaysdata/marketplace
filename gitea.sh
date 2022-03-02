@@ -43,6 +43,7 @@ INSTALL_LOCK = true
 [mailer]
 ENABLED = true
 USE_SENDMAIL = true
+SENDMAIL_PATH = /usr/sbin/sendmail
 FROM = $USER@$RESELLER_DOMAIN
 
 EOF
