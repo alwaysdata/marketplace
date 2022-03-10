@@ -31,12 +31,12 @@
 #         max_length: 255
 set -e
 
-wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v1.19.2.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v1.19.4.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
     "url": "http://$INSTALL_URL",
-    "port": "PORT",
+    "port": "$PORT",
     "secret": "$(sha256sum -b | sed 's/ .*//')",
     "database": "postgres",
     "postgres": {
