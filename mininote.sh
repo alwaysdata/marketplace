@@ -5,11 +5,9 @@
 #     nodejs_version: '16'
 #     working_directory: '{INSTALL_PATH}'
 #     command: '{INSTALL_PATH}/node_modules/yarn/bin/yarn start'
-#     environment: |
-#        MININOTE_PORT=PORT
-#        HOME='{INSTALL_PATH}'
+#     environment: HOME={INSTALL_PATH}
 # requirements:
-#     disk: 800
+#     disk: 1000
 
 set -e
 
