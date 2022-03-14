@@ -3,13 +3,13 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '14'
-#     working_directory: '{INSTALL_PATH}/strapi'
+#     working_directory: '{INSTALL_PATH}'
 #     command: 'npm run start'
 #     path_trim: true
 #     ssl_force: true
-#     environment: HOME='{INSTALL_PATH}'
+#     environment: HOME={INSTALL_PATH}
 # requirements:
-#     disk: 700
+#     disk: 500
 
 set -e
 
@@ -26,3 +26,9 @@ cat << EOF |sed -i "/module.exports = ({ env }) => ({/r /dev/stdin" config/admin
 EOF
 
 npm run build
+
+cd ..
+rm -rf  .npm
+shopt -s dotglob
+mv strapi/* .
+rmdir strapi
