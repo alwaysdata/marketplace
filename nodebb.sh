@@ -11,7 +11,7 @@
 # database:
 #      type: postgresql
 # requirements:
-#     disk: 650
+#     disk: 700
 # form:
 #     email:
 #         type: email
