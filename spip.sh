@@ -40,7 +40,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 
 cd $HOME/default
 
-# https://git.spip.net/spip/spip/pulls/29/files
+# https://git.spip.net/spip/spip/issues/4277 => https://git.spip.net/spip/spip/pulls/29/files
 sed -i "/ENGINE=MyISAM/d" ecrire/req/mysql.php
 
 ~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD" --adresse-site "$INSTALL_URL"
