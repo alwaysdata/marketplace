@@ -8,7 +8,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 440
+#     disk: 380
 # form:
 #     shop_name:
 #         label:
@@ -44,7 +44,7 @@ set -e
 
 # https://doc.prestashop.com/display/PS17/Installing+PrestaShop+using+the+command-line+script
 
-wget -O- https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.4.zip | bsdtar --strip-components=0 -xf -
+wget -O- https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.5.zip | bsdtar --strip-components=0 -xf -
 
 unzip -o prestashop.zip
 rm prestashop.zip
