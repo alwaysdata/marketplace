@@ -21,7 +21,7 @@ $HOME/node_modules/bower/bin/bower install
 
 mv config/config.example.js config/config.js
 sed -i "s|http://localhost:3000|https://$INSTALL_URL|" config/config.js
-sed -i "s|https://some-other-domain.xyz|https://$INSTALL_URL|" config/config.js
+sed -i 's|// httpSafeOrigin: "https://some-other-domain.xyz"|httpSafeOrigin: "https://$INSTALL_URL"|' config/config.js
 sed -i "s|\ \ \ \ //httpAddress: '::',|\ \ \ \ httpAddress: '::',|" config/config.js
 sed -i "s|\ \ \ \ //httpPort: 3000,|\ \ \ \ httpPort: $PORT,|" config/config.js
 
