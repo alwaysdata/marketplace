@@ -6,11 +6,11 @@
 #     command: '~{INSTALL_PATH_RELATIVE}/bin/focalboard-server'
 #     path_trim: true
 # requirements:
-#     disk: 30
+#     disk: 60
 
 set -e
 
-wget -O- https://github.com/mattermost/focalboard/releases/download/v0.15.0/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/mattermost/focalboard/releases/download/v0.16.0/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
 sed -i "s|localhost:8000|$INSTALL_URL|" config.json
 sed -i "/$INSTALL_URL\",/a\ \ \ \ \ \ \ \ \"ip\": \"::\"," config.json
