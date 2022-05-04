@@ -3,13 +3,14 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '7.4'
 #     php_ini: |
 #         extension={INSTALL_PATH}/mcrypt.so
+#     ssl_force: true
 # database:
 #     type: mysql
 # requirements:
-#     disk: 400
+#     disk: 380
 # form:
 #     email:
 #         type: email
