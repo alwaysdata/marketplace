@@ -55,7 +55,6 @@ export admin__email="$FORM_EMAIL"
 export admin__password="$FORM_ADMIN_PASSWORD"
 export admin__password__confirm="$FORM_ADMIN_PASSWORD"
 
-npm install lodash --save
 ./nodebb setup
 
 sed -i "s|'0.0.0.0'|'::'|" install/web.js
