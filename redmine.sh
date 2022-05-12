@@ -2,7 +2,7 @@
 
 # site:
 #     type: ruby_rack
-#     ruby_version: '2.7'
+#     ruby_version: '3.1'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
 #     environment: 'RAILS_ENV=production'
 #     bundler: true
@@ -10,7 +10,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 130
+#     disk: 150
 # form:
 #     language:
 #         type: choices
@@ -28,7 +28,7 @@ set -e
 
 # https://www.redmine.org/projects/redmine/wiki/RedmineInstall
 
-wget -O- --no-check-certificate https://www.redmine.org/releases/redmine-4.2.4.tar.gz | tar -xz --strip-components=1
+wget -O- --no-check-certificate https://www.redmine.org/releases/redmine-5.0.0.tar.gz | tar -xz --strip-components=1
 
 # Database configuration
 cat << EOF > config/database.yml
