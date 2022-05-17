@@ -44,3 +44,14 @@ php console matomo:install --db-username="$DATABASE_USERNAME" --db-pass="$DATABA
 
 # https://github.com/digitalist-se/extratools/issues/25
 php console site:add --name=mysite --urls="https://$USER.$RESELLER_DOMAIN"
+
+
+# The plugin console does not activate ExtraTools in newer version than 4.6.2. We install it in 4.6.2 then upgrade it in the last version.
+wget -O- https://builds.matomo.org/matomo-4.10.0.zip | bsdtar --strip-components=1 -xf -
+
+# To perform the upgrade we need to first go on the website.
+wget -q --timeout=10 https://$INSTALL_URL/index.php?module=CoreUpdater&action=
+sleep 10
+
+php console core:update --yes
+rm .wget-hsts
