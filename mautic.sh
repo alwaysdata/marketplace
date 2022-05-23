@@ -8,6 +8,7 @@
 #         memory_limit = 4096M
 #         extension = imap.so
 #         extension = intl.so
+#         zend.assertions = -1
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -34,7 +35,7 @@
 
 set -e
 
-wget -O- https://github.com/mautic/mautic/releases/download/4.2.2/4.2.2.zip | bsdtar --strip-components=0 -xf -
+wget -O- https://github.com/mautic/mautic/releases/download/4.3.1/4.3.1.zip | bsdtar --strip-components=0 -xf -
 
 php bin/console mautic:install --db_driver="mysqli" --db_host="$DATABASE_HOST" --db_port="3306" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --admin_username="$FORM_ADMIN_USERNAME" --admin_email="$FORM_EMAIL" --admin_password="$FORM_ADMIN_PASSWORD" --mailer_from_email="$USER@$RESELLER_DOMAIN" --mailer_from_name="Mautic" https://$INSTALL_URL
 
