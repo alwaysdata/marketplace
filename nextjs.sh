@@ -4,26 +4,25 @@
 #     type: nodejs
 #     nodejs_version: '16'
 #     working_directory: '{INSTALL_PATH}'
-#     command: 'npm run dev'
+#     command: 'npx next start -H ::'
 #     environment: HOME={INSTALL_PATH}
 # requirements:
-#     disk: 150
+#     disk: 340
 
 set -e
 
-echo "y"|npx create-next-app nextjs-project --use-npm --example "https://github.com/vercel/next-learn/tree/master/basics/learn-starter"
+echo "y"|npx create-next-app project
 
+shopt -s dotglob
+mv project/* .
+rmdir project
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
-cat << EOF > next.config.js
+echo "
 module.exports = {
   basePath: '$INSTALL_URL_PATH',
-}
-EOF
+}" >> next.config.js
 fi
 
-rm -rf  .npm
-shopt -s dotglob
-mv nextjs-project/* .
-rmdir nextjs-project
+npx next build
