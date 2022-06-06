@@ -21,7 +21,7 @@
 
 set -e
 
-wget -O- https://github.com/filebrowser/filebrowser/releases/download/v2.21.1/linux-amd64-filebrowser.tar.gz | tar -xz --strip-components=0
+wget -O- https://github.com/filebrowser/filebrowser/releases/download/v2.22.0/linux-amd64-filebrowser.tar.gz | tar -xz --strip-components=0
 
 ./filebrowser config init -a "0.0.0.0" -p "$PORT" -b "$INSTALL_URL_PATH"
 ./filebrowser users add $FORM_USERNAME $FORM_PASSWORD
