@@ -44,7 +44,7 @@
 
 set -e
 
-wget -O- https://github.com/wallabag/wallabag/releases/download/2.5.0/wallabag-2.5.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/wallabag/wallabag/releases/download/2.5.1/wallabag-2.5.1.tar.gz | tar -xz --strip-components=1
 
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
