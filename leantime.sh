@@ -3,22 +3,22 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.0'
 # database:
 #     type: mysql
 # requirements:
-#     disk: 95
+#     disk: 80
 
 set -e
 
-wget -O- https://github.com/Leantime/leantime/releases/download/v2.1.9/Leantime-v2.1.9.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/Leantime/leantime/releases/download/v2.2.1/Leantime-v2.2.1.tar.gz | tar -xz --strip-components=1
 
 cp config/configuration.sample.php config/configuration.php
 
-sed -i "s|dbHost=\"localhost\"|dbHost=\"$DATABASE_HOST\"|" config/configuration.php
-sed -i "s|dbUser=\"\"|dbUser=\"$DATABASE_USERNAME\"|" config/configuration.php
-sed -i "s|dbPassword=\"\"|dbPassword=\"$DATABASE_PASSWORD\"|" config/configuration.php
-sed -i "s|dbDatabase=\"\"|dbDatabase=\"$DATABASE_NAME\"|" config/configuration.php
+sed -i "s|dbHost = 'localhost'|dbHost = '$DATABASE_HOST'|" config/configuration.php
+sed -i "s|dbUser = ''|dbUser = '$DATABASE_USERNAME'|" config/configuration.php
+sed -i "s|dbPassword = ''|dbPassword = '$DATABASE_PASSWORD'|" config/configuration.php
+sed -i "s|dbDatabase = ''|dbDatabase = '$DATABASE_NAME'|" config/configuration.php
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
