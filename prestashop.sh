@@ -5,6 +5,7 @@
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
 #     php_ini: extension=intl.so
+#     ssl_force:true
 # database:
 #     type: mysql
 # requirements:
@@ -44,11 +45,11 @@ set -e
 
 # https://doc.prestashop.com/display/PS17/Installing+PrestaShop+using+the+command-line+script
 
-wget -O- https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.6.zip | bsdtar --strip-components=0 -xf -
+wget -O- https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.7.zip | bsdtar --strip-components=0 -xf -
 
 unzip -o prestashop.zip
 rm prestashop.zip
 
-php install/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0
+php install/index_cli.php --domain="$INSTALL_URL_HOSTNAME" --base_uri="$INSTALL_URL_PATH" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_server="$DATABASE_HOST" --name="$FORM_SHOP_NAME" --firstname="$FORM_ADMIN_FIRSTNAME" --lastname="$FORM_ADMIN_LASTNAME" --password="$FORM_ADMIN_PASSWORD" --email="$FORM_EMAIL" --newsletter=0 --ssl=1
 
 rm -rf install
