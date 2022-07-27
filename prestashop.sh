@@ -5,7 +5,7 @@
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
 #     php_ini: extension=intl.so
-#     ssl_force:true
+#     ssl_force: true
 # database:
 #     type: mysql
 # requirements:
