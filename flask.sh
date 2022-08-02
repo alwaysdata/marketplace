@@ -12,7 +12,7 @@
 
 set -e
 
-# https://flask.palletsprojects.com/en/1.1.x/installation/
+# https://flask.palletsprojects.com/en/2.2.0/installation/#install-flask
 
 python -m venv env
 env/bin/pip install Flask
