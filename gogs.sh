@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/gogs/gogs/releases/download/v0.12.9/gogs_0.12.9_linux_amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/gogs/gogs/releases/download/v0.12.10/gogs_0.12.10_linux_amd64.tar.gz|tar -xz --strip-components=1
 
 mkdir -p custom/conf
 
