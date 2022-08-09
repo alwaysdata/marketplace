@@ -3,7 +3,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
-#     command: "java8 -Xmx512m -jar jenkins.war --httpListenAddress=0.0.0.0 --httpPort=$PORT"
+#     command: "java11 -Xmx512m -jar jenkins.war --httpListenAddress=0.0.0.0 --httpPort=$PORT"
 # requirements:
 #     disk: 75
 
