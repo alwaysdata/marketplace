@@ -3,14 +3,16 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.1'
 #     php_ini: |
-#         extension={INSTALL_PATH}/mcrypt.so
+#         extension={INSTALL_PATH}/mcrypt-8.1.so
+#         extension=intl.so
+#         extension=sodium.so
 #     ssl_force: true
 # database:
 #     type: mysql
 # requirements:
-#     disk: 380
+#     disk: 400
 # form:
 #     email:
 #         type: email
@@ -39,7 +41,7 @@ cd microweber
 echo "yes" | php artisan key:generate
 
 # http://docs.microweber.com/guides/installation_cli.md
-php artisan microweber:install $FORM_EMAIL $FORM_ADMIN_USERNAME $FORM_ADMIN_PASSWORD $DATABASE_HOST $DATABASE_NAME $DATABASE_USERNAME $DATABASE_PASSWORD mysql -t default -d 1
+php artisan microweber:install --email=$FORM_EMAIL --username=$FORM_ADMIN_USERNAME --password=$FORM_ADMIN_PASSWORD --db-host=$DATABASE_HOST --db-name=$DATABASE_NAME --db-username=$DATABASE_USERNAME --db-password=$DATABASE_PASSWORD --db-driver=mysql --template=default --default-content
 
 # Nettoyage
 cd
