@@ -14,7 +14,7 @@ set -e
 
 # https://docs.humhub.org/docs/admin/installation/
 
-wget -O- https://www.humhub.com/download/package/humhub-1.12.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://www.humhub.com/download/package/humhub-1.12.1.tar.gz | tar -xz --strip-components=1
 
 curl -X POST -F DatabaseForm[hostname]="$DATABASE_HOST" -F DatabaseForm[username]="$DATABASE_USERNAME" -F DatabaseForm[password]="$DATABASE_PASSWORD" -F DatabaseForm[database]="$DATABASE_NAME" -F submit="Suivant" http://$INSTALL_URL/index.php?r=installer%2Fsetup%2Fdatabase
 
