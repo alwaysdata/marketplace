@@ -55,7 +55,7 @@ define( 'WP_SITEURL', 'http://$INSTALL_URL' );
 PHP
 php wp-cli.phar core install --url="$INSTALL_URL" --title="$FORM_TITLE" --admin_user="$FORM_ADMIN_USERNAME" --admin_password="$FORM_ADMIN_PASSWORD" --admin_email="$FORM_EMAIL" --path="$INSTALL_PATH"
 
-php wp-cli.phar plugin install woocommerce --activate
+php wp-cli.phar plugin install woocommerce --activate --force
 php wp-cli.phar language plugin update --all
 
 sed -i '/WP_SITEURL/d' wp-config.php
