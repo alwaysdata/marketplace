@@ -4,6 +4,10 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
+#     php_ini: |
+#         extension=intl.so
+#         extension=gmp.so
+#         memory_limit=512M
 # database:
 #     type: mysql
 # requirements:
