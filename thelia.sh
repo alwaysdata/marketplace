@@ -8,7 +8,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 230
+#     disk: 200
 # form:
 #     email:
 #         type: email
@@ -41,7 +41,7 @@ set -e
 
 # https://github.com/thelia/thelia
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project thelia/thelia default 2.4.4
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project thelia/thelia default
 
 cd default
 
@@ -50,7 +50,7 @@ php Thelia admin:create -q --login_name "$FORM_ADMIN_USERNAME" --first_name "$FO
 
 cd ..
 
-rm -rf .composer .subversion
+rm -rf .composer .subversion .local
 
 shopt -s dotglob
 mv default/* .
