@@ -7,6 +7,7 @@
 #     php_ini: |
 #         memory_limit=4096M
 #         extension=intl.so
+#         extension=sodium.so
 #         max_execution_time=360
 # database:
 #     type: mysql
