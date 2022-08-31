@@ -42,7 +42,7 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer create-project magento/community-edition community-edition 2.3.7-p3
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project magento/community-edition community-edition 2.3.7-p3
 
 # Magento CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
 
