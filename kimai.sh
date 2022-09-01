@@ -28,7 +28,7 @@
 
 set -e
 
-wget -O- https://github.com/kevinpapst/kimai2/archive/refs/tags/1.23.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/kevinpapst/kimai2/archive/refs/tags/1.23.1.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
 
