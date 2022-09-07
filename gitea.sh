@@ -5,6 +5,7 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/gitea web'
 #     path_trim: true
+#     ssl_force: true
 # database:
 #     type: postgresql
 # requirements:
@@ -14,7 +15,7 @@ set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.17.1/gitea-1.17.1-linux-amd64
+wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.17.2/gitea-1.17.2-linux-amd64
 chmod +x gitea
 
 mkdir -p custom/conf data indexers public log
