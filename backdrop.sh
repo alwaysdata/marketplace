@@ -11,7 +11,7 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project backdrop/backdrop default
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project backdrop/backdrop default --no-plugins
 
 sed -i "s|user:pass@localhost/database_name|$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME|" default/settings.php
 
