@@ -26,12 +26,17 @@ export PERL_MM_OPT="INSTALL_BASE=${INSTALL_PATH%/}/perl5"
 curl -L http://cpanmin.us | perl - --self-upgrade
 
 # Install Carton package manager
-cpan Carton
+cpan -f Carton
 
 # Install
 git clone https://framagit.org/luc/lstu.git app
 cd app
-carton install --without=cache --without=ldap --without=test --without=mysql
+carton install \
+    --without=cache \
+    --without=ldap \
+    --without=test \
+    --without=mysql \
+    --without=sqlite
 
 # Config
 
@@ -45,9 +50,9 @@ sed -e "s/127.0.0.1:8080/$IP:$PORT/" \
     -e "s~'/'~'$INSTALL_URL_PATH'~" \
     -e "s/#dbtype => 'sqlite'/dbtype => 'postgresql'/" \
     -e "s/#pgdb/pgdb/" \
-    -e "85s/#    database => 'lstu'/    database => '$DATABASE_NAME'/" \
-    -e "86s/#    host     => 'localhost'/    host     => '$DATABASE_HOST'/" \
-    -e "89s/#    user     => 'DBUSER'/    user     => '$DATABASE_USERNAME'/" \
-    -e "90s/#    pwd      => 'DBPASSWORD'/    pwd      => '$DATABASE_PASSWORD'/" \
-    -e "93s/#}/}/" \
+    -e "94s/#    database => 'lstu'/    database => '$DATABASE_NAME'/" \
+    -e "95s/#    host     => 'localhost'/    host     => '$DATABASE_HOST'/" \
+    -e "98s/#    user     => 'DBUSER'/    user     => '$DATABASE_USERNAME'/" \
+    -e "99s/#    pwd      => 'DBPASSWORD'/    pwd      => '$DATABASE_PASSWORD'/" \
+    -e "102s/#}/}/" \
     lstu.conf.template > lstu.conf
