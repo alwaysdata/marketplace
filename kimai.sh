@@ -28,8 +28,9 @@
 
 set -e
 
-wget -O- https://github.com/kevinpapst/kimai2/archive/refs/tags/1.25.0.tar.gz | tar -xz --strip-components=1
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project kevinpapst/kimai2
 
+cd kimai2
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
 
 cat << EOF > .env
@@ -42,3 +43,9 @@ EOF
 
 php bin/console kimai:install -n
 php bin/console kimai:user:create $FORM_USERNAME $FORM_EMAIL ROLE_ADMIN $FORM_PASSWORD
+
+cd
+rm -rf .config .local .subversion
+shopt -s dotglob
+mv kimai2/* .
+rmdir kimai2
