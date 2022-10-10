@@ -7,11 +7,11 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 110
+#     disk: 100
 
 set -e
 
-git clone https://github.com/BookStackApp/BookStack.git --branch release --single-branch
+git clone https://github.com/BookStackApp/BookStack.git --branch release --depth 1 --single-branch
 cd BookStack
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev

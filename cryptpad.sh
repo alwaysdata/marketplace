@@ -7,13 +7,13 @@
 #     command: 'node server.js'
 #     ssl: true
 # requirements:
-#     disk: 1100
+#     disk: 1400
 
 set -e
 
 npm install bower
 
-git clone https://github.com/xwiki-labs/cryptpad.git cryptpad
+git clone --depth 1 https://github.com/xwiki-labs/cryptpad.git cryptpad
 
 cd cryptpad
 npm install

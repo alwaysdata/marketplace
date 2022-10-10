@@ -8,7 +8,7 @@
 # database:
 #       type: postgresql
 # requirements:
-#     disk: 290
+#     disk: 240
 
 set -e
 
@@ -29,7 +29,7 @@ curl -L http://cpanmin.us | perl - --self-upgrade
 cpan -f Carton
 
 # Install
-git clone https://framagit.org/luc/lstu.git app
+git clone --depth 1 https://framagit.org/luc/lstu.git app
 cd app
 carton install \
     --without=cache \

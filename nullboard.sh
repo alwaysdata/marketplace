@@ -4,10 +4,10 @@
 #     type: static
 #     path: '{INSTALL_PATH_RELATIVE}'
 # requirements:
-#     disk: 26
+#     disk: 25
 
 set -e
 
-git clone https://github.com/apankrat/nullboard.git .
+git clone --depth 1 https://github.com/apankrat/nullboard.git .
 
 mv nullboard.html index.html

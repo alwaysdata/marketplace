@@ -8,7 +8,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 150
+#     disk: 140
 # form:
 #     email:
 #         type: email
@@ -36,7 +36,7 @@ wget https://raw.githubusercontent.com/matomo-org/matomo/4.x-dev/composer.lock
 wget https://raw.githubusercontent.com/matomo-org/matomo/4.x-dev/composer.json
 COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/yaml:~2.6.0
 COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/process:^3.4
-git clone https://github.com/nodeone/extratools.git plugins/ExtraTools
+git clone --depth 1 https://github.com/nodeone/extratools.git plugins/ExtraTools
 
 php console plugin:activate ExtraTools --quiet || true
 php console config:set 'ExtraTools.db_backup_path="path/tmp"'
