@@ -3,7 +3,9 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.1'
+#     php_ini: |
+#         extension=sodium.so
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -17,7 +19,7 @@
 #             fr: Email de l'administrateur
 #     admin_username:
 #         label:
-#             en: Administrator usernam
+#             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         max_length: 255
 #     admin_password:
@@ -31,7 +33,7 @@
 set -e
 
 # https://contrib.spip.net/SPIP-Cli
-git clone https://git.spip.net/spip-contrib-outils/spip-cli.git spip-cli
+git clone --depth 1 https://git.spip.net/spip-contrib-outils/spip-cli.git
 cd spip-cli
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 COMPOSER_CACHE_DIR=/dev/null composer2 update
@@ -40,8 +42,14 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 
 cd $HOME/default
 
-# https://git.spip.net/spip/spip/issues/4277 => https://git.spip.net/spip/spip/pulls/29/files
-sed -i "/ENGINE=MyISAM/d" ecrire/req/mysql.php
+cat << EOF > config/mes_options.php
+<?php
+if (!defined("_ECRIRE_INC_VERSION")) return;
+\$GLOBALS['mysql_rappel_nom_base'] = false; /* echec de test_rappel_nom_base_mysql a l'installation. */
+defined('_MYSQL_SET_SQL_MODE') || define('_MYSQL_SET_SQL_MODE',true);
+define('_MYSQL_ENGINE', 'InnoDB');
+?>
+EOF
 
 ~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD" --adresse-site "$INSTALL_URL"
 
