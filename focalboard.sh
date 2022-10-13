@@ -10,7 +10,7 @@
 
 set -e
 
-wget -O- https://github.com/mattermost/focalboard/releases/download/v7.4.1/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/mattermost/focalboard/releases/download/v7.4.2/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
 sed -i "s|localhost:8000|$INSTALL_URL|" config.json
 sed -i "/$INSTALL_URL\",/a\ \ \ \ \"ip\": \"::\"," config.json
