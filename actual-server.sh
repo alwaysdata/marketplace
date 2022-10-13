@@ -7,7 +7,7 @@
 #     command: 'node ~{INSTALL_PATH_RELATIVE}/app.js'
 #     path_trim: true
 # requirements:
-#     disk: 160
+#     disk: 440
 
 set -e
 
@@ -16,7 +16,9 @@ VERSION=1.0.3
 # https://github.com/actualbudget/actual-server#running
 
 git clone -b v$VERSION --depth 1 https://github.com/actualbudget/actual-server.git $INSTALL_PATH
-yarn install
+
+npm install yarn
+$HOME/node_modules/yarn/bin/yarn install
 cat << EOF > config.json
 {
     "mode": "production",
