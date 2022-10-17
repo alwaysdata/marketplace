@@ -15,7 +15,7 @@ set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.17.2/gitea-1.17.2-linux-amd64
+wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.17.3/gitea-1.17.3-linux-amd64
 chmod +x gitea
 
 mkdir -p custom/conf data indexers public log
@@ -46,5 +46,4 @@ ENABLED = true
 USE_SENDMAIL = true
 SENDMAIL_PATH = /usr/sbin/sendmail
 FROM = $USER@$RESELLER_DOMAIN
-
 EOF
