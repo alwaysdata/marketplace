@@ -11,7 +11,7 @@
 
 set -e
 
-wget -O- https://github.com/Leantime/leantime/releases/download/v2.2.8/Leantime-v2.2.8.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/Leantime/leantime/releases/download/v2.2.9/Leantime-v2.2.9.tar.gz | tar -xz --strip-components=1
 
 cp config/configuration.sample.php config/configuration.php
 
