@@ -1,66 +1,48 @@
 #!/bin/bash
 
 # site:
-#     type: wsgi
-#     python_version: '3.9'
-#     path: '{INSTALL_PATH_RELATIVE}/setup/odoo-wsgi.py'
-#     working_directory: '{INSTALL_PATH_RELATIVE}'
-#     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
+#     type: user_program
+#     working_directory: '{INSTALL_PATH}'
+#     command: '.venv/bin/python odoo-bin --config=.odoorc --http-port=$PORT'
+#     environment: |
+#         PYTHON_VERSION=3.10
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 2800
+#     disk: 1100
 
 set -e
 
-# https://www.odoo.com/documentation/14.0/setup/install.html#setup-install-source
+# https://www.odoo.com/documentation/16.0/administration/install/install.html#source-install
+# https://www.odoo.com/documentation/16.0/administration/install/deploy.html#builtin-server
+# https://www.odoo.com/documentation/16.0/developer/cli.html
+export PYTHON_VERSION=3.10
+export NODEJS_VERSION=16
 
-python -m venv env
-source env/bin/activate
-wget -O- https://download.odoocdn.com/15.0/nightly/src/odoo_15.0.latest.tar.gz | tar -xz --strip-components=1
+git clone -b 16.0 --depth 1 https://github.com/odoo/odoo.git .
 
-# Avoid segmentation fault issues, see: https://github.com/psycopg/psycopg2/issues/543
-sed -i 's/psycopg2==\(2\.7.*\);/psycopg2==2.8;/' requirements.txt
+npm install -g rtlcss
+
+python -m venv .venv
+source .venv/bin/activate
+
+pip install --upgrade pip
 pip install -r requirements.txt
 
-python setup.py install
+mkdir -p odoo-data
 
-mkdir -p odoo-data addons
-
-cat << EOF > setup/odoo-wsgi.py
-
-import odoo
-
-#----------------------------------------------------------
-# Common
-#----------------------------------------------------------
-odoo.multi_process = True
-
-# Equivalent of --load command-line option
-odoo.conf.server_wide_modules = ['web']
-conf = odoo.tools.config
-
-# Path to the OpenERP Addons repository (comma-separated for multiple locations)
-
-conf['addons_path'] = '$INSTALL_PATH/addons, $INSTALL_PATH/odoo/addons'
-
-# Database config
-conf['db_name'] = '$DATABASE_NAME'
-conf['db_host'] = '$DATABASE_HOST'
-conf['db_user'] = '$DATABASE_USERNAME'
-conf['db_password'] = "$DATABASE_PASSWORD"
-
-conf['data_dir'] = '$INSTALL_PATH/odoo-data'
-
-#----------------------------------------------------------
-# Generic WSGI handlers application
-#----------------------------------------------------------
-application = odoo.service.wsgi_server.application
-
-odoo.service.server.load_server_wide_modules()
-
+cat << EOF > .odoorc
+[options]
+db_name = $DATABASE_NAME
+db_user = $DATABASE_USERNAME
+db_password = $DATABASE_PASSWORD
+db_host = $DATABASE_HOST
+addons-path = $INSTALL_PATH/addons
+data-dir = $INSTALL_PATH/odoo-data
+email_from = $USER@$RESELLER_DOMAIN
+http_interface = ::
 EOF
 
-python setup/odoo --without-demo=WITHOUT_DEMO --init=INIT --database="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --db_host="$DATABASE_HOST" --data-dir=odoo-data --stop-after-init
+python odoo-bin --config=.odoorc --init $DATABASE_NAME --no-http --stop-after-init
 
 # default credentials: admin / admin
