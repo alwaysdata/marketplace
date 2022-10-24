@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.0'
+#     php_version: '8.1'
 # database:
 #     type: mysql
 # requirements:
@@ -11,7 +11,7 @@
 
 set -e
 
-wget -O- https://github.com/Leantime/leantime/releases/download/v2.2.9/Leantime-v2.2.9.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/Leantime/leantime/releases/download/v2.2.10/Leantime-v2.2.10.tar.gz | tar -xz --strip-components=1
 
 cp config/configuration.sample.php config/configuration.php
 
