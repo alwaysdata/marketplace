@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.0'
 #     php_ini: extension=intl.so
 #     ssl_force: true
 # database:
@@ -45,7 +45,7 @@ set -e
 
 # https://doc.prestashop.com/display/PS17/Installing+PrestaShop+using+the+command-line+script
 
-wget -O- https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.7.zip | bsdtar --strip-components=0 -xf -
+wget -O- https://github.com/PrestaShop/PrestaShop/releases/download/8.0.0/prestashop_8.0.0.zip | bsdtar --strip-components=0 -xf -
 
 unzip -o prestashop.zip
 rm prestashop.zip
