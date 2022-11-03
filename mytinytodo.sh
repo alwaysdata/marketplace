@@ -4,6 +4,7 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8.1'
+#     ssl_force: true
 # database:
 #     type: mysql
 # requirements:
@@ -11,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.0/mytinytodo-v1.7.0.tar.gz| tar -xz --strip-components=1
+wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.1/mytinytodo-v1.7.1.tar.gz| tar -xz --strip-components=1
 
 cat << EOF > config.php
 <?php
@@ -31,6 +32,4 @@ define("MTT_DB_PREFIX", "");
 define("MTT_SALT", "$(echo $RANDOM | md5sum | sed 's/ .*//')");
 EOF
 
-curl -X POST -F install=create https://$INSTALL_URL/setup.php
-  
-rm setup.php
+#As there is a "No token provided" with curl, the client will need to go to https://$INSTALL_URL/setup.php at the end, then removed the setup.php
