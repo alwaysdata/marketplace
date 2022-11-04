@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.1/mytinytodo-v1.7.1.tar.gz| tar -xz --strip-components=1
+wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.2/mytinytodo-v1.7.2.tar.gz| tar -xz --strip-components=1
 
 cat << EOF > config.php
 <?php
