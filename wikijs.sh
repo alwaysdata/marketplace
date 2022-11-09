@@ -14,7 +14,7 @@ set -e
 
 # https://docs.requarks.io/install/linux
 
-wget https://github.com/Requarks/wiki/releases/download/v2.5.290/wiki-js.tar.gz
+wget https://github.com/Requarks/wiki/releases/download/v2.5.291/wiki-js.tar.gz
 
 tar xzf wiki-js.tar.gz -C .
 rm wiki-js.tar.gz
