@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16'
+#     nodejs_version: '16.17'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npm run start'
 #     path_trim: true
@@ -13,7 +13,7 @@
 
 set -e
 
-echo "y"|npx --ignore-existing create-strapi-app strapi --quickstart --no-run
+echo "y"|npx create-strapi-app strapi --quickstart --no-run
 
 cd strapi
 
@@ -27,7 +27,7 @@ EOF
 
 npm run build
 
-cd ..
+cd
 rm -rf  .npm
 shopt -s dotglob
 mv strapi/* .
