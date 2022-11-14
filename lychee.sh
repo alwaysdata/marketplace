@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/LycheeOrg/Lychee/releases/download/v4.6.1/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://github.com/LycheeOrg/Lychee/releases/download/v4.6.2/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
 sed -i "s|DB_CONNECTION=sqlite|DB_CONNECTION=mysql|" .env.example
