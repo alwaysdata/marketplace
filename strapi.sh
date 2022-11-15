@@ -8,12 +8,14 @@
 #     path_trim: true
 #     ssl_force: true
 #     environment: HOME={INSTALL_PATH}
+# database:
+#     type: postgresql
 # requirements:
 #     disk: 500
 
 set -e
 
-echo "y"|npx create-strapi-app strapi --quickstart --no-run
+npx create-strapi-app strapi --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce
 
 cd strapi
 
