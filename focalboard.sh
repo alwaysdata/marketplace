@@ -5,15 +5,32 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/bin/focalboard-server'
 #     path_trim: true
+# database:
+#     type: postgresql
 # requirements:
-#     disk: 60
+#     disk: 70
 
 set -e
 
-wget -O- https://github.com/mattermost/focalboard/releases/download/v7.5.1/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/mattermost/focalboard/releases/download/v7.5.2/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
-sed -i "s|localhost:8000|$INSTALL_URL|" config.json
-sed -i "/$INSTALL_URL\",/a\ \ \ \ \"ip\": \"::\"," config.json
-sed -i "s|\"port\": 8000,|\"port\": $PORT,|" config.json
-sed -i "s|/var/tmp/focalboard_local.socket|/home/$USER/admin/tmp/focalboard_local.socket|" config.json
-sed -i "s|\"prometheusaddress\": \":9092\",|\"prometheusaddress\": \"\",|" config.json
+mv config.json config.json.example
+cat << EOF > config.json
+{
+    "serverRoot": "http://$INSTALL_URL",
+    "ip": "::",
+    "port": $PORT,
+    "dbtype": "postgres",
+    "dbconfig": "postgres://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME?sslmode=disable&connect_timeout=10",
+    "useSSL": false,
+    "webpath": "./pack",
+    "filespath": "./files",
+    "telemetry": true,
+    "prometheusaddress": "",
+    "session_expire_time": 2592000,
+    "session_refresh_time": 18000,
+    "localOnly": false,
+    "enableLocalMode": true,
+    "localModeSocketLocation": "/home/$USER/admin/tmp/focalboard_local.socket"
+}
+EOF
