@@ -24,7 +24,7 @@
 
 set -e
 
-wget -O- https://github.com/usefathom/fathom/releases/download/v1.2.1/fathom_1.2.1_linux_amd64.tar.gz | tar -xz --strip-components=0
+wget -O- https://github.com/usefathom/fathom/releases/download/v1.3.0/fathom_1.3.0_linux_amd64.tar.gz | tar -xz --strip-components=0
 
 cat << EOF > .env
 FATHOM_SERVER_ADDR=0.0.0.0:$PORT
