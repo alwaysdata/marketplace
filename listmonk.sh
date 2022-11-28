@@ -25,7 +25,7 @@ set -e
 
 # https://listmonk.app/docs/installation/
 
-wget -O- https://github.com/knadh/listmonk/releases/download/v2.2.0/listmonk_2.2.0_linux_amd64.tar.gz | tar -xz --strip-components=0
+wget -O- https://github.com/knadh/listmonk/releases/download/v2.3.0/listmonk_2.3.0_linux_amd64.tar.gz | tar -xz --strip-components=0
 
 cat << EOF > config.toml
 [app]
