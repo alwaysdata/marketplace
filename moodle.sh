@@ -42,7 +42,7 @@
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
-#         regex: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$
+#         regex: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*\-#])[A-Za-z\d*\-#]{8,}$
 #         min_length: 8
 #         max_length: 255
 
