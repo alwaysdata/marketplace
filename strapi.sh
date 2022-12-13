@@ -15,22 +15,17 @@
 
 set -e
 
-npx create-strapi-app strapi --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce
+npm install strapi
+./node_modules/strapi/bin/strapi.js new --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce --no-run default
 
-cd strapi
+cd default
 
 sed -i  "/port: env.int('PORT', 1337),/a \ \ url: 'https://$INSTALL_URL'," config/server.js
-
-cat << EOF |sed -i "/module.exports = ({ env }) => ({/r /dev/stdin" config/admin.js
-  apiToken: {
-    salt: env('API_TOKEN_SALT', '$(date +%s | sha256sum | base64 | head -c 32 ; echo)'),
-  },
-EOF
 
 npm run build
 
 cd
-rm -rf  .npm
+rm -rf  .npm package.json package-lock.json node_modules
 shopt -s dotglob
-mv strapi/* .
-rmdir strapi
+mv default/* .
+rmdir default
