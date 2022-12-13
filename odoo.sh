@@ -4,8 +4,6 @@
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
 #     command: '.venv/bin/python odoo-bin --config=.odoorc --http-port=$PORT'
-#     environment: |
-#         PYTHON_VERSION=3.10
 # database:
 #     type: postgresql
 # requirements:

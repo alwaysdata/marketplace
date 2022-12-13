@@ -4,8 +4,6 @@
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'env/bin/sanic hello.app --host="::" --port=$PORT'
-#     environment: |
-#         PYTHON_VERSION=3.10
 #     path_trim: true
 #     ssl_force: true
 # requirements:
