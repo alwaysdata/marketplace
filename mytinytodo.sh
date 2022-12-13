@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.2/mytinytodo-v1.7.2.tar.gz| tar -xz --strip-components=1
+wget -O- https://github.com/maxpozdeev/mytinytodo/releases/download/v1.7.3/mytinytodo-v1.7.3.tar.gz| tar -xz --strip-components=1
 
 cat << EOF > config.php
 <?php
