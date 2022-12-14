@@ -122,7 +122,7 @@ cat << EOF  | sed -i "/'$DATABASE_NAME',/r /dev/stdin" $FORM_PROJECT/settings.py
         'HOST': '$DATABASE_HOST',
         'PORT': '5432',
 EOF
-python -m pip install psycopg2
+python -m pip install psycopg2 packaging
 python manage.py migrate
 
 echo "yes"| python manage.py collectstatic
