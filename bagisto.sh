@@ -2,7 +2,7 @@
 
 # site:
 #     type: php
-#     path: '{INSTALL_PATH_RELATIVE}/bagisto/public'
+#     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '8.0'
 #     php_ini: |
 #         memory_limit=4096M
@@ -12,7 +12,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 190
+#     disk: 170
 
 set -e
 
@@ -26,5 +26,11 @@ sed -i "s|DB_PASSWORD=|DB_PASSWORD=$DATABASE_PASSWORD|" bagisto/.env
 
 cd bagisto
 php artisan bagisto:install
+
+cd
+rm -rf .composer .config .local .subversion
+shopt -s dotglob
+mv bagisto/* .
+rmdir bagisto
 
 # default credentials: admin@example.com / admin123
