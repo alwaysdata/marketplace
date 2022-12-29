@@ -13,4 +13,4 @@
 
 set -e
 
-wget -O- https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.5.0.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.5.1.tar.gz | tar -xz --strip-components=1
