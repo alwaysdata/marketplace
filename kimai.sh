@@ -14,6 +14,7 @@
 #         label:
 #             en: Username
 #             fr: Nom d'utilisateur
+#         regex: ^[a-zA-Z0-9_-]+$
 #     email:
 #         type: email
 #         label:
