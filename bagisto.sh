@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.0'
+#     php_version: '8.1'
 #     php_ini: |
 #         memory_limit=4096M
 #         extension=intl.so

@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web/'
-#     php_version: '8.0'
+#     php_version: '8.1'
 #     php_ini: |
 #         extension=intl.so
 #         error_reporting = E_ALL & ~E_DEPRECATED
