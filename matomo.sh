@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.0'
+#     php_version: '8.1'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -31,27 +31,19 @@ set -e
 
 wget -O- https://builds.matomo.org/matomo-4.6.2.zip | bsdtar --strip-components=1 -xf -
 
-# https://github.com/matomo-org/matomo/issues/15738
-wget https://raw.githubusercontent.com/matomo-org/matomo/4.x-dev/composer.lock
-wget https://raw.githubusercontent.com/matomo-org/matomo/4.x-dev/composer.json
-COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/yaml:~2.6.0
-COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/process:^3.4
 git clone --depth 1 https://github.com/nodeone/extratools.git plugins/ExtraTools
 
 php console plugin:activate ExtraTools --quiet || true
 php console config:set 'ExtraTools.db_backup_path="path/tmp"'
 php console matomo:install --db-username="$DATABASE_USERNAME" --db-pass="$DATABASE_PASSWORD" --db-host="$DATABASE_HOST" --db-name="$DATABASE_NAME" --first-user="$FORM_ADMIN_USERNAME" --first-user-email="$FORM_EMAIL" --first-user-pass="$FORM_ADMIN_PASSWORD" --do-not-drop-db --force || true
 
-# https://github.com/digitalist-se/extratools/issues/25
 php console site:add --name=mysite --urls="https://$USER.$RESELLER_DOMAIN"
 
-
 # The plugin console does not activate ExtraTools in newer version than 4.6.2. We install it in 4.6.2 then upgrade it in the last version.
-wget -O- https://builds.matomo.org/matomo-4.13.0.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://builds.matomo.org/matomo-4.13.3.zip | bsdtar --strip-components=1 -xf -
 
 # To perform the upgrade we need to first go on the website.
 wget -q --timeout=10 https://$INSTALL_URL/index.php?module=CoreUpdater&action=
 sleep 10
 
 php console core:update --yes
-rm .wget-hsts
