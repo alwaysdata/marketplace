@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16.17'
+#     nodejs_version: '16'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npm run start'
 #     path_trim: true
