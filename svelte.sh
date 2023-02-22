@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16'
+#     nodejs_version: '16.17'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npm run start'
 #     environment: HOME={INSTALL_PATH}
