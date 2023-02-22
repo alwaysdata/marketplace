@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql

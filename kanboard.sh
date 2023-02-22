@@ -2,7 +2,7 @@
 
 # site:
 #     type: php
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     path: '{INSTALL_PATH_RELATIVE}'
 # database:
 #     type: postgresql

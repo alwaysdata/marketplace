@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.2'
 #     php_ini: |
 #         extension=intl.so
 # database:
@@ -32,7 +32,7 @@
 
 set -e
 
-wget -O- https://us.v-cdn.net/5018160/uploads/addons/1NULWS5AUTTU.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://us.v-cdn.net/5018160/uploads/496PF9CMXJ9U/vanilla-2023-001.zip | bsdtar --strip-components=1 -xf -
 
 mv .htaccess.dist .htaccess
 
