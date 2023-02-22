@@ -2,7 +2,7 @@
 
 # site:
 #     type: wsgi
-#     python_version: '3.9'
+#     python_version: '3.11'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/wsgi.py'

@@ -11,7 +11,7 @@
 
 set -e
 
-export PYTHON_VERSION=3.10
+export PYTHON_VERSION=3.11
 
 python -m venv env
 source env/bin/activate
