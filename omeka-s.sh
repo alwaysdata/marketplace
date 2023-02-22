@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.0'
+#     php_version: '8.2'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -45,11 +45,11 @@
 
 set -e
 
-wget -O- https://github.com/omeka/omeka-s/archive/v3.2.3.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/omeka/omeka-s/archive/v4.0.0.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/s/docs/user-manual/install/
 
-COMPOSER_CACHE_DIR=/dev/null composer install
+COMPOSER_CACHE_DIR=/dev/null composer2 install
 
 cat << EOF > config/database.ini
 user = '$DATABASE_USERNAME'
