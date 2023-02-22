@@ -3,8 +3,10 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
-#     php_ini: extension=intl.so
+#     php_version: '8.0'
+#     php_ini:|
+#         extension=intl.so
+#         max_input_vars=5000
 # database:
 #     type: mysql
 # requirements:
