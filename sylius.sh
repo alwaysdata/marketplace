@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.0'
+#     php_version: '8.2'
 #     php_ini: |
 #         memory_limit=4096M
 #         extension=intl.so
@@ -24,8 +24,8 @@
 #             fr_FR: Français
 
 set -e
-
-# Sylius install 
+# Requirements: https://docs.sylius.com/en/1.10/book/installation/requirements.html
+# Sylius install
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project sylius/sylius-standard
 
 cat << EOF > sylius-standard/.env.local
@@ -38,7 +38,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 require doctrine/dbal:"^2.6"
 sylius-standard/bin/console sylius:install --env=prod -n --fixture-suite=default
 echo "y"|sylius-standard/bin/console sylius:install:sample-data --env=prod
 
-export NODEJS_VERSION="14"
+export NODEJS_VERSION=18
 npm config set scripts-prepend-node-path true
 npm install yarn
 
