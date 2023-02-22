@@ -29,9 +29,9 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project kevinpapst/kimai2
+git clone -b 1.30.10 --depth 1 https://github.com/kimai/kimai.git
+cd kimai/
 
-cd kimai2
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
 
 cat << EOF > .env
@@ -46,7 +46,7 @@ php bin/console kimai:install -n
 php bin/console kimai:user:create $FORM_USERNAME $FORM_EMAIL ROLE_ADMIN $FORM_PASSWORD
 
 cd
-rm -rf .config .local .subversion
+rm -rf .config .local
 shopt -s dotglob
-mv kimai2/* .
-rmdir kimai2
+mv kimai/* .
+rmdir kimai
