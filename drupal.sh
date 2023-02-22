@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
-#     php_version: '8.1'
+#     php_version: '8.2'
 # database:
 #     type: mysql
 # requirements:
@@ -49,7 +49,7 @@ set -e
 
 # https://www.drupal.org/docs/system-requirements
 
-COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush 10
+COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 # https://drushcommands.com
