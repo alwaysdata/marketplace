@@ -3,7 +3,7 @@
 # site:
 #     type: wsgi
 #     path_trim: true
-#     python_version: '3.9'
+#     python_version: '3.11'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
@@ -44,7 +44,7 @@ source env/bin/activate
 
 # Django-CMS setup
 # https://docs.django-cms.org/en/latest/how_to/install.html
-python -m pip install django-cms Django==3.2
+python -m pip install django-cms Django==4.1
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
