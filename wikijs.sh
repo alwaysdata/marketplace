@@ -4,7 +4,7 @@
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node server'
-#     nodejs_version: '16'
+#     nodejs_version: '18'
 # database:
 #     type: postgresql
 # requirements:
@@ -14,7 +14,7 @@ set -e
 
 # https://docs.requarks.io/install/linux
 
-wget https://github.com/Requarks/wiki/releases/download/v2.5.295/wiki-js.tar.gz
+wget https://github.com/Requarks/wiki/releases/download/v2.5.297/wiki-js.tar.gz
 
 tar xzf wiki-js.tar.gz -C .
 rm wiki-js.tar.gz
