@@ -42,17 +42,26 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project magento/community-edition community-edition 2.3.7-p3
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project magento/community-edition community-edition 2.3.7-p4 --no-install
+
+cd community-edition
+
+COMPOSER_CACHE_DIR=/dev/null composer2 config --no-plugins allow-plugins.laminas/laminas-dependency-plugin true
+COMPOSER_CACHE_DIR=/dev/null composer2 config --no-plugins allow-plugins.magento/magento-composer-installer true
+COMPOSER_CACHE_DIR=/dev/null composer2 config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+COMPOSER_CACHE_DIR=/dev/null composer2 install -n
 
 # Magento CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
 
-php community-edition/bin/magento setup:install --admin-firstname="$FORM_ADMIN_FIRSTNAME" --admin-lastname="$FORM_ADMIN_LASTNAME" --admin-email="$FORM_EMAIL" --admin-user="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --db-host="$DATABASE_HOST" --db-name="$DATABASE_NAME" --db-user="$DATABASE_USERNAME" --db-password="$DATABASE_PASSWORD" --backend-frontname=admin
+php bin/magento setup:install --admin-firstname="$FORM_ADMIN_FIRSTNAME" --admin-lastname="$FORM_ADMIN_LASTNAME" --admin-email="$FORM_EMAIL" --admin-user="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --db-host="$DATABASE_HOST" --db-name="$DATABASE_NAME" --db-user="$DATABASE_USERNAME" --db-password="$DATABASE_PASSWORD" --backend-frontname=admin
 
-sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" community-edition/.htaccess
-sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" community-edition/pub/.htaccess
-sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH/pub/static/|" community-edition/pub/static/.htaccess
+sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" .htaccess
+sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" pub/.htaccess
+sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH/pub/static/|" pub/static/.htaccess
 
-rm -rf .composer
+cd
+rm -rf .config .local .subversion
 
 shopt -s dotglob
 mv community-edition/* .
