@@ -14,8 +14,8 @@ set -e
 # https://www.odoo.com/documentation/16.0/administration/install/install.html#source-install
 # https://www.odoo.com/documentation/16.0/administration/install/deploy.html#builtin-server
 # https://www.odoo.com/documentation/16.0/developer/cli.html
-export PYTHON_VERSION=3.10
-export NODEJS_VERSION=16
+export PYTHON_VERSION=3.9
+export NODEJS_VERSION=18
 
 git clone -b 16.0 --depth 1 https://github.com/odoo/odoo.git .
 
