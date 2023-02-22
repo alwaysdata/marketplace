@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16'
+#     nodejs_version: '18'
 #     working_directory: '{INSTALL_PATH}/cryptpad'
 #     command: 'node server.js'
 #     ssl: true
