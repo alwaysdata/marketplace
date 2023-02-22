@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16'
+#     nodejs_version: '18'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npx next start -H ::'
 #     environment: HOME={INSTALL_PATH}
@@ -11,11 +11,10 @@
 
 set -e
 
-echo "y"|npx create-next-app project
+npm install yarn
+$HOME/node_modules/yarn/bin/yarn create next-app --experimental-app --typescript --eslint --src-dir project
 
-shopt -s dotglob
-mv project/* .
-rmdir project
+cd project
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
@@ -26,3 +25,10 @@ module.exports = {
 fi
 
 npx next build
+
+cd
+rm -rf .yarn* package* .npm node_modules .config .cache
+
+shopt -s dotglob
+mv project/* .
+rmdir project
