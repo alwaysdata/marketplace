@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2
+#     php_version: '8.2'
 # requirements:
 #     disk: 160
 set -e
