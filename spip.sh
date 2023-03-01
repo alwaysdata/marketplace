@@ -10,7 +10,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 120
+#     disk: 50
 # form:
 #     admin_email:
 #         type: email
@@ -38,9 +38,10 @@ cd spip-cli
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 COMPOSER_CACHE_DIR=/dev/null composer2 update
 
-~/spip-cli/bin/spip dl -d $HOME/default -R last
-
+mkdir $HOME/default
 cd $HOME/default
+
+wget  -O- https://files.spip.net/spip/archives/spip-v4.2.1.zip | bsdtar --strip-components=0 -xf -
 
 cat << EOF > config/mes_options.php
 <?php
@@ -51,7 +52,7 @@ define('_MYSQL_ENGINE', 'InnoDB');
 ?>
 EOF
 
-~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD" --adresse-site "$INSTALL_URL"
+~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD"
 
 # Cleaning
 cd
