@@ -3,7 +3,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '18'
-#     working_directory: '{INSTALL_PATH}/'
+#     working_directory: '{INSTALL_PATH}'
 #     command: 'node app.js'
 #     environment: |
 #         NODE_ENV=production
@@ -31,7 +31,7 @@
 #         max_length: 255
 set -e
 
-wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v2.8.7.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v2.8.8.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
