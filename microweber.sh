@@ -35,7 +35,7 @@ set -e
 
 ad_install_pecl mcrypt
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project microweber/microweber --no-interaction
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project microweber/microweber=v1.3.2 --no-interaction
 
 cd microweber
 echo "yes" | php artisan key:generate
