@@ -10,7 +10,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 650
+#     disk: 700
 # form:
 #     language:
 #         type: choices
@@ -24,7 +24,7 @@
 #             fr_FR: Français
 
 set -e
-# Requirements: https://docs.sylius.com/en/1.10/book/installation/requirements.html
+# Requirements: https://docs.sylius.com/en/1.12/book/installation/requirements.html
 # Sylius install
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project sylius/sylius-standard
 
@@ -34,12 +34,10 @@ EOF
 
 sed -i "s|locale: en_US|locale: $FORM_LANGUAGE|" sylius-standard/config/services.yaml
 
-COMPOSER_CACHE_DIR=/dev/null composer2 require doctrine/dbal:"^2.6"
 sylius-standard/bin/console sylius:install --env=prod -n --fixture-suite=default
 echo "y"|sylius-standard/bin/console sylius:install:sample-data --env=prod
 
 export NODEJS_VERSION=18
-npm config set scripts-prepend-node-path true
 npm install yarn
 
 cd sylius-standard
@@ -48,7 +46,7 @@ cd sylius-standard
 cd
 
 # Nettoyage
-rm -rf .config .local .subversion .cache .babel.json composer.json composer.lock node_modules .npm .npm-packages .npmrc package-lock.json vendor .yarn
+rm -rf .config .local .subversion .cache node_modules .npm package.json package-lock.json .yarn .yarnrc
 shopt -s dotglob
 mv sylius-standard/* .
 rmdir sylius-standard
