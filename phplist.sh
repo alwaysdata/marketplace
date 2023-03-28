@@ -34,12 +34,11 @@ sed -i "s|database_password = 'phplist';|database_password = '$DATABASE_PASSWORD
 sed -i "s|define('PHPMAILERHOST', 'localhost');|define('PHPMAILERHOST', 'smtp-$USER.$RESELLER_DOMAIN');|" phplist-3.6.12/public_html/lists/config/config.php
 sed -i "s|listbounces@yourdomain|$USER@$RESELLER_DOMAIN|" phplist-3.6.12/public_html/lists/config/config.php
 sed -i "s|/var/mail/listbounces|$INSTALL_PATH/var/mail/listbounces|" phplist-3.6.12/public_html/lists/config/config.php
-
-sed -i "s|pageroot = '/lists';|pageroot = '$INSTALL_URL_PATH';|" phplist-3.6.12/public_html/lists/config/config_extended.php
+echo "\$pageroot = '$INSTALL_URL_PATH';" >> phplist-3.6.12/public_html/lists/config/config.php
 
 if [ "$INSTALL_URL_PATH" = "/" ]
 then
-sed -i "s|pageroot = '/';|pageroot = '';|" phplist-3.6.12/public_html/lists/config/config_extended.php
+sed -i "s|\$pageroot = '/';|\$pageroot = '';|" phplist-3.6.12/public_html/lists/config/config.php
 fi
 
 ADMIN_PASSWORD="$FORM_ADMIN_PASSWORD" ADMIN_EMAIL="$FORM_ADMIN_EMAIL" php phplist-3.6.12/public_html/lists/admin/index.php -p initialise -c $INSTALL_PATH/phplist-3.6.12/public_html/lists/config/config.php
