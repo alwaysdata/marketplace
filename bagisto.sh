@@ -16,7 +16,7 @@
 
 set -e
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project bagisto/bagisto
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project bagisto/bagisto:1.4.5
 
 sed -i "s|APP_URL=http://localhost|APP_URL=http://$INSTALL_URL|" bagisto/.env
 sed -i "s|DB_HOST=127.0.0.1|DB_HOST=$DATABASE_HOST|" bagisto/.env
