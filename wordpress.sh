@@ -45,4 +45,4 @@ PHP
 php wp-cli.phar core install --url="$INSTALL_URL" --title="$FORM_TITLE" --admin_user="$FORM_ADMIN_USERNAME" --admin_password="$FORM_ADMIN_PASSWORD" --admin_email="$FORM_EMAIL" --path="$INSTALL_PATH"
 
 sed -i '/WP_SITEURL/d' wp-config.php
-rm -rf .wp-cli wp-cli.phar
+rm -rf .wp-cli wp-cli.phar .wget-hsts
