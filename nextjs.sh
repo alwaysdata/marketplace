@@ -10,21 +10,38 @@
 
 set -e
 
-export NPM_CONFIG_CACHE=$(mktemp -d)
-export XDG_CONFIG_HOME=$(mktemp -d)
+export NPM_CONFIG_CACHE=`mktemp -d`
+export XDG_CONFIG_HOME=`mktemp -d`
 
+# Do NOT use `npx` cause it triggers the `.npm-packages missing` bug
+# @see https://github.com/npm/cli/issues/5942
 npm create -y --force next-app -- \
     --use-npm \
-    --experimental-app \
-    --import-alias='@/*' \
     --typescript \
+    --tailwind \
     --eslint \
-    --src-dir $INSTALL_PATH
+    --no-app \
+    --src-dir \
+    --import-alias='@/*' \
+    $INSTALL_PATH
+
+cat << EOF > next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: '',
+  reactStrictMode: true,
+  experimental: {
+    appDir: false
+  }
+}
+
+module.exports = nextConfig
+EOF
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
-    sed -i '/nextConfig = {$/ a \ \ basePath: "'"$INSTALL_URL_PATH"'",' next.config.js
-    sed -i 's,src=",src="'"$INSTALL_URL_PATH"',g' src/app/page.tsx
+    sed -i "s,basePath: '',basePath:'$INSTALL_URL_PATH',g" next.config.js
+    sed -i 's,src=",src="'$INSTALL_URL_PATH',g' src/pages/index.tsx
 fi
 
 npx next build
