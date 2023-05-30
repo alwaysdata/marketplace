@@ -26,7 +26,7 @@
 set -e
 # Requirements: https://docs.sylius.com/en/1.12/book/installation/requirements.html
 # Sylius install
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project sylius/sylius-standard
+composer2 create-project sylius/sylius-standard
 
 cat << EOF > sylius-standard/.env.local
 DATABASE_URL=mysql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME
@@ -46,7 +46,7 @@ cd sylius-standard
 cd
 
 # Nettoyage
-rm -rf .config .local .subversion .cache node_modules .npm package.json package-lock.json .yarn .yarnrc
+rm -rf .config .local .subversion .cache node_modules .npm package.json package-lock.json .yarn .yarnrc .cache
 shopt -s dotglob
 mv sylius-standard/* .
 rmdir sylius-standard
