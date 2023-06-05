@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/mattermost/focalboard/releases/download/v7.9.3/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/mattermost/focalboard/releases/download/v7.9.4/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
 mv config.json config.json.example
 cat << EOF > config.json
@@ -34,3 +34,5 @@ cat << EOF > config.json
     "localModeSocketLocation": "/home/$USER/admin/tmp/focalboard_local.socket"
 }
 EOF
+
+# Focalbaord 7.10 needs GLIBC 2.34
