@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/mattermost/focalboard/releases/download/v7.9.5/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/mattermost/focalboard/releases/download/v7.9.6/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
 mv config.json config.json.example
 cat << EOF > config.json
