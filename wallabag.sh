@@ -3,10 +3,9 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web/'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     php_ini: |
 #         extension=intl.so
-#         error_reporting = E_ALL & ~E_DEPRECATED
 # database:
 #     type: mysql
 # requirements:
@@ -44,14 +43,16 @@
 
 set -e
 
-wget -O- https://github.com/wallabag/wallabag/releases/download/2.5.4/wallabag-2.5.4.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/wallabag/wallabag/releases/download/2.6.1/wallabag-2.6.1.tar.gz | tar -xz --strip-components=1
 
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
 sed -i "s|database_user: root|database_user: $DATABASE_USERNAME|" app/config/parameters.yml
 sed -i "s|database_password: null|database_password: '$DATABASE_PASSWORD'|" app/config/parameters.yml
-sed -i "s|your-wallabag-url-instance.com|$INSTALL_URL|" app/config/parameters.yml
+sed -i "s|your-wallabag-instance.wallabag.org|$INSTALL_URL|" app/config/parameters.yml
 sed -i "s|locale: en|locale: $FORM_LANGUAGE|" app/config/parameters.yml
+sed -i "s|smtp://127.0.0.1|smtp://$SMTP_HOST|" app/config/parameters.yml
+sed -i "s|no-reply@wallabag.org|$USER@$RESELLER_DOMAIN|" app/config/parameters.yml
 
 bin/console cache:clear --env=prod
 bin/console wallabag:install --env=prod -n
