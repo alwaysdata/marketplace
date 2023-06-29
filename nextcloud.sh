@@ -3,10 +3,11 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     php_ini: |
 #         extension=intl.so
 #         extension=gmp.so
+#         extension={INSTALL_PATH}/imagick-8.2.so
 #         memory_limit=512M
 # database:
 #     type: mysql
@@ -29,8 +30,12 @@ set -e
 
 # https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/occ_command.html?highlight=occ#command-line-installation-label
 
+ad_install_pecl imagick
+
 wget -O - https://download.nextcloud.com/server/releases/latest.zip | bsdtar --strip-components=1 -xf -
 
 php occ maintenance:install --database="mysql" --database-host="$DATABASE_HOST" --database-name="$DATABASE_NAME" --database-user="$DATABASE_USERNAME" --database-pass="$DATABASE_PASSWORD" --admin-user="$FORM_ADMIN_USERNAME" --admin-pass="$FORM_ADMIN_PASSWORD"
 php occ config:system:set trusted_domains 0 --value="$INSTALL_URL_HOSTNAME"
 php occ config:system:set overwrite.cli.url --value="http://$INSTALL_URL"
+
+rm .wget-hsts
