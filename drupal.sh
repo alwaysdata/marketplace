@@ -49,18 +49,24 @@ set -e
 
 # https://www.drupal.org/docs/system-requirements
 
-COMPOSER_CACHE_DIR=/dev/null composer2 require drush/drush
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
+cd recommended-project
+
+sed -i "/\"require\": {/a \ \ \ \ \ \ \ \ \"drush/drush\": \"^12.1\"," composer.json
+
+COMPOSER_CACHE_DIR=/dev/null composer2 update
+
 # https://drushcommands.com
-echo "y" | php vendor/drush/drush/drush.php si --db-url=mysql://"$DATABASE_USERNAME":"$DATABASE_PASSWORD"@"$DATABASE_HOST"/"$DATABASE_NAME" --account-name="$FORM_ADMIN_USERNAME" --account-pass="$FORM_ADMIN_PASSWORD" --account-mail="$FORM_EMAIL" --site-name="$FORM_SITE_NAME" --locale="$FORM_LANGUAGE" --root=recommended-project
+echo "y" | php vendor/drush/drush/drush.php si --db-url=mysql://"$DATABASE_USERNAME":"$DATABASE_PASSWORD"@"$DATABASE_HOST"/"$DATABASE_NAME" --account-name="$FORM_ADMIN_USERNAME" --account-pass="$FORM_ADMIN_PASSWORD" --account-mail="$FORM_EMAIL" --site-name="$FORM_SITE_NAME" --locale="$FORM_LANGUAGE"
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
-    sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" recommended-project/web/.htaccess
+    sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" web/.htaccess
 fi
 
-rm -rf .composer .drush .subversion vendor composer.json composer.lock
+cd
+rm -rf .config .local .subversion
 
 shopt -s dotglob
 mv recommended-project/* .
