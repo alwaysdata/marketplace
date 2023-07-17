@@ -9,7 +9,7 @@
 
 set -e
 
-wget -O- https://github.com/bludit/bludit/archive/refs/tags/3.14.1.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://github.com/bludit/bludit/archive/refs/tags/3.15.0.zip | bsdtar --strip-components=1 -xf -
 
 
 if [ "$INSTALL_URL_PATH" != "/" ]
