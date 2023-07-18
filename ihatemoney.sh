@@ -11,14 +11,14 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 90
+#     disk: 130
 
 set -e
 
 python -m venv env
 source env/bin/activate
 
-PIP_CACHE_DIR=/dev/null pip install ihatemoney psycopg2
+python -m pip install ihatemoney psycopg2
 
 ./env/bin/ihatemoney generate-config ihatemoney.cfg > ihatemoney.cfg
 sed -i "s|sqlite:////var/lib/ihatemoney/ihatemoney.sqlite|postgresql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME?client_encoding=utf8|" ihatemoney.cfg
@@ -30,3 +30,5 @@ from ihatemoney.run import create_app
 
 application = create_app()
 EOF
+
+rm -rf .cache
