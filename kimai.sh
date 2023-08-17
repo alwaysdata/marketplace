@@ -29,13 +29,13 @@
 
 set -e
 
-git clone -b 2.0.29 --depth 1 https://github.com/kimai/kimai.git
+git clone -b 2.0.30 --depth 1 https://github.com/kimai/kimai.git
 cd kimai/
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
 
 cat << EOF > .env
-DATABASE_URL=mysql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST:3306/$DATABASE_NAME?charset=utf8
+DATABASE_URL=mysql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST:3306/$DATABASE_NAME?charset=utf8&serverVersion=10.6
 MAILER_FROM=$USER@$RESELLER_DOMAIN
 APP_ENV=prod
 APP_SECRET="$(echo $RANDOM | md5sum | sed 's/ .*//')"
