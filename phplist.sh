@@ -31,7 +31,9 @@ sed -i "s|database_host = 'localhost';|database_host = '$DATABASE_HOST';|" phpli
 sed -i "s|database_name = 'phplistdb';|database_name = '$DATABASE_NAME';|" phplist-3.6.13/public_html/lists/config/config.php
 sed -i "s|database_user = 'phplist';|database_user = '$DATABASE_USERNAME';|" phplist-3.6.13/public_html/lists/config/config.php
 sed -i "s|database_password = 'phplist';|database_password = '$DATABASE_PASSWORD';|" phplist-3.6.13/public_html/lists/config/config.php
-sed -i "s|define('PHPMAILERHOST', 'localhost');|define('PHPMAILERHOST', 'smtp-$USER.$RESELLER_DOMAIN');|" phplist-3.6.13/public_html/lists/config/config.php
+sed -i "s|define('PHPMAILERHOST', 'localhost');|//define('PHPMAILERHOST', 'localhost');|" phplist-3.6.13/public_html/lists/config/config.php
+sed -i "s|define('PHPMAILERPORT',2500);|//define('PHPMAILERPORT',2500);|" phplist-3.6.13/public_html/lists/config/config.php
+sed -i "s|define('PHPMAILER_SECURE',false);|//define('PHPMAILER_SECURE',false);|" phplist-3.6.13/public_html/lists/config/config.php
 sed -i "s|listbounces@yourdomain|$USER@$RESELLER_DOMAIN|" phplist-3.6.13/public_html/lists/config/config.php
 sed -i "s|/var/mail/listbounces|$INSTALL_PATH/var/mail/listbounces|" phplist-3.6.13/public_html/lists/config/config.php
 echo "\$pageroot = '$INSTALL_URL_PATH';" >> phplist-3.6.13/public_html/lists/config/config.php
