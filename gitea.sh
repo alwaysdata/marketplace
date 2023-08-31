@@ -6,7 +6,6 @@
 #     command: '~{INSTALL_PATH_RELATIVE}/gitea web'
 #     path_trim: true
 #     ssl_force: true
-
 # database:
 #     type: postgresql
 # requirements:
