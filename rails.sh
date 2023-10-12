@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # site:
-#     type: ruby_rack
-#     ruby_version: '3.1'
-#     path: '{INSTALL_PATH_RELATIVE}/config.ru'
-#     bundler: true
-#     path_trim: false
+#     type: user_program
+#     working_directory: '{INSTALL_PATH}'
+#     command: '~{INSTALL_PATH_RELATIVE}/bin/rails server -b "::"'
 #     environment: RAILS_ENV=production
 # requirements:
-#     disk: 160
+#     disk: 240
 
 set -e
 
 # https://guides.rubyonrails.org/getting_started.html
 
+export RUBY_VERSION=3.2
+
 gem install rails
-.local/share/gem/ruby/3.1.0/bin/rails new .
+.local/share/gem/ruby/3.2.0/bin/rails new .
 
 bundle config set deployment 'true'
 bundle install
@@ -45,4 +45,4 @@ cat << EOF > app/views/articles/index.html.erb
 <h1>Hello, Rails!</h1>
 EOF
 
-RAILS_ENV=production bundle exec rake assets:precompile 
+RAILS_ENV=production bundle exec rake assets:precompile
