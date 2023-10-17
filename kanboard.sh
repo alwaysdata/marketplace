@@ -11,7 +11,7 @@
 
 set -e
 
-wget -O- https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.32.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.33.tar.gz | tar -xz --strip-components=1
 
 # https://docs.kanboard.org/en/latest/admin_guide/config_file.html
 mv config.default.php config.php
