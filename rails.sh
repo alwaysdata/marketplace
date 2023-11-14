@@ -4,7 +4,9 @@
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
 #     command: '~{INSTALL_PATH_RELATIVE}/bin/rails server -b "::"'
-#     environment: RAILS_ENV=production
+#     environment: |
+#         RAILS_ENV=production
+#         RUBY_VERSION=3.2
 # requirements:
 #     disk: 240
 
