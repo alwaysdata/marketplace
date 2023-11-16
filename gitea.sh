@@ -15,7 +15,7 @@ set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.20.5/gitea-1.20.5-linux-amd64
+wget -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.0/gitea-1.21.0-linux-amd64
 chmod +x gitea
 
 mkdir -p custom/conf data indexers public log
