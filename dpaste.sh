@@ -13,7 +13,7 @@
 
 set -e
 
-VERSION=3.7
+VERSION=3.8
 
 # Python environment
 python -m venv env
