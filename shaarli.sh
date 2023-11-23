@@ -35,6 +35,6 @@
 #         min_length: 8
 set -e
 
-wget -O- https://github.com/shaarli/Shaarli/releases/download/v0.12.2/shaarli-v0.12.2-full.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/shaarli/Shaarli/releases/download/v0.13.0/shaarli-v0.13.0-full.tar.gz | tar -xz --strip-components=1
 
 curl -X POST -F setlogin="$FORM_USERNAME" -F setpassword="$FORM_PASSWORD" -F title="$FORM_TITLE" -F language="$FORM_LANGUAGE" -F Save=Install http://$INSTALL_URL/install
