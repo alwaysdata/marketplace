@@ -3,11 +3,11 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '7.4'
+#     php_version: '8.2'
 # database:
 #     type: mysql
 # requirements:
-#     disk: 70
+#     disk: 100
 # form:
 #     title:
 #         label:
@@ -22,12 +22,14 @@ set -e
 
 COMPOSER_CACHE_DIR=/dev/null composer2 global require joomlatools/console
 
-php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" --release=4.4.0 default
+php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
+
 php .config/composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default
 
-sed -i "s|'default'|'$FORM_TITLE'|" default/configuration.php
-
-rm -rf .config .local .subversion
+sed -i "s|\/default\/|\/|" default/configuration.php
+sed -i "s|name = 'default';|name = '$FORM_TITLE';|" default/configuration.php
+sed -i "s|admin@example.com|$USER@$RESELLER_DOMAIN|" default/configuration.php
+rm -rf .config .local .subversion .joomlatools
 
 shopt -s dotglob
 mv default/* .
