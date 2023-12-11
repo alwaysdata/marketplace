@@ -2,7 +2,7 @@
 
 # site:
 #     type: php
-#     path: '{INSTALL_PATH_RELATIVE}'
+#     path: '{INSTALL_PATH_RELATIVE}/nextcloud'
 #     php_version: '8.2'
 #     php_ini: |
 #         extension=intl.so
@@ -32,10 +32,12 @@ set -e
 
 ad_install_pecl imagick
 
-wget -O - https://download.nextcloud.com/server/releases/latest.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://download.nextcloud.com/server/releases/latest.zip | bsdtar --strip-components=0 -xf -
+
+cd nextcloud
 
 php occ maintenance:install --database="mysql" --database-host="$DATABASE_HOST" --database-name="$DATABASE_NAME" --database-user="$DATABASE_USERNAME" --database-pass="$DATABASE_PASSWORD" --admin-user="$FORM_ADMIN_USERNAME" --admin-pass="$FORM_ADMIN_PASSWORD"
 php occ config:system:set trusted_domains 0 --value="$INSTALL_URL_HOSTNAME"
 php occ config:system:set overwrite.cli.url --value="http://$INSTALL_URL"
 
-rm .wget-hsts
+rm ~/.wget-hsts
