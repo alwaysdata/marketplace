@@ -12,9 +12,8 @@
 
 set -e
 
-wget https://codeberg.org/forgejo/forgejo/releases/download/v1.20.5-0/forgejo-1.20.5-0-linux-amd64
+wget -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
 
-ln -s  forgejo-1.20.5-0-linux-amd64 forgejo
 chmod +x  forgejo
 
 # https://forgejo.org/docs/latest/admin/config-cheat-sheet/
