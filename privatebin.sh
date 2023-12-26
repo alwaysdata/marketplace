@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: |
 #         extension=mcrypt.so
 #         extension=sodium.so
@@ -13,4 +13,4 @@
 
 set -e
 
-wget -O- https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.6.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.6.2.tar.gz | tar -xz --strip-components=1
