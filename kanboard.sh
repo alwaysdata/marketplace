@@ -2,7 +2,7 @@
 
 # site:
 #     type: php
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     path: '{INSTALL_PATH_RELATIVE}'
 # database:
 #     type: postgresql
@@ -11,7 +11,7 @@
 
 set -e
 
-wget -O- https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.33.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.34.tar.gz | tar -xz --strip-components=1
 
 # https://docs.kanboard.org/en/latest/admin_guide/config_file.html
 mv config.default.php config.php
