@@ -31,13 +31,14 @@
 #         max_length: 255
 set -e
 
-wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.5.2.tar.gz|tar -xz --strip-components=1
+wget -O- https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.1.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
     "url": "http://$INSTALL_URL",
     "port": "$PORT",
-    "secret": "$(sha256sum -b | sed 's/ .*//')",
+    "bind_address": "::",
+    "secret": "$(openssl rand -base64 32)",
     "database": "postgres",
     "postgres": {
         "host": "$DATABASE_HOST",
@@ -50,12 +51,8 @@ cat << EOF > config.json
 }
 EOF
 
-export admin__username="$FORM_ADMIN_USERNAME"
-export admin__email="$FORM_EMAIL"
-export admin__password="$FORM_ADMIN_PASSWORD"
-export admin__password__confirm="$FORM_ADMIN_PASSWORD"
+export NODEBB_ADMIN_USERNAME="$FORM_ADMIN_USERNAME"
+export NODEBB_ADMIN_EMAIL="$FORM_EMAIL"
+export NODEBB_ADMIN_PASSWORD="$FORM_ADMIN_PASSWORD"
 
 ./nodebb setup
-
-sed -i "s|'0.0.0.0'|'::'|" install/web.js
-sed -i '/"database": "postgres",/a     "bind_address": "::",' config.json
