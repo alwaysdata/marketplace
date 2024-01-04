@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     php_ini: |
 #         extension=sodium.so
 #     ssl_force: true
