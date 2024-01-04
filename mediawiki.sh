@@ -43,7 +43,7 @@ set -e
 
 # https://www.mediawiki.org/wiki/Compatibility
 
-wget -O- https://releases.wikimedia.org/mediawiki/1.40/mediawiki-1.40.1.tar.gz | tar -xz --strip-components=1
+wget -O- https://releases.wikimedia.org/mediawiki/1.41/mediawiki-1.41.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 php maintenance/install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="http://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" --skins=Vector "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
