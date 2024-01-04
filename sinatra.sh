@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # site:
-#     ruby_version: '3.1'
+#     ruby_version: '3.2'
 #     type: 'ruby_rack'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
