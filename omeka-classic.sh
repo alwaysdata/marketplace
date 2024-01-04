@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.3'
 # database:
 #     type: mysql
 # requirements:
