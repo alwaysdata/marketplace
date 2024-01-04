@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web/'
-#     php_version: '7.4'
+#     php_version: '8.0'
 #     php_ini: |
 #         extension=intl.so
 # database:
@@ -43,7 +43,7 @@
 
 set -e
 
-wget -O- https://github.com/wallabag/wallabag/releases/download/2.6.7/wallabag-2.6.7.tar.gz | tar -xz --strip-components=1
+wget -O- https://github.com/wallabag/wallabag/releases/download/2.6.8/wallabag-2.6.8.tar.gz | tar -xz --strip-components=1
 
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
