@@ -3,7 +3,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/LycheeOrg/Lychee/releases/download/v5.0.1/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://github.com/LycheeOrg/Lychee/releases/download/v5.0.2/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
 sed -i "s|DB_CONNECTION=sqlite|DB_CONNECTION=mysql|" .env.example
