@@ -12,7 +12,7 @@ set -e
 
 # https://docs.streamlit.io/library/get-started/installation
 
-export PYTHON_VERSION=3.11
+export PYTHON_VERSION=3.12
 
 python -m venv env
 ./env/bin/pip install --upgrade pip

@@ -3,7 +3,7 @@
 # site:
 #     type: wsgi
 #     path: '{INSTALL_PATH_RELATIVE}/app.wsgi'
-#     python_version: '3.11'
+#     python_version: '3.12'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     ssl_force: true

@@ -12,7 +12,7 @@
 
 set -e
 
-export PYTHON_VERSION=3.10
+export PYTHON_VERSION=3.12
 
 # Python environment
 python -m venv env
