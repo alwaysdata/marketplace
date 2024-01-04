@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '18'
+#     nodejs_version: '20'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node ~{INSTALL_PATH_RELATIVE}/app.js'
 #     path_trim: true

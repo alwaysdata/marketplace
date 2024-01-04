@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '18'
+#     nodejs_version: '20'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npx next start --port $PORT --hostname $IP'
 # requirements:
