@@ -5,10 +5,18 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'env ROCKET_PORT=$PORT ROCKET_ADDRESS=:: ./vaultwarden'
 #     ssl_force: true
+# form:
+#     admin_password:
+#         type: password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 # requirements:
 #     disk: 100
 
 set -e
+
+TMPDIR=$(mktemp -d)
 
 wget https://raw.githubusercontent.com/jjlin/docker-image-extract/main/docker-image-extract
 chmod +x docker-image-extract
@@ -17,10 +25,13 @@ chmod +x docker-image-extract
 mv ./output/{vaultwarden,web-vault} .
 rm -rf ./output
 
+curl -sSL http://ftp.fr.debian.org/debian/pool/main/a/argon2/argon2_0~20171227-0.2_amd64.deb | dpkg -x - $TMPDIR
+
 mkdir -p data
 cat << EOF > data/config.json
 {
   "domain": "https://${INSTALL_URL}",
+  "admin_token":"$(echo -n $FORM_ADMIN_PASSWORD | ${TMPDIR}/usr/bin/argon2 $(openssl rand -base64 32) -e -id -k 19456 -t 2 -p 1)",
   "signups_allowed": true,
   "signups_verify": true,
   "smtp_host": "smtp-${USER}.alwaysdata.net",
@@ -29,3 +40,5 @@ cat << EOF > data/config.json
   "smtp_from": "${USER}@${RESELLER_DOMAIN}"
 }
 EOF
+
+rm -rf $TMPDIR
