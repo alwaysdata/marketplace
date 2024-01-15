@@ -3,7 +3,7 @@
 # site:
 #     type: wsgi
 #     path_trim: true
-#     python_version: '3.11'
+#     python_version: '3.12'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
@@ -44,7 +44,7 @@ source env/bin/activate
 
 # Django-CMS setup
 # https://docs.django-cms.org/en/latest/how_to/install.html
-python -m pip install django-cms Django==4.1
+python -m pip install django-cms Django psycopg2
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
@@ -109,6 +109,8 @@ echo "CMS_TEMPLATES = [
     ('home.html', 'Home page template'),
 ]" >> $FORM_PROJECT/settings.py
 
+echo "CMS_CONFIRM_VERSION4 = True"  >> $FORM_PROJECT/settings.py
+
 # Urls
 sed -i "s|from django.urls import path|from django.urls import path, include|" $FORM_PROJECT/urls.py
 sed -i "/admin.site.urls),/a \ \ \ \ path(\'\', include('cms.urls'))," $FORM_PROJECT/urls.py
@@ -122,7 +124,7 @@ cat << EOF  | sed -i "/'$DATABASE_NAME',/r /dev/stdin" $FORM_PROJECT/settings.py
         'HOST': '$DATABASE_HOST',
         'PORT': '5432',
 EOF
-python -m pip install psycopg2 packaging
+
 python manage.py migrate
 
 echo "yes"| python manage.py collectstatic
