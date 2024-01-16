@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/gogs/gogs/releases/download/v0.13.0/gogs_0.13.0_linux_amd64.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/gogs/gogs/releases/download/v0.13.0/gogs_0.13.0_linux_amd64.tar.gz|tar -xz --strip-components=1
 
 mkdir -p custom/conf
 

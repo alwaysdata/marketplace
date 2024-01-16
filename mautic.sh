@@ -43,7 +43,7 @@ cd core
 php bin/console mautic:install --db_driver="pdo_mysql" --db_host="$DATABASE_HOST" --db_port="3306" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --admin_username="$FORM_ADMIN_USERNAME" --admin_email="$FORM_EMAIL" --admin_password="$FORM_ADMIN_PASSWORD" https://$INSTALL_URL
 
 cd
-rm -rf .wget-hsts .config .local .subversion vendor
+rm -rf .config .local .subversion vendor
 shopt -s dotglob
 mv core/* .
 rmdir core

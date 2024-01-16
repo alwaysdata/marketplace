@@ -9,4 +9,4 @@
 
 set -e
 
-wget -O- https://code.antopie.org/miraty/libreqr/archive/2.0.1.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://code.antopie.org/miraty/libreqr/archive/2.0.1.zip | bsdtar --strip-components=1 -xf -

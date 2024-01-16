@@ -25,7 +25,7 @@ set -e
 
 # https://www.phplist.org/manual/books/phplist-manual/page/installing-phplist-manually
 
-wget -O- https://sourceforge.net/projects/phplist/files/phplist/3.6.14/phplist-3.6.14.tgz | tar -xz --strip-components=0
+wget -O- --no-hsts https://sourceforge.net/projects/phplist/files/phplist/3.6.14/phplist-3.6.14.tgz | tar -xz --strip-components=0
 
 sed -i "s|database_host = 'localhost';|database_host = '$DATABASE_HOST';|" phplist-3.6.14/public_html/lists/config/config.php
 sed -i "s|database_name = 'phplistdb';|database_name = '$DATABASE_NAME';|" phplist-3.6.14/public_html/lists/config/config.php
@@ -47,6 +47,6 @@ ADMIN_PASSWORD="$FORM_ADMIN_PASSWORD" ADMIN_EMAIL="$FORM_ADMIN_EMAIL" php phplis
 
 shopt -s dotglob
 mv phplist-3.6.14/public_html/lists/* .
-rm -rf  .wget-hsts phplist-3.6.14
+rm -rf phplist-3.6.14
 
 # default username: admin

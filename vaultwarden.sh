@@ -16,7 +16,7 @@
 
 set -e
 
-wget https://raw.githubusercontent.com/jjlin/docker-image-extract/main/docker-image-extract
+wget --no-hsts https://raw.githubusercontent.com/jjlin/docker-image-extract/main/docker-image-extract
 chmod +x docker-image-extract
 
 ./docker-image-extract vaultwarden/server:latest-alpine

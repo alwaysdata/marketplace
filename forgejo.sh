@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
+wget --no-hsts -O foregejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
 
 chmod +x  forgejo
 
@@ -31,7 +31,4 @@ NAME = $DATABASE_NAME
 USER = $DATABASE_USERNAME
 PASSWD = $DATABASE_PASSWORD
 EOF
-
-rm .wget-hsts
-
 # After is GUI

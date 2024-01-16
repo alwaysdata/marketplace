@@ -25,7 +25,7 @@
 #         max_length: 255
 set -e
 
-wget -O- https://github.com/YOURLS/YOURLS/archive/refs/tags/1.9.2.tar.gz| tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.9.2.tar.gz| tar -xz --strip-components=1
 
 mv user/config-sample.php user/config.php
 

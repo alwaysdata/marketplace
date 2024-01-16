@@ -20,7 +20,7 @@ source env/bin/activate
 python -m pip install kinto[postgresql]
 
 # WSGI
-wget https://raw.githubusercontent.com/Kinto/kinto/master/app.wsgi
+wget --no-hsts https://raw.githubusercontent.com/Kinto/kinto/master/app.wsgi
 
 # Application configuration
 kinto init --ini config/kinto.ini --backend postgresql --cache-backend postgresql

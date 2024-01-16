@@ -12,7 +12,7 @@
 
 set -e
 
-wget -O- https://github.com/LycheeOrg/Lychee/releases/download/v5.0.3/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v5.0.3/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
 sed -i "s|DB_CONNECTION=sqlite|DB_CONNECTION=mysql|" .env.example
@@ -25,5 +25,3 @@ mv .env.example .env
 
 php artisan key:generate
 curl http://$INSTALL_URL/install/migrate
-
-rm .wget-hsts

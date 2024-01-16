@@ -29,7 +29,7 @@ set -e
 
 export RUBY_VERSION=2.7
 
-wget -O- https://github.com/huginn/huginn/archive/refs/tags/v2022.08.18.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/huginn/huginn/archive/refs/tags/v2022.08.18.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > .env
 

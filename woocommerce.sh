@@ -35,7 +35,7 @@
 set -e
 
 # We use http://wp-cli.org
-wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+wget --no-hsts https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 # Temporarily add WP_SITEURL in wp-config.php because of https://github.com/wp-cli/core-command/issues/51
 php -d sys_temp_dir=/home/$USER/admin/tmp wp-cli.phar core download --path="$INSTALL_PATH"

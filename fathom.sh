@@ -24,7 +24,7 @@
 
 set -e
 
-wget -O- https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz | tar -xz --strip-components=0
+wget -O- --no-hsts https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz | tar -xz --strip-components=0
 
 cat << EOF > .env
 FATHOM_SERVER_ADDR=0.0.0.0:$PORT
@@ -37,5 +37,3 @@ FATHOM_SECRET="$(echo $RANDOM | md5sum | sed 's/ .*//')"
 EOF
 
 ./fathom user add --email=$FORM_EMAIL --password=$FORM_PASSWORD
-
-rm .wget-hsts

@@ -11,6 +11,5 @@
 
 set -e
 
-wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
-rm .wget-hsts
+wget --no-hsts http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 # The rest is GUI - Jenkins blocks POST requests which we need to continue (via the cURL command)

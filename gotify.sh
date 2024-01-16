@@ -9,10 +9,10 @@
 
 set -e
 
-wget -O- https://github.com/gotify/server/releases/download/v2.4.0/gotify-linux-amd64.zip | bsdtar -xf -
+wget -O- --no-hsts https://github.com/gotify/server/releases/download/v2.4.0/gotify-linux-amd64.zip | bsdtar -xf -
 chmod +x gotify-linux-amd64
 
-wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/config.example.yml
+wget --no-hsts -O config.yml https://raw.githubusercontent.com/gotify/server/master/config.example.yml
 
 sed -i "s|listenaddr: \"\"|listenaddr: \"0.0.0.0\"|" config.yml
 sed -i "s|port: 80|port: $PORT|" config.yml

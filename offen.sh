@@ -28,9 +28,9 @@
 
 set -e
 
-wget -O- https://github.com/offen/offen/releases/download/v1.3.4/offen-v1.3.4.tar.gz | tar -xz --strip-components=0
+wget -O-  --no-hsts https://github.com/offen/offen/releases/download/v1.3.4/offen-v1.3.4.tar.gz | tar -xz --strip-components=0
 
-rm -rf offen-darwin* offen-linux-arm* offen-windows* .wget-hsts
+rm -rf offen-darwin* offen-linux-arm* offen-windows*
 
 # https://docs.offen.dev/running-offen/configuring-the-application/
 
@@ -44,4 +44,4 @@ EOF
 
 ./offen-linux-amd64 setup -name $FORM_NAME -password $FORM_PASSWORD -email $FORM_EMAIL
 
-# The instance needs to use the same domain but a different subdomain than the website  for which it collects datas, and it does not handle subpath: https://docs.offen.dev/running-offen/setting-up-using-subdomains/
+# The instance needs to use the same domain but a different subdomain than the website for which it collects datas, and it does not handle subpath: https://docs.offen.dev/running-offen/setting-up-using-subdomains/

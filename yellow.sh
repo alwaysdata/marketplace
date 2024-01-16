@@ -9,6 +9,4 @@
 
 set -e
 
-wget -O- https://github.com/datenstrom/yellow/archive/main.zip | bsdtar --strip-components=1 -xf -
-
-rm .wget-hsts
+wget -O- --no-hsts https://github.com/datenstrom/yellow/archive/main.zip | bsdtar --strip-components=1 -xf -

@@ -9,12 +9,11 @@
 
 set -e
 
-wget -O- https://github.com/bludit/bludit/archive/refs/tags/3.15.0.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/bludit/bludit/archive/refs/tags/3.15.0.zip | bsdtar --strip-components=1 -xf -
 
 
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
     sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" .htaccess
 fi
-
 # After is GUI (language & admin credentials)

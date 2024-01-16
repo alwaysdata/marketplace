@@ -41,7 +41,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 mkdir $HOME/default
 cd $HOME/default
 
-wget  -O- https://files.spip.net/spip/archives/spip-v4.2.8.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.2.8.zip | bsdtar --strip-components=0 -xf -
 
 cat << EOF > config/mes_options.php
 <?php

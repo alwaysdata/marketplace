@@ -43,7 +43,7 @@
 
 set -e
 
-wget -O- https://github.com/wallabag/wallabag/releases/download/2.6.8/wallabag-2.6.8.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/wallabag/wallabag/releases/download/2.6.8/wallabag-2.6.8.tar.gz | tar -xz --strip-components=1
 
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
@@ -57,5 +57,3 @@ sed -i "s|no-reply@wallabag.org|$USER@$RESELLER_DOMAIN|" app/config/parameters.y
 bin/console cache:clear --env=prod
 bin/console wallabag:install --env=prod -n
 bin/console fos:user:create --env=prod "$FORM_ADMIN_USERNAME" "$FORM_ADMIN_EMAIL" "$FORM_ADMIN_PASSWORD"
-
-rm .wget-hsts

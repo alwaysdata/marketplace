@@ -21,7 +21,7 @@
 
 set -e
 
-wget -O- http://download.dotclear.org/latest.tar.gz | tar -xz --strip-components=2
+wget -O- --no-hsts http://download.dotclear.org/latest.tar.gz | tar -xz --strip-components=2
 
 cp inc/config.php.in inc/config.php
 

@@ -45,7 +45,7 @@
 
 set -e
 
-wget -O- https://github.com/omeka/omeka-s/archive/v4.0.4.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/omeka/omeka-s/archive/v4.0.4.tar.gz | tar -xz --strip-components=1
 
 # https://omeka.org/s/docs/user-manual/install/
 
