@@ -2,10 +2,12 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '18'
+#     nodejs_version: '20'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npx directus start'
-#     environment: 'HOME={INSTALL_PATH}'
+#     environment: |
+#         'HOME={INSTALL_PATH}'
+#         'PYTHON_VERSION=3.11'
 # database:
 #     type: mysql
 # requirements:
@@ -23,6 +25,8 @@
 #             fr: Mot de passe de l'administrateur
 
 set -e
+
+export PYTHON_VERSION=3.11
 
 npm init -y
 sed -i '/\"scripts\": {/a\ \ \ \ \"start\": \"directus start\",' package.json
