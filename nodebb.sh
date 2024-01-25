@@ -31,7 +31,7 @@
 #         max_length: 255
 set -e
 
-wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.3.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.4.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
