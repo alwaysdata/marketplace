@@ -12,7 +12,7 @@
 
 set -e
 
-wget --no-hsts -O foregejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
+wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
 
 chmod +x  forgejo
 
