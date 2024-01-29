@@ -12,13 +12,14 @@
 
 set -e
 
-wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.20.6-0/forgejo-1.20.6-0-linux-amd64
+wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.4-0/forgejo-1.21.4-0-linux-amd64
 
 chmod +x  forgejo
 
-# https://forgejo.org/docs/latest/admin/config-cheat-sheet/
 mkdir -p custom/conf
 cat << EOF > custom/conf/app.ini
+# More options https://forgejo.org/docs/latest/admin/config-cheat-sheet/
+
 [server]
 DOMAIN = $INSTALL_URL
 HTTP_ADDR = "::"
@@ -31,4 +32,5 @@ NAME = $DATABASE_NAME
 USER = $DATABASE_USERNAME
 PASSWD = $DATABASE_PASSWORD
 EOF
-# After is GUI
+
+# First access to the website redirects to a graphical interface to set the instance and create the first administrator.
