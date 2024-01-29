@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # site:
-#     ruby_version: '3.2'
+#     ruby_version: '3.3'
 #     type: 'ruby_rack'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'
@@ -16,7 +16,7 @@ set -e
 cat << EOF > Gemfile
 source "http://rubygems.org"
 
-gem 'sinatra', require: 'sinatra/base'
+gem 'sinatra', '3.2.0', require: 'sinatra/base'
 gem 'sinatra-reloader', require: 'sinatra/reloader'
 
 EOF
