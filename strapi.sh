@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '16'
+#     nodejs_version: '20'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npm run start'
 #     path_trim: true
@@ -15,8 +15,10 @@
 
 set -e
 
-npm install strapi
-./node_modules/strapi/bin/strapi.js new --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce --no-run default
+# https://docs.strapi.io/dev-docs/installation/cli
+
+npm install create-strapi-app
+npx create-strapi-app default  --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce --no-run
 
 cd default
 
@@ -24,6 +26,7 @@ sed -i  "/port: env.int('PORT', 1337),/a \ \ url: 'https://$INSTALL_URL'," confi
 
 npm run build
 
+# Clean install environment
 cd
 rm -rf  .npm package.json package-lock.json node_modules
 shopt -s dotglob
