@@ -11,7 +11,9 @@
 
 set -e
 
-wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.0.2/Leantime-v3.0.2.tar.gz | tar -xz --strip-components=1
+# https://leantime.io/
+
+wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.0.3/Leantime-v3.0.3.tar.gz | tar -xz --strip-components=1
 
 cp config/configuration.sample.php config/configuration.php
 
@@ -25,4 +27,5 @@ then
 	sed -i "s|#RewriteBase /leantime/|RewriteBase $INSTALL_URL_PATH|" public/.htaccess
 	sed -i "s|appUrl = \"\"|appUrl = \"$INSTALL_URL_PATH\"|" config/configuration.php
 fi
-# after GUI interface to specify login username
+
+# First access to the website redirects to a graphical interface to create login username
