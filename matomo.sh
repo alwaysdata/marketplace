@@ -29,7 +29,7 @@
 
 set -e
 
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.0.1.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.0.2.zip | bsdtar --strip-components=1 -xf -
 
 cd plugins
 wget -O- --no-hsts https://github.com/digitalist-se/extratools/archive/refs/tags/5.0.0-beta3.zip | bsdtar --strip-components=0 -xf -
