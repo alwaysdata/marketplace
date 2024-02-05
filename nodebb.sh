@@ -2,7 +2,7 @@
 
 # site:
 #     type: nodejs
-#     nodejs_version: '20'
+#     nodejs_version: '20.9.0'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node app.js'
 #     environment: |
@@ -31,7 +31,9 @@
 #         max_length: 255
 set -e
 
-wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.4.tar.gz|tar -xz --strip-components=1
+# https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
+
+wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.5.tar.gz|tar -xz --strip-components=1
 
 cat << EOF > config.json
 {
