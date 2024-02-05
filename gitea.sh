@@ -15,12 +15,15 @@ set -e
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
-wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.4/gitea-1.21.4-linux-amd64
+# Download
+wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.5/gitea-1.21.5-linux-amd64
 chmod +x gitea
 
+# Directories and config file creations
 mkdir -p custom/conf data indexers public log
 
 cat << EOF > custom/conf/app.ini
+# More options https://docs.gitea.io/en-us/config-cheat-sheet/
    
 RUN_MODE = prod
     
@@ -47,3 +50,5 @@ USE_SENDMAIL = true
 SENDMAIL_PATH = /usr/sbin/sendmail
 FROM = $USER@$RESELLER_DOMAIN
 EOF
+
+# This install does not create a Gitea admin user. The first registered user will have admin permissions and will be able to manage the instance.
