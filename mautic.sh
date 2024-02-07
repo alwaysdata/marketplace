@@ -3,12 +3,13 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.0'
+#     php_version: '8.1'
 #     php_ini: |
 #         memory_limit = 4096M
 #         extension = imap.so
 #         extension = intl.so
 #         extension = sockets.so
+#         extension = {INSTALL_PATH}/redis-8.1.so
 #         zend.assertions = -1
 #     ssl_force: true
 # database:
@@ -35,6 +36,10 @@
 #         max_length: 255
 
 set -e
+
+# https://docs.mautic.org/en/5.x/getting_started/how_to_install_mautic.html#
+
+ad_install_pecl redis
 
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project mautic/core
 
