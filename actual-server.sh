@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     nodejs_version: '20'
@@ -11,14 +12,17 @@
 
 set -e
 
-VERSION=23.12.1
+VERSION=24.2.0
 
 # https://github.com/actualbudget/actual-server#running
 
+# Download and install
 git clone -b v$VERSION --depth 1 https://github.com/actualbudget/actual-server.git $INSTALL_PATH
 
 npm install yarn
 $HOME/node_modules/yarn/bin/yarn install
+
+#Configuration
 cat << EOF > config.json
 {
     "mode": "production",
