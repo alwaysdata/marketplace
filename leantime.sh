@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -11,10 +12,10 @@
 
 set -e
 
-# https://leantime.io/
+# Download
+wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.0.6/Leantime-v3.0.6.tar.gz | tar -xz --strip-components=1
 
-wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.0.4/Leantime-v3.0.4.tar.gz | tar -xz --strip-components=1
-
+# Configuration
 cp config/configuration.sample.php config/configuration.php
 
 sed -i "s|dbHost = 'localhost'|dbHost = '$DATABASE_HOST'|" config/configuration.php
@@ -22,10 +23,9 @@ sed -i "s|dbUser = ''|dbUser = '$DATABASE_USERNAME'|" config/configuration.php
 sed -i "s|dbPassword = ''|dbPassword = '$DATABASE_PASSWORD'|" config/configuration.php
 sed -i "s|dbDatabase = ''|dbDatabase = '$DATABASE_NAME'|" config/configuration.php
 
+# Handle addresses with subdirectories bases URL
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
 	sed -i "s|#RewriteBase /leantime/|RewriteBase $INSTALL_URL_PATH|" public/.htaccess
 	sed -i "s|appUrl = \"\"|appUrl = \"$INSTALL_URL_PATH\"|" config/configuration.php
 fi
-
-# First access to the website redirects to a graphical interface to create login username
