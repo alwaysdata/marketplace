@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/p'
@@ -37,8 +38,11 @@ set -e
 
 # https://freshrss.github.io/FreshRSS/en/admins/02_Prerequisites.html
 
+# Download
 wget -O- --no-hsts https://github.com/FreshRSS/FreshRSS/archive/1.23.1.tar.gz | tar -xz --strip-components=1
 
+# Install
 ./cli/do-install.php --default_user "$FORM_USERNAME" --auth_type form --environment production --base_url https://$INSTALL_URL --language "$FORM_LANGUAGE" --title "Fresh RSS" --db-type mysql --db-host "$DATABASE_HOST":3306 --db-user "$DATABASE_USERNAME" --db-password "$DATABASE_PASSWORD" --db-base "$DATABASE_NAME"
 
+# Create username
 ./cli/create-user.php --user "$FORM_USERNAME" --password "$FORM_PASSWORD"

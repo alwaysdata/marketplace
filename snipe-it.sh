@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     php_version: '8.0'
@@ -15,10 +16,12 @@
 
 set -e
 
+# https://snipe-it.readme.io/docs/requirements
+
 git clone https://github.com/snipe/snipe-it .
 ad_install_pecl imagick
 
-
+# Configuration
 cat << EOF > .env
 # --------------------------------------------
 # REQUIRED: BASIC APP SETTINGS
@@ -70,5 +73,3 @@ EOF
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 echo "y" | php artisan key:generate
-
-# The rest is GUI setup (language, user...)

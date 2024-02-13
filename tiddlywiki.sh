@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH}'
@@ -24,15 +25,19 @@
 
 set -e
 
+# https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html
+
 npm install tiddlywiki
 
 node_modules/.bin/tiddlywiki default --init server
 
+# Create admin user
 cat << EOF > users.csv
 username,password
 $FORM_USERNAME,$FORM_PASSWORD
 EOF
 
+# Handle subdirectories base URL
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
   mkdir tiddlers
@@ -43,6 +48,7 @@ title: $:/config/tiddlyweb/host
 EOF
 fi
 
+# Clean install environment
 shopt -s dotglob
 mv default/* .
 rmdir default

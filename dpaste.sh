@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     path_trim: true
@@ -10,12 +11,11 @@
 # requirements:
 #     disk: 115
 
-
 set -e
 
 VERSION=3.8
 
-# Python environment
+# Create virtualenv
 python -m venv env
 source env/bin/activate
 env/bin/pip install -U pip

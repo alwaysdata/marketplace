@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
@@ -39,17 +40,21 @@
 
 set -e
 
-# https://github.com/thelia/thelia
+# https://github.com/thelia/thelia-project?tab=readme-ov-file#compatibility
 
+# Download
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project thelia/thelia-project default
 
 cd default
 
+# Install
 php Thelia thelia:install --db_host "$DATABASE_HOST" --db_username "$DATABASE_USERNAME" --db_password "$DATABASE_PASSWORD" --db_name "$DATABASE_NAME"
+
+# Create admin user
 php Thelia admin:create -q --login_name "$FORM_ADMIN_USERNAME" --first_name "$FORM_ADMIN_FIRSTNAME" --last_name "$FORM_ADMIN_LASTNAME" --email "$FORM_EMAIL" --password "$FORM_ADMIN_PASSWORD"
 
+# Clean install environment
 cd ..
-
 rm -rf .composer .subversion .local
 
 shopt -s dotglob

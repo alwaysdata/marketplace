@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web/'
@@ -43,8 +44,12 @@
 
 set -e
 
+# https://doc.wallabag.org/en/admin/installation/requirements
+
+# Download
 wget -O- --no-hsts https://github.com/wallabag/wallabag/releases/download/2.6.8/wallabag-2.6.8.tar.gz | tar -xz --strip-components=1
 
+# Configuration
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
 sed -i "s|database_name: wallabag|database_name: $DATABASE_NAME|" app/config/parameters.yml
 sed -i "s|database_user: root|database_user: $DATABASE_USERNAME|" app/config/parameters.yml
@@ -54,6 +59,9 @@ sed -i "s|locale: en|locale: $FORM_LANGUAGE|" app/config/parameters.yml
 sed -i "s|smtp://127.0.0.1|smtp://$SMTP_HOST|" app/config/parameters.yml
 sed -i "s|no-reply@wallabag.org|$USER@$RESELLER_DOMAIN|" app/config/parameters.yml
 
+# Install
 bin/console cache:clear --env=prod
 bin/console wallabag:install --env=prod -n
+
+# Create admin user
 bin/console fos:user:create --env=prod "$FORM_ADMIN_USERNAME" "$FORM_ADMIN_EMAIL" "$FORM_ADMIN_PASSWORD"

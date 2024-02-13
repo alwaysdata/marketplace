@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -12,8 +13,10 @@
 
 set -e
 
+# Download
 wget -O- --no-hsts https://github.com/mattermost/focalboard/releases/download/v7.9.7/focalboard-server-linux-amd64.tar.gz|tar -xz --strip-components=1
 
+# Configuration
 mv config.json config.json.example
 cat << EOF > config.json
 {

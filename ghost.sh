@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     nodejs_version: '18'
@@ -17,12 +18,13 @@
 
 # https://ghost.org/docs/faq/node-versions/
 # https://ghost.org/docs/install/local/
-# https://ghost.org/docs/config/
 
 npm install ghost-cli@latest
 
 node_modules/ghost-cli/bin/ghost install local -d website
 
+# Configuration
+# https://ghost.org/docs/config/
 cat << EOF > website/config.production.json
 {
   "url": "https://$INSTALL_URL/",

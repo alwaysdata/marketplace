@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -12,9 +13,11 @@
 
 set -e
 
+# https://pypi.org/project/calibreweb/
+
 export PYTHON_VERSION=3.12
 
-# Python environment
+# Create virtualenv and install Calibre in it
 python -m venv env
 source env/bin/activate
 
@@ -24,5 +27,5 @@ pip install calibreweb
 # Initialize the database using the port we specify
 CALIBRE_PORT=$PORT timeout 5s cps || true
 
-# default credentials: admin / admin123
+# default credentials for first login: admin / admin123
 # You will need to upload your Calibre library (books and metadata database) in your alwaysdata account via SSH/SFTP/FTP.

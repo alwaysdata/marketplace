@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -28,12 +29,13 @@
 
 set -e
 
+# Download
 wget -O-  --no-hsts https://github.com/offen/offen/releases/download/v1.3.4/offen-v1.3.4.tar.gz | tar -xz --strip-components=0
 
 rm -rf offen-darwin* offen-linux-arm* offen-windows*
 
+# Configuration
 # https://docs.offen.dev/running-offen/configuring-the-application/
-
 cat << EOF > offen.env
 OFFEN_SERVER_PORT="$PORT"
 OFFEN_DATABASE_DIALECT="postgres"

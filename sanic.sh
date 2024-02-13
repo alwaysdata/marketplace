@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -11,13 +12,15 @@
 
 set -e
 
+# https://sanic.dev/en/guide/getting-started.html
+
 export PYTHON_VERSION=3.11
 
+# Create a virtualenv
 python -m venv env
 source env/bin/activate
 
-# https://sanic.dev/en/guide/getting-started.html
-
+# Install Sanic in it
 pip --cache-dir=/dev/null install sanic
 
 cat << EOF > hello.py

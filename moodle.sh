@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -65,6 +66,7 @@ chmod 755 moodledata
 
 php moodle/admin/cli/install.php --dbtype=mariadb --dbhost="$DATABASE_HOST" --dbname="$DATABASE_NAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --lang="$FORM_LANGUAGE" --wwwroot="https://$INSTALL_URL" --dataroot="$INSTALL_PATH/moodledata/" --adminuser="$FORM_ADMIN_USERNAME" --adminpass="$FORM_ADMIN_PASSWORD" --adminemail="$FORM_EMAIL" --fullname="$FORM_TITLE" --shortname="$FORM_TITLE" --agree-license --non-interactive
 
+# Clean install environment
 rm -rf .composer
 
 shopt -s dotglob

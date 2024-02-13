@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -12,8 +13,10 @@
 
 set -e
 
+# Download
 wget -O- --no-hsts https://github.com/maxpozdeev/mytinytodo/releases/download/v1.8.1/mytinytodo-v1.8.1.tar.gz| tar -xz --strip-components=1
 
+# Configuration
 cat << EOF > config.php
 <?php
 

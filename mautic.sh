@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -45,8 +46,10 @@ COMPOSER_CACHE_DIR=/dev/null composer2 create-project mautic/core
 
 cd core
 
+# Install
 php bin/console mautic:install --db_driver="pdo_mysql" --db_host="$DATABASE_HOST" --db_port="3306" --db_name="$DATABASE_NAME" --db_user="$DATABASE_USERNAME" --db_password="$DATABASE_PASSWORD" --admin_username="$FORM_ADMIN_USERNAME" --admin_email="$FORM_EMAIL" --admin_password="$FORM_ADMIN_PASSWORD" https://$INSTALL_URL
 
+# Clean install environment
 cd
 rm -rf .config .local .subversion vendor
 shopt -s dotglob

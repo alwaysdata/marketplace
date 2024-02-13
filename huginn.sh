@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -29,10 +30,11 @@ set -e
 
 export RUBY_VERSION=2.7
 
+# Download
 wget -O- --no-hsts https://github.com/huginn/huginn/archive/refs/tags/v2022.08.18.tar.gz|tar -xz --strip-components=1
 
+# Environment
 cat << EOF > .env
-
 DOMAIN=$INSTALL_URL
 PORT=$PORT
 
@@ -60,6 +62,7 @@ SMTP_DELIVERY_METHOD=sendmail
 EMAIL_FROM_ADDRESS=$USER@$RESELLER_DOMAIN
 EOF
 
+# Install
 RAILS_ENV=production bundle install
 
 sed -i "1iAPP_SECRET_TOKEN=$(rake secret | sed 's/ .*//')" .env

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -12,4 +13,3 @@
 set -e
 
 wget --no-hsts http://mirrors.jenkins.io/war-stable/latest/jenkins.war
-# The rest is GUI - Jenkins blocks POST requests which we need to continue (via the cURL command)

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -35,6 +36,7 @@ set -e
 
 ad_install_pecl mcrypt
 
+# Download
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project microweber/microweber --no-interaction
 
 cd microweber
@@ -74,9 +76,10 @@ cat << EOF > config/database.php
 );
 EOF
 
+# Install
 php artisan microweber:install --email="$FORM_EMAIL" --username="$FORM_ADMIN_USERNAME" --password="$FORM_ADMIN_PASSWORD" --db-host="$DATABASE_HOST" --db-name="$DATABASE_NAME" --db-username="$DATABASE_USERNAME" --db-password="$DATABASE_PASSWORD" --db-driver=mysql --template=default --default-content
 
-# Nettoyage
+# Clean install environment
 cd
 rm -rf .subversion .config .local .rnd
 shopt -s dotglob

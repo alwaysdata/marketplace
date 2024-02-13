@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     python_version: '3.12'
 #     type: 'wsgi'
@@ -14,9 +15,11 @@ set -e
 
 # https://flask.palletsprojects.com/en/2.2.0/installation/#install-flask
 
+# Create virtualenv and install Flask in it
 python -m venv env
 env/bin/pip install Flask
 
+# Create template
 cat << EOF > __init__.py
 from flask import Flask
 from flask import render_template

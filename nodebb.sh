@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     nodejs_version: '20.9.0'
@@ -33,8 +34,10 @@ set -e
 
 # https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
 
+# Download
 wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.6.5.tar.gz|tar -xz --strip-components=1
 
+# Configuration
 cat << EOF > config.json
 {
     "url": "http://$INSTALL_URL",
@@ -53,6 +56,7 @@ cat << EOF > config.json
 }
 EOF
 
+# Install
 export NODEBB_ADMIN_USERNAME="$FORM_ADMIN_USERNAME"
 export NODEBB_ADMIN_EMAIL="$FORM_EMAIL"
 export NODEBB_ADMIN_PASSWORD="$FORM_ADMIN_PASSWORD"

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -32,8 +33,10 @@
 
 set -e
 
-wget -O- --no-hsts https://github.com/writefreely/writefreely/releases/download/v0.15.0/writefreely_0.15.0_linux_amd64.tar.gz|tar -xz --strip-components=1
+# Download
+wget -O- --no-hsts https://github.com/writefreely/releases/download/v0.15.0/writefreely_0.15.0_linux_amd64.tar.gz|tar -xz --strip-components=1
 
+# Configuration
 ./writefreely config generate
 
 sed -i "s|port                 = 8080|port = $PORT|" config.ini
@@ -47,4 +50,6 @@ sed -i "s|host               = http://localhost:8080|host = http://$INSTALL_URL|
 
 ./writefreely --init-db
 ./writefreely keys generate
+
+# Create admin user
 ./writefreely --create-admin $FORM_ADMIN_USERNAME:$FORM_ADMIN_PASSWORD

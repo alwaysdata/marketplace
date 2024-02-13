@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -49,8 +50,13 @@ set -e
 
 # https://www.dokuwiki.org/requirements
 
+# Download
 wget -O- --no-hsts https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz | tar -xz --strip-components=1
 
+# Install
 curl -X POST -F l="$FORM_LANGUAGE" -F d[title]="$FORM_TITLE" -F d[acl]=on -F d[superuser]="$FORM_ADMIN_USERNAME" -F d[fullname]="$FORM_ADMIN_NAME" -F d[email]="$FORM_EMAIL" -F d[password]="$FORM_ADMIN_PASSWORD" -F d[confirm]="$FORM_ADMIN_PASSWORD" -F d[policy]=0 -F d[license]=cc-by-sa -F d[pop]=on -F submit=Save http://$INSTALL_URL/install.php
 
+# Install environment cleaning
 rm install.php
+
+# WAF specific profile: https://help.alwaysdata.com/en/sites/waf/#available-profiles

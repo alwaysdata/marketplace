@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     php_version: '8.3'
@@ -11,8 +12,10 @@
 
 set -e
 
+# Download
 wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.35.tar.gz | tar -xz --strip-components=1
 
+# Configuration
 # https://docs.kanboard.org/en/latest/admin_guide/config_file.html
 mv config.default.php config.php
 
@@ -23,4 +26,4 @@ sed -i "s|'DB_PASSWORD', ''|'DB_PASSWORD', '$DATABASE_PASSWORD'|" config.php
 sed -i "s|'DB_HOSTNAME', 'localhost'|'DB_HOSTNAME', '$DATABASE_HOST'|" config.php
 sed -i "s|'DB_NAME', 'kanboard'|'DB_NAME', '$DATABASE_NAME'|" config.php
 
-# default credentials: admin / admin
+# Default credentials for first login: admin / admin

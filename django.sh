@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     path_trim: true
@@ -19,11 +20,14 @@
 
 set -e
 
-# Python environment
+# https://docs.djangoproject.com/en/5.0/faq/install/
+
+# Create a virtualenv and install Django in it
 python -m venv env
 source env/bin/activate
 
-# Django setup
 pip install Django
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
+
+# By default ALLOWED_HOSTS is empty (https://docs.djangoproject.com/en/5.0/ref/settings/#allowed-hosts). We modify it so that it works for all possible addresses.
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py

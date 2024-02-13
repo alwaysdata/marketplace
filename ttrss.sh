@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -15,8 +16,10 @@ set -e
 
 # https://git.tt-rss.org/fox/tt-rss/wiki/InstallationNotes
 
+# Download
 git clone https://tt-rss.org/git/tt-rss.git . --depth 1
 
+# Configuration
 cat << EOF > config.php
 
 <?php
@@ -33,4 +36,4 @@ EOF
 
 echo "yes" | php update.php --update-schema
 
-# default credentials: admin / password
+# Default credentials for first login: admin / password

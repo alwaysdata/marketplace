@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -16,6 +17,7 @@
 
 set -e
 
+# Download
 wget --no-hsts https://raw.githubusercontent.com/jjlin/docker-image-extract/main/docker-image-extract
 chmod +x docker-image-extract
 
@@ -23,6 +25,7 @@ chmod +x docker-image-extract
 mv ./output/{vaultwarden,web-vault} .
 rm -rf ./output
 
+# Configuration
 mkdir -p data
 cat << EOF > data/config.json
 {

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     nodejs_version: '20'
@@ -28,10 +29,14 @@ set -e
 
 export PYTHON_VERSION=3.11
 
+# https://docs.directus.io/self-hosted/cli.html
+
+# Install Directus & dependancies
 npm init -y
 sed -i '/\"scripts\": {/a\ \ \ \ \"start\": \"directus start\",' package.json
 npm install directus
 
+# Configuration
 # https://docs.directus.io/configuration/config-options/
 # https://github.com/directus/directus/blob/main/api/example.env
 cat << EOF > .env

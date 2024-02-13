@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -19,7 +20,7 @@ set -e
 wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.5/gitea-1.21.5-linux-amd64
 chmod +x gitea
 
-# Directories and config file creations
+# Configuration
 mkdir -p custom/conf data indexers public log
 
 cat << EOF > custom/conf/app.ini

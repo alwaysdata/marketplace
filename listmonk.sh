@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -25,8 +26,10 @@ set -e
 
 # https://listmonk.app/docs/installation/
 
+# Download
 wget -O- --no-hsts https://github.com/knadh/listmonk/releases/download/v3.0.0/listmonk_3.0.0_linux_amd64.tar.gz | tar -xz --strip-components=0
 
+# Configuration
 cat << EOF > config.toml
 [app]
 address = "0.0.0.0:$PORT"
@@ -48,4 +51,5 @@ max_idle = 25
 max_lifetime = "300s"
 EOF
 
+# Install
 ./listmonk --install --yes

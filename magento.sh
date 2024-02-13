@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -42,6 +43,7 @@
 
 set -e
 
+# Download
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project magento/community-edition community-edition 2.3.7-p4 --no-install
 
 cd community-edition
@@ -52,19 +54,20 @@ COMPOSER_CACHE_DIR=/dev/null composer2 config --no-plugins allow-plugins.dealerd
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install -n
 
-# Magento CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
-
+# Install
+# CLI: http://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-install.html
 php bin/magento setup:install --admin-firstname="$FORM_ADMIN_FIRSTNAME" --admin-lastname="$FORM_ADMIN_LASTNAME" --admin-email="$FORM_EMAIL" --admin-user="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --db-host="$DATABASE_HOST" --db-name="$DATABASE_NAME" --db-user="$DATABASE_USERNAME" --db-password="$DATABASE_PASSWORD" --backend-frontname=admin
 
+# Handle base URL
 sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" .htaccess
 sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH|" pub/.htaccess
 sed -i "s|    #RewriteBase.*|    RewriteBase $INSTALL_URL_PATH/pub/static/|" pub/static/.htaccess
 
+# Clean install environment
 cd
 rm -rf .config .local .subversion
-
 shopt -s dotglob
 mv community-edition/* .
 rmdir community-edition
 
-# Magento 2.4 requires Elasticsearch which is not compliant with the Public Cloud.
+# Magento 2.4 requires Elasticsearch - https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html - which is not compliant with the Public Cloud.

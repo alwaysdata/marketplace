@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     python_version: '3.11'
@@ -39,12 +40,15 @@ set -e
 
 # http://docs.oscarcommerce.com/en/latest/internals/getting_started.html#install-oscar-and-its-dependencies
 
+# Create a virtualenv and install Oscar in it
 python -m venv env
 source env/bin/activate
 
 python -m pip install django-oscar[sorl-thumbnail]
 
 ./env/bin/django-admin startproject $FORM_PROJECT .
+
+# Configuration
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|ALLOWED_HOSTS = \[\]|ALLOWED_HOSTS = \[\'*\'\]|" $FORM_PROJECT/settings.py
 sed -i "/from pathlib import Path/a from oscar.defaults import *" $FORM_PROJECT/settings.py
@@ -158,8 +162,8 @@ python manage.py migrate
 echo "yes"| python manage.py collectstatic
 python manage.py oscar_populate_countries
 
-# First admin user
+# Create admin user
 DJANGO_SUPERUSER_PASSWORD="$FORM_ADMIN_PASSWORD" python manage.py createsuperuser --username $FORM_ADMIN_USERNAME --email $FORM_EMAIL --noinput
 
-# Cleaning
+# Clean install environment
 rm -rf ~/.cache

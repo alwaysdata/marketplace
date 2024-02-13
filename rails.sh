@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
@@ -24,14 +25,6 @@ bundle install
 
 echo "Rails.application.config.hosts << '${INSTALL_URL_HOSTNAME}'" >> config/environments/production.rb
 
-cat << EOF > config.ru
-require_relative 'config/environment'
-
-map '${INSTALL_URL_PATH}' do
-  run Rails.application
-end
-EOF
-
 cat << EOF > config/routes.rb
 Rails.application.routes.draw do
   root "articles#index"
@@ -48,3 +41,5 @@ cat << EOF > app/views/articles/index.html.erb
 EOF
 
 RAILS_ENV=production bundle exec rake assets:precompile
+
+# Rails runs with a Puma embedded webserver - https://puma.io/

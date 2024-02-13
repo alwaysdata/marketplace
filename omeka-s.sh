@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -45,12 +46,13 @@
 
 set -e
 
-wget -O- --no-hsts https://github.com/omeka/omeka-s/archive/v4.0.4.tar.gz | tar -xz --strip-components=1
-
 # https://omeka.org/s/docs/user-manual/install/
 
+# Download & install dependancies
+wget -O- --no-hsts https://github.com/omeka/omeka-s/archive/v4.0.4.tar.gz | tar -xz --strip-components=1
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
+# Configuration
 cat << EOF > config/database.ini
 user = '$DATABASE_USERNAME'
 password = '$DATABASE_PASSWORD'
@@ -60,4 +62,5 @@ EOF
 
 mv .htaccess.dist  .htaccess
 
+# Install
 curl -X POST -F user[email]="$FORM_EMAIL" -F user[email-confirm]="$FORM_EMAIL" -F user[name]="$FORM_ADMIN_USERNAME" -F user[password-confirm][password]="$FORM_ADMIN_PASSWORD" -F user[password-confirm][password-confirm]="$FORM_ADMIN_PASSWORD" -F settings[installation_title]="$FORM_TITLE" -F settings[time_zone]=Europe/Paris -F settings[locale]="$FORM_LANGUAGE" -F submit=Submit http://$INSTALL_URL/install

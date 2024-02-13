@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -43,14 +44,19 @@ set -e
 
 # https://www.mediawiki.org/wiki/Compatibility
 
+# Download & install dependancies
 wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.41/mediawiki-1.41.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
+
+# Install
 php maintenance/install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="http://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" --skins=Vector "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
 
+# Handle root base URL
 if [ "$INSTALL_URL_PATH" = "/" ]
 then
     sed -i 's|\$wgScriptPath = "/";|\$wgScriptPath = "";|' LocalSettings.php
 fi
 
+# Clean install environment
 rm -rf .composer

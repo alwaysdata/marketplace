@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
@@ -39,8 +40,10 @@ set -e
 
 # https://docs.flarum.org/install.html#server-requirements
 
+# Download and install dependancies
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project flarum/flarum default
 
+# Configuration
 cat << EOF > config.yml
 baseUrl : "https://$INSTALL_URL"
 databaseConfiguration :
@@ -57,6 +60,7 @@ settings :
     forum_title : "$FORM_TITLE"
 EOF
 
+# Install
 php default/flarum install -f config.yml
 
 # https://flarum.org/docs/install.html#customizing-paths
@@ -71,8 +75,8 @@ then
   sed -i 's|\ \ \#\ RewriteRule \^vendor\/(.*)?\$ \/ \[F,L\]|\ \ RewriteRule \^vendor\/(.*)?\$ \/ \[F,L\]|' default/public/.htaccess
 fi
 
+# Clean install environment
 rm -rf .composer config.yml
-
 shopt -s dotglob
 mv default/* .
 rmdir default

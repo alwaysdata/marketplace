@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     python_version: '3.11'
@@ -41,15 +42,17 @@
 
 set -e
 
+# https://spirit.readthedocs.io/en/latest/installation.html
+
+# Create a virtualenv & install Spirit in it
 python -m venv env
 source env/bin/activate
-
-# https://spirit.readthedocs.io
 
 pip install django-spirit psycopg2
 
 ./env/bin/spirit startproject $FORM_PROJECT --path=.
 
+# Configuration
 cat << EOF > $FORM_PROJECT/settings/prod_local.py
 from .base import *
 
@@ -67,11 +70,11 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 EOF
 
+# Install
 python manage.py spiritinstall --settings=$FORM_PROJECT.settings.prod_local
 python manage.py migrate --settings=$FORM_PROJECT.settings.prod_local
 
-# First admin user
+# Create admin user
 DJANGO_SUPERUSER_PASSWORD="$FORM_ADMIN_PASSWORD" python manage.py createsuperuser --username $FORM_ADMIN_USERNAME --email $FORM_EMAIL --settings=$FORM_PROJECT.settings.prod_local --noinput

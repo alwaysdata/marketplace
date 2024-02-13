@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     path_trim: true
@@ -38,14 +39,15 @@
 
 set -e
 
-# Python environment
+# https://docs.django-cms.org/en/latest/how_to/install.html
+
+# Create virtualenv and install dependancies
 python -m venv env
 source env/bin/activate
-
-# Django-CMS setup
-# https://docs.django-cms.org/en/latest/how_to/install.html
 python -m pip install django-cms Django psycopg2
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
+
+# Configuration
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
 
@@ -129,8 +131,8 @@ python manage.py migrate
 
 echo "yes"| python manage.py collectstatic
 
-# First admin user
+# Create admin username
 DJANGO_SUPERUSER_PASSWORD="$FORM_ADMIN_PASSWORD" python manage.py createsuperuser --username $FORM_ADMIN_USERNAME --email $FORM_EMAIL --noinput
 
-# Cleaning
+# Clean install environment
 rm -rf ~/.cache

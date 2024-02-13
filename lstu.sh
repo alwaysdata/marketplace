@@ -1,5 +1,6 @@
 #!/bin/bash
-#
+
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #       type: user_program
 #       working_directory: '{INSTALL_PATH}/app'
@@ -39,7 +40,6 @@ carton install \
     --without=sqlite
 
 # Config
-
 sed -e "s/127.0.0.1:8080/$IP:$PORT/" \
     -e "s/#proxy/proxy/" \
     -e "s/#contact/contact/" \

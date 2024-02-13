@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -25,8 +26,10 @@
 
 set -e
 
+# Download and install dependancies
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project mojo42/jirafeau
 
+# Configuration
 cp jirafeau/lib/config.original.php jirafeau/lib/config.local.php
 
 mkdir -p jirafeau/data/{files,links,async}
@@ -81,6 +84,7 @@ cat << EOF > jirafeau/lib/config.local.php
 
 EOF
 
+# Clean install environment
 rm -rf .config .local .subversion
 shopt -s dotglob
 mv jirafeau/* .

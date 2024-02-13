@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
@@ -49,6 +50,7 @@ set -e
 
 # https://www.drupal.org/docs/system-requirements
 
+# Download & install dependancies
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 cd recommended-project
@@ -57,17 +59,21 @@ sed -i "/\"require\": {/a \ \ \ \ \ \ \ \ \"drush/drush\": \"^12.1\"," composer.
 
 COMPOSER_CACHE_DIR=/dev/null composer2 update
 
-# https://drushcommands.com
+# Install
+# CLI: https://drushcommands.com
 echo "y" | php vendor/drush/drush/drush.php si --db-url=mysql://"$DATABASE_USERNAME":"$DATABASE_PASSWORD"@"$DATABASE_HOST"/"$DATABASE_NAME" --account-name="$FORM_ADMIN_USERNAME" --account-pass="$FORM_ADMIN_PASSWORD" --account-mail="$FORM_EMAIL" --site-name="$FORM_SITE_NAME" --locale="$FORM_LANGUAGE"
 
+# Handle subdirectories base URL
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
     sed -i "s|# RewriteBase /$|RewriteBase $INSTALL_URL_PATH|" web/.htaccess
 fi
 
+# Clean install environment
 cd
 rm -rf .config .local .subversion
-
 shopt -s dotglob
 mv recommended-project/* .
 rmdir recommended-project
+
+# WAF specific profile: https://help.alwaysdata.com/en/sites/waf/#available-profiles
