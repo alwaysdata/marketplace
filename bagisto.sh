@@ -20,7 +20,7 @@ set -e
 # https://devdocs.bagisto.com/2.x/introduction/requirements.html
 
 # Download
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project bagisto/bagisto:1.4.5
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project bagisto/bagisto
 
 # Configuration
 sed -i "s|APP_URL=http://localhost|APP_URL=http://$INSTALL_URL|" bagisto/.env
