@@ -31,7 +31,7 @@
 set -e
 
 # Download and install dependancies
-git clone -b 2.11.0 --depth 1 https://github.com/kimai/kimai.git
+git clone -b 2.12.0 --depth 1 https://github.com/kimai/kimai.git
 cd kimai/
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
