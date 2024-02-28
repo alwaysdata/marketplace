@@ -8,7 +8,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 105
+#     disk: 200
 # form:
 #     title:
 #         label:
