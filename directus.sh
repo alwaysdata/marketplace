@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
-#     nodejs_version: '20'
+#     nodejs_version: '18'
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'npx directus start'
 #     environment: |
@@ -12,7 +12,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 550
+#     disk: 600
 # form:
 #     admin_email:
 #         type: email
@@ -33,12 +33,12 @@ export PYTHON_VERSION=3.11
 
 # Install Directus & dependancies
 npm init -y
-sed -i '/\"scripts\": {/a\ \ \ \ \"start\": \"directus start\",' package.json
-npm install directus
+npm install directus --omit=dev
+npm install mysql
 
 # Configuration
 # https://docs.directus.io/configuration/config-options/
-# https://github.com/directus/directus/blob/main/api/example.env
+# https://github.com/directus/directus/blob/main/api/src/cli/utils/create-env/env-stub.liquid
 cat << EOF > .env
 ##################
 
@@ -65,8 +65,8 @@ DB_PASSWORD="$DATABASE_PASSWORD"
 
 # Security
 
-KEY="$(echo $RANDOM | md5sum | sed 's/ .*//')"
-SECRET="$(echo $RANDOM | md5sum | sed 's/ .*//')"
+KEY="$(python -c "import uuid; print(uuid.uuid4())")"
+SECRET="$(head /dev/urandom| tr -dc A-Za-z0-9_- | head -c 32)"
 
 ##################
 
@@ -96,7 +96,7 @@ EMAIL_SENDMAIL_NEW_LINE="unix"
 EMAIL_SENDMAIL_PATH="/usr/sbin/sendmail"
 EOF
 
-mkdir uploads
+mkdir -p {uploads,extensions/{interfaces,displays,layouts,modules}}
 
 export ADMIN_EMAIL=$FORM_ADMIN_EMAIL
 export ADMIN_PASSWORD=$FORM_ADMIN_PASSWORD
