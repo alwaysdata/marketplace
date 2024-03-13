@@ -17,7 +17,7 @@ set -e
 # https://docs.gitea.io/en-us/install-from-binary/
 
 # Download
-wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.7/gitea-1.21.7-linux-amd64
+wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.21.8/gitea-1.21.8-linux-amd64
 chmod +x gitea
 
 # Configuration
