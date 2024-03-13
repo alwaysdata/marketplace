@@ -5,20 +5,22 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
 #     php_version: '8.3'
+#     php_ini: |
+#         extension=sqlite3.so
+#         extension=pdo_sqlite.so
 # requirements:
-#     disk: 55
+#     disk: 80
 
 set -e
 
 # https://laravel.com/docs/
 
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project --prefer-dist laravel/laravel default
-# composer require/laravel new fails because of tty
+COMPOSER_CACHE_DIR=/dev/null composer2 create-project laravel/laravel default
 
 sed -i "s|APP_URL=http://localhost|APP_URL=http://$INSTALL_URL|" default/.env
 
 # Clean install environment
-rm -rf .composer .subversion vendor composer.json composer.lock
+rm -rf .config .subversion .local
 shopt -s dotglob
 mv default/* .
 rmdir default
