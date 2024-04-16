@@ -4,7 +4,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
-#     command: '~{INSTALL_PATH_RELATIVE}/gogs web'
+#     command: './gogs web'
 #     path_trim: true
 # database:
 #     type: postgresql

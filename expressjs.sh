@@ -5,7 +5,7 @@
 #     type: nodejs
 #     nodejs_version: '20'
 #     working_directory: '{INSTALL_PATH}'
-#     command: 'node ~{INSTALL_PATH_RELATIVE}/app.js'
+#     command: 'node ./app.js'
 #     path_trim: true
 # requirements:
 #     disk: 5

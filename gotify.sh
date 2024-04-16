@@ -4,7 +4,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
-#     command: '~{INSTALL_PATH_RELATIVE}/gotify-linux-amd64'
+#     command: './gotify-linux-amd64'
 # requirements:
 #     disk: 25
 

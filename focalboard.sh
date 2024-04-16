@@ -4,7 +4,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
-#     command: '~{INSTALL_PATH_RELATIVE}/bin/focalboard-server'
+#     command: './bin/focalboard-server'
 #     path_trim: true
 # database:
 #     type: postgresql

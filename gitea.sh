@@ -4,7 +4,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH}'
-#     command: '~{INSTALL_PATH_RELATIVE}/gitea web'
+#     command: './gitea web'
 #     path_trim: true
 #     ssl_force: true
 # database:
