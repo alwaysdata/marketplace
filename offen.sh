@@ -30,7 +30,7 @@
 set -e
 
 # Download
-wget -O-  --no-hsts https://github.com/offen/offen/releases/download/v1.4.0/offen-v1.4.0.tar.gz | tar -xz --strip-components=0
+wget -O-  --no-hsts https://github.com/offen/offen/releases/download/v1.4.1/offen-v1.4.1.tar.gz | tar -xz --strip-components=0
 
 rm -rf offen-darwin* offen-linux-arm* offen-windows*
 
