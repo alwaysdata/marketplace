@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
-#     nodejs_version: '18'
+#     nodejs_version: '18.19.1'
 #     working_directory: '{INSTALL_PATH}/website'
 #     command: 'node current/index.js'
 #     ssl_force: true
@@ -13,13 +13,14 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 1300
+#     disk: 1200
 
+set -e
 
 # https://ghost.org/docs/faq/node-versions/
 # https://ghost.org/docs/install/local/
 
-npm install ghost-cli@latest
+npm install ghost-cli
 
 node_modules/ghost-cli/bin/ghost install local -d website
 
