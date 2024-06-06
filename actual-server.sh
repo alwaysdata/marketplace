@@ -7,12 +7,13 @@
 #     working_directory: '{INSTALL_PATH}'
 #     command: 'node ./app.js'
 #     path_trim: true
+#     ssl_force: true
 # requirements:
 #     disk: 440
 
 set -e
 
-VERSION=24.5.0
+VERSION=24.6.0
 
 # https://github.com/actualbudget/actual-server#running
 
