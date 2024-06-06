@@ -29,8 +29,8 @@ sed -i "s|DB_PASSWORD=database_user_password|DB_PASSWORD=$DATABASE_PASSWORD|" .e
 
 mv .env.example .env
 
-echo "yes" |php artisan key:generate
-echo "yes" |php artisan migrate
+php artisan key:generate --force
+php artisan migrate --force
 
 # Clean install environment
 cd ..
