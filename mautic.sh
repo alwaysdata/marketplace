@@ -35,6 +35,7 @@
 #             fr: Mot de passe de l'administrateur
 #         min_length: 6
 #         max_length: 255
+#         regex: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*-+_!@#$%^&.,?])[A-Za-z\d*-+_!@#$%^&.,?]{6,}$
 
 set -e
 
