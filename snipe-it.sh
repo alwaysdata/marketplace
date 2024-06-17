@@ -72,4 +72,4 @@ IMAGE_LIB=imagick
 EOF
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
-echo "y" | php artisan key:generate
+php artisan key:generate --force
