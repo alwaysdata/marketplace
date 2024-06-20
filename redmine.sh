@@ -30,7 +30,7 @@ set -e
 # https://www.redmine.org/projects/redmine/wiki/RedmineInstall
 
 # Download
-wget -O- https://www.redmine.org/releases/redmine-5.1.2.tar.gz | tar -xz --strip-components=1
+wget -O- https://www.redmine.org/releases/redmine-5.1.3.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config/database.yml
