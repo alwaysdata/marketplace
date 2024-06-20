@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.1'
+#     php_version: '8.3'
 #     php_ini: |
 #         memory_limit=4096M
 #         extension=intl.so
@@ -31,7 +31,7 @@ sed -i "s|DB_PASSWORD=|DB_PASSWORD=$DATABASE_PASSWORD|" bagisto/.env
 
 # Install
 cd bagisto
-php artisan bagisto:install
+php artisan bagisto:install --skip-admin-creation
 
 # Clean install environment
 cd
