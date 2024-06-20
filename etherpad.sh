@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '20'
-#     working_directory: '{INSTALL_PATH}'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'node src/node/server.js'
 #     environment: |
 #         NODE_ENV=production

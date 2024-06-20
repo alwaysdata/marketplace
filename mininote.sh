@@ -4,8 +4,8 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '18'
-#     working_directory: '{INSTALL_PATH}'
-#     command: '{INSTALL_PATH}/node_modules/yarn/bin/yarn start'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
+#     command: './node_modules/yarn/bin/yarn start'
 #     environment: HOME={INSTALL_PATH}
 # requirements:
 #     disk: 1000

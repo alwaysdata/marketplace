@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #       type: user_program
-#       working_directory: '{INSTALL_PATH}/app'
+#       working_directory: '{INSTALL_PATH_RELATIVE}/app'
 #       command: '{INSTALL_PATH}/perl5/bin/carton exec hypnotoad -f script/lstu'
 #       environment: 'PERL5LIB={INSTALL_PATH}/perl5/lib/perl5 PERL_LOCAL_LIB_ROOT={INSTALL_PATH}/perl5'
 # database:

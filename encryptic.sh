@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '16'
-#     working_directory: '{INSTALL_PATH}/encryptic'
+#     working_directory: '{INSTALL_PATH_RELATIVE}/encryptic'
 #     command: './node_modules/gulp/bin/gulp.js'
 #     path_trim: true
 # requirements:

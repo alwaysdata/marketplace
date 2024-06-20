@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '20'
-#     working_directory: '{INSTALL_PATH}'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'npx next start --port $PORT --hostname $IP'
 # requirements:
 #     disk: 360

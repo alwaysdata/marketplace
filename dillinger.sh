@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '18.5.0'
-#     working_directory: '{INSTALL_PATH}'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'node app.js'
 #     environment: 'NODE_ENV=production'
 # requirements:

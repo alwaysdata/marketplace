@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '18.19.1'
-#     working_directory: '{INSTALL_PATH}/website'
+#     working_directory: '{INSTALL_PATH_RELATIVE}/website'
 #     command: 'node current/index.js'
 #     ssl_force: true
 #     environment: |

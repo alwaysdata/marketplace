@@ -4,7 +4,7 @@
 # site:
 #     type: nodejs
 #     nodejs_version: '18'
-#     working_directory: '{INSTALL_PATH}'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'npx directus start'
 #     environment: |
 #         'HOME={INSTALL_PATH}'

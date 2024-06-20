@@ -4,7 +4,7 @@
 # site:
 #     type: elixir
 #     elixir_version: '1.11'
-#     working_directory: '{INSTALL_PATH}/hello'
+#     working_directory: '{INSTALL_PATH_RELATIVE}/hello'
 #     command: 'mix phx.server'
 #     environment: |
 #         MIX_HOME={INSTALL_PATH}/.mix
