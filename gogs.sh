@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: user_program
-#     working_directory: '{INSTALL_PATH}'
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: './gogs web'
 #     path_trim: true
 # database:
@@ -22,10 +22,18 @@ mkdir -p custom/conf
 cat << EOF > custom/conf/app.ini
 
 RUN_MODE = prod
+RUN_USER   = $USER
 [server]
 HTTP_PORT = $PORT
 DOMAIN = 0.0.0.0
 EXTERNAL_URL = http://$INSTALL_URL/
+
+[database]
+DB_TYPE  = postgres
+HOST     = $DATABASE_HOST:5432
+NAME     = $DATABASE_NAME
+USER     = $DATABASE_USERNAME
+PASSWORD = $DATABASE_PASSWORD
 EOF
 
 # Install
