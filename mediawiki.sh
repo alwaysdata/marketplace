@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.2'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -45,17 +45,17 @@ set -e
 # https://www.mediawiki.org/wiki/Compatibility
 
 # Download & install dependancies
-wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.41/mediawiki-1.41.1.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
 # Install
-php maintenance/install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="http://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" --skins=Vector "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
+php maintenance/run.php install.php --dbname="$DATABASE_NAME" --installdbpass="$DATABASE_PASSWORD" --dbserver="$DATABASE_HOST" --installdbuser="$DATABASE_USERNAME" --dbuser="$DATABASE_USERNAME" --dbpass="$DATABASE_PASSWORD" --dbprefix=wiki --lang="$FORM_LANGUAGE" --pass="$FORM_ADMIN_PASSWORD" --server="https://$INSTALL_URL_HOSTNAME" --scriptpath="$INSTALL_URL_PATH" --skins=Vector "$FORM_TITLE" "$FORM_ADMIN_USERNAME"
 
 # Handle root base URL
 if [ "$INSTALL_URL_PATH" = "/" ]
 then
-    sed -i 's|\$wgScriptPath = "/";|\$wgScriptPath = "";|' LocalSettings.php
+    sed -i "s|wgScriptPath = '/'|wgScriptPath = ''|" LocalSettings.php
 fi
 
 # Clean install environment
