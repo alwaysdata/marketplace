@@ -33,8 +33,8 @@ export PYTHON_VERSION=3.11
 
 # Install Directus & dependancies
 npm init -y
-npm install directus --omit=dev
-npm install mysql
+npm install directus --omit=dev --max-old-space-size=256 --max-semi-space-size=256
+npm install mysql  --max-old-space-size=256 --max-semi-space-size=256
 
 # Configuration
 # https://docs.directus.io/configuration/config-options/
