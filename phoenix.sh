@@ -3,7 +3,6 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: elixir
-#     elixir_version: '1.11'
 #     working_directory: '{INSTALL_PATH_RELATIVE}/hello'
 #     command: 'mix phx.server'
 #     environment: |
