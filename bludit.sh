@@ -12,7 +12,7 @@ set -e
 
 # https://docs.bludit.com/en/getting-started/requirements
 
-wget -O- --no-hsts https://github.com/bludit/bludit/archive/refs/tags/3.15.0.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/bludit/bludit/archive/refs/tags/3.16.0.zip | bsdtar --strip-components=1 -xf -
 
 
 if [ "$INSTALL_URL_PATH" != "/" ]
