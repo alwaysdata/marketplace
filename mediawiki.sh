@@ -45,7 +45,7 @@ set -e
 # https://www.mediawiki.org/wiki/Compatibility
 
 # Download & install dependancies
-wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.0.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.1.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
