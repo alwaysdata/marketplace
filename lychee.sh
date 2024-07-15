@@ -14,7 +14,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v5.5.0/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v5.5.1/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
