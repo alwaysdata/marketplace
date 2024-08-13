@@ -13,7 +13,7 @@
 set -e
 
 # https://www.odoo.com/documentation/17.0/administration/install/source.html
-# https://www.odoo.com/documentation/17.0/administration/install/deploy.html#builtin-server
+# https://www.odoo.com/documentation/17.0/administration/on_premise/deploy.html#builtin-server
 # https://www.odoo.com/documentation/17.0/developer/reference/cli.html
 
 export PYTHON_VERSION=3.11
@@ -39,13 +39,13 @@ db_name = $DATABASE_NAME
 db_user = $DATABASE_USERNAME
 db_password = $DATABASE_PASSWORD
 db_host = $DATABASE_HOST
-addons-path = $INSTALL_PATH/addons
-data-dir = $INSTALL_PATH/odoo-data
+addons_path = $INSTALL_PATH/addons
+data_dir = $INSTALL_PATH/odoo-data
 email_from = $USER@$RESELLER_DOMAIN
 http_interface = ::
 EOF
 
 # Install
-python odoo-bin --config=.odoorc --init $DATABASE_NAME --no-http --stop-after-init
+python odoo-bin --config=.odoorc --init --no-http --stop-after-init
 
 # Default credentials for first login: admin / admin
