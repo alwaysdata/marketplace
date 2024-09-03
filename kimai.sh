@@ -5,7 +5,9 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '8.3'
-#     php_ini: extension=intl.so
+#     php_ini: |
+#         extension=intl.so
+#         memory_limit=512M
 # database:
 #     type: mysql
 # requirements:
@@ -31,7 +33,7 @@
 set -e
 
 # Download and install dependancies
-git clone -b 2.20.1 --depth 1 https://github.com/kimai/kimai.git
+git clone -b 2.21.0 --depth 1 https://github.com/kimai/kimai.git
 cd kimai/
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
