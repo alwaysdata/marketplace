@@ -22,7 +22,7 @@
 
 set -e
 
-wget -O- --no-hsts https://github.com/filebrowser/filebrowser/releases/download/v2.30.0/linux-amd64-filebrowser.tar.gz | tar -xz --strip-components=0
+wget -O- --no-hsts https://github.com/filebrowser/filebrowser/releases/download/v2.31.1/linux-amd64-filebrowser.tar.gz | tar -xz --strip-components=0
 
 ./filebrowser config init -a "0.0.0.0" -p "$PORT" -b "$INSTALL_URL_PATH"
 ./filebrowser users add $FORM_USERNAME $FORM_PASSWORD
