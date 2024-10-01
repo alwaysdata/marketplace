@@ -19,11 +19,11 @@ set -e
 # https://docs.strapi.io/dev-docs/installation/cli
 
 npm install create-strapi-app
-npx create-strapi-app default  --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --dbforce --no-run --skip-cloud
+npx create-strapi-app default  --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --no-run --skip-cloud --example --typescript --no-git-init --install
 
 cd default
 
-sed -i  "/port: env.int('PORT', 1337),/a \ \ url: 'https://$INSTALL_URL'," config/server.js
+sed -i  "/port: env.int('PORT', 1337),/a \ \ url: 'https://$INSTALL_URL'," config/server.ts
 
 npm run build
 
