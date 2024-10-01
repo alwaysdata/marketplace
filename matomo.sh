@@ -31,12 +31,12 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.1.1.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.1.2.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
 wget -O- --no-hsts https://github.com/digitalist-se/extratools/archive/refs/tags/5.0.4.zip | bsdtar --strip-components=0 -xf -
-mv extratools-5.0.4 ExtraTools
+mv Matomo-Plugin-ExtraTools-5.0.4 ExtraTools
 cd
 
 php console plugin:activate ExtraTools --quiet || true
