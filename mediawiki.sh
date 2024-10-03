@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -45,7 +45,7 @@ set -e
 # https://www.mediawiki.org/wiki/Compatibility
 
 # Download & install dependancies
-wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.1.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.3.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
