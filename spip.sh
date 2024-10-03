@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: |
 #         extension=sodium.so
 #     ssl_force: true
@@ -34,7 +34,9 @@
 set -e
 
 # Requirements: https://www.spip.net/en_article6807.html
+# https://www.spip.net/fr_article6500.html
 # https://contrib.spip.net/SPIP-Cli
+
 git clone --depth 1 https://git.spip.net/spip-contrib-outils/spip-cli.git
 cd spip-cli
 COMPOSER_CACHE_DIR=/dev/null composer2 install
@@ -43,7 +45,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 mkdir $HOME/default
 cd $HOME/default
 
-wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.2.9.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.3.2.zip | bsdtar --strip-components=0 -xf -
 
 # Install
 ~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD"
