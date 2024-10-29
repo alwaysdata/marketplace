@@ -33,9 +33,7 @@ cat << EOF > data/config.json
   "admin_token":"$(echo -n $FORM_ADMIN_PASSWORD | argon2 $(openssl rand -base64 32) -e -id -k 19456 -t 2 -p 1)",
   "signups_allowed": true,
   "signups_verify": true,
-  "smtp_host": "smtp-${USER}.alwaysdata.net",
-  "smtp_security": "off",
-  "smtp_port": 25,
+  "smtp_host": "smtp-${USER}.${RESELLER_DOMAIN}",
   "smtp_from": "${USER}@${RESELLER_DOMAIN}"
 }
 EOF
