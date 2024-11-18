@@ -11,7 +11,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/gotify/server/releases/download/v2.4.0/gotify-linux-amd64.zip | bsdtar -xf -
+wget -O- --no-hsts https://github.com/gotify/server/releases/download/v2.6.1/gotify-linux-amd64.zip | bsdtar -xf -
 chmod +x gotify-linux-amd64
 
 # Configuration
