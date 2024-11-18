@@ -9,34 +9,18 @@
 #     type: postgresql
 # requirements:
 #     disk: 30
-# form:
-#     admin_username:
-#         label:
-#             en: Administrator username
-#             fr: Nom d'utilisateur de l'administrateur
-#         max_length: 255
-#     admin_password:
-#         type: password
-#         label:
-#             en: Administrator password
-#             fr: Mot de passe de l'administrateur
-#         max_length: 255
 
 set -e
 
 # https://listmonk.app/docs/installation/
 
 # Download
-wget -O- --no-hsts https://github.com/knadh/listmonk/releases/download/v4.0.1/listmonk_4.0.1_linux_amd64.tar.gz | tar -xz --strip-components=0
+wget -O- --no-hsts https://github.com/knadh/listmonk/releases/download/v4.1.0/listmonk_4.1.0_linux_amd64.tar.gz | tar -xz --strip-components=0
 
 # Configuration
 cat << EOF > config.toml
 [app]
 address = "0.0.0.0:$PORT"
-
-# BasicAuth authentication for the admin dashboard
-admin_username = "$FORM_ADMIN_USERNAME"
-admin_password = "$FORM_ADMIN_PASSWORD"
 
 # Database
 [db]
