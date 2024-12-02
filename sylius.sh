@@ -4,10 +4,11 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: |
 #         memory_limit=4096M
 #         extension=intl.so
+#         extension=sodium.so
 # database:
 #     type: mysql
 # requirements:
@@ -26,7 +27,7 @@
 
 set -e
 
-# https://docs.sylius.com/en/1.12/book/installation/requirements.html
+# https://docs.sylius.com/en/latest/book/installation/requirements.html
 
 # Download
 composer2 create-project sylius/sylius-standard
@@ -42,7 +43,7 @@ sed -i "s|locale: en_US|locale: $FORM_LANGUAGE|" sylius-standard/config/services
 sylius-standard/bin/console sylius:install --env=prod -n --fixture-suite=default
 echo "y"|sylius-standard/bin/console sylius:install:sample-data --env=prod
 
-export NODEJS_VERSION=18
+export NODEJS_VERSION=20
 npm install yarn
 
 cd sylius-standard
