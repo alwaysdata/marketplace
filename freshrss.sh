@@ -26,6 +26,7 @@
 #             en: Username
 #             fr: Nom d'utilisateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
+#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .@_-."
 #         max_length: 255
 #     password:
 #         type: password

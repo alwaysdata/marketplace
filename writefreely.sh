@@ -21,6 +21,7 @@
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
+#         regex_text: "Il doit comporter au moins 5 caractères qui peuvent être des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .@_-."
 #         min_length: 5
 #         max_length: 255
 #     admin_password:

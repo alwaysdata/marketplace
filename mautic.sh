@@ -36,6 +36,7 @@
 #         min_length: 6
 #         max_length: 255
 #         regex: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*-+_!@#$%^&.,?])[A-Za-z\d*-+_!@#$%^&.,?]{6,}$
+#         regex_text: "Il doit comporter au moins 6 caractères ; dont au moins une majuscule, une minuscule, un chiffre et un de ces caractères spéciaux : *-+_!@#$%^&.,?."
 
 set -e
 

@@ -18,6 +18,7 @@
 #             en: Username
 #             fr: Nom d'utilisateur
 #         regex: ^[a-zA-Z0-9_-]+$
+#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
 #     email:
 #         type: email
 #         label:
