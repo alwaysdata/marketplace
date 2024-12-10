@@ -35,7 +35,7 @@ set -e
 # https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
 
 # Download
-wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.11.0.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v3.11.1.tar.gz|tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config.json
