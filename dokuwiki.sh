@@ -29,6 +29,7 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     admin_name:
 #         label:
 #             en: Administrator name

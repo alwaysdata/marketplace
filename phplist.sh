@@ -16,11 +16,13 @@
 #         label:
 #             en: Administrator email
 #             fr: Email de l'administrateur
+#         max_length: 255
 #     admin_password:
 #         type: password
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
+#         max_length: 255
 
 set -e
 

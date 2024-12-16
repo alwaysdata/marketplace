@@ -21,15 +21,18 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     admin_username:
 #         label:
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
+#         max_length: 255
 #     admin_password:
 #         type: password
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
+#         max_length: 255
 
 set -e
 

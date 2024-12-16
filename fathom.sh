@@ -16,6 +16,7 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     password:
 #         type: password
 #         label:

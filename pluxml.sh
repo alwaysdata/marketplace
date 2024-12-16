@@ -34,6 +34,7 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     admin_password:
 #         type: password
 #         label:
@@ -41,6 +42,7 @@
 #             fr: Mot de passe de l'administrateur
 #         max_length: 255
 #         min_length: 8
+
 set -e
 
 wget -O- --no-hsts https://www.pluxml.org/download/pluxml-latest.zip | bsdtar --strip-components=1 -xf -

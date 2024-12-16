@@ -25,6 +25,7 @@
 #             fr: Mot de passe de l'administrateur
 #         min_length: 5
 #         max_length: 255
+
 set -e
 
 # https://yourls.org/docs#requirements

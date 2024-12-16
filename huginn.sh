@@ -20,12 +20,14 @@
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[a-zA-Z]+$
 #         regex_text: "Il peut comporter des majuscules et des minuscules."
+#         max_length: 255
 #     admin_password:
 #         type: password
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
 #         min_length: 8
+#         max_length: 255
 
 set -e
 

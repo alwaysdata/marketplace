@@ -28,6 +28,7 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     admin_username:
 #         label:
 #             en: Administrator username
@@ -39,6 +40,7 @@
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
 #         min_length: 8
+#         max_length: 255
 #         regex: ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$
 #         regex_text: "Il doit comporter au moins 8 caractères ; dont au moins une majuscule, une minuscule et un chiffre."
 

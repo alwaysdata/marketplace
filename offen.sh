@@ -15,10 +15,12 @@
 #         label:
 #             en: Login email
 #             fr: Email identifiant
+#         max_length: 255
 #     name:
 #         label:
 #             en: Account name
 #             fr: Nom du compte
+#         max_length: 255
 #     password:
 #         type: password
 #         label:

@@ -15,6 +15,7 @@
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     username:
 #         label:
 #             en: Username

@@ -12,6 +12,7 @@
 #         label:
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
+#         max_length: 255
 # requirements:
 #     disk: 100
 

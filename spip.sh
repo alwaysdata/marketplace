@@ -18,6 +18,7 @@
 #         label:
 #             en: Administrator email
 #             fr: Email de l'administrateur
+#         max_length: 255
 #     admin_username:
 #         label:
 #             en: Administrator username

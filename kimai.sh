@@ -19,17 +19,20 @@
 #             fr: Nom d'utilisateur
 #         regex: ^[a-zA-Z0-9_-]+$
 #         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
+#         max_length: 255
 #     email:
 #         type: email
 #         label:
 #             en: Email
 #             fr: Email
+#         max_length: 255
 #     password:
 #         type: password
 #         label:
 #             en: Password
 #             fr: Mot de passe
 #         min_length: 8
+#         max_length: 255
 
 set -e
 
