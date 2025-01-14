@@ -45,7 +45,7 @@ set -e
 # https://www.mediawiki.org/wiki/Compatibility
 
 # Download & install dependancies
-wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.42/mediawiki-1.42.3.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.43/mediawiki-1.43.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
@@ -55,7 +55,7 @@ php maintenance/run.php install.php --dbname="$DATABASE_NAME" --installdbpass="$
 # Handle root base URL
 if [ "$INSTALL_URL_PATH" = "/" ]
 then
-    sed -i "s|wgScriptPath = '/'|wgScriptPath = ''|" LocalSettings.php
+    sed -i 's|wgScriptPath = "/"|wgScriptPath = ""|' LocalSettings.php
 fi
 
 # Clean install environment
