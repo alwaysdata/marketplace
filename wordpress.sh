@@ -38,6 +38,7 @@
 set -e
 
 # https://wordpress.org/about/requirements/
+# https://make.wordpress.org/core/handbook/references/php-compatibility-and-wordpress-versions/
 
 # Use WordPress command-line interface http://wp-cli.org
 wget --no-hsts https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar

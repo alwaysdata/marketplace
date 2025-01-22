@@ -39,7 +39,7 @@ wget -O- --no-hsts https://download.nextcloud.com/server/releases/latest.zip | b
 cd nextcloud
 
 # Install
-# CLI: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/occ_command.html?highlight=occ#command-line-installation-label
+# CLI: https://docs.nextcloud.com/server/latest/admin_manual/occ_command.html
 php occ maintenance:install --database="mysql" --database-host="$DATABASE_HOST" --database-name="$DATABASE_NAME" --database-user="$DATABASE_USERNAME" --database-pass="$DATABASE_PASSWORD" --admin-user="$FORM_ADMIN_USERNAME" --admin-pass="$FORM_ADMIN_PASSWORD"
 php occ config:system:set trusted_domains 0 --value="$INSTALL_URL_HOSTNAME"
 php occ config:system:set overwrite.cli.url --value="http://$INSTALL_URL"
