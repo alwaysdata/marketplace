@@ -13,7 +13,7 @@
 
 set -e
 
-VERSION=25.1.0
+VERSION=25.2.0
 
 # https://github.com/actualbudget/actual-server#running
 
