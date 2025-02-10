@@ -14,4 +14,4 @@
 
 set -e
 
-wget -O- --no-hsts https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.7.5.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/PrivateBin/PrivateBin/archive/refs/tags/1.7.6.tar.gz | tar -xz --strip-components=1
