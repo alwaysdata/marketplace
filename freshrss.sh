@@ -26,7 +26,9 @@
 #             en: Username
 #             fr: Nom d'utilisateur
 #         regex: ^[ a-zA-Z0-9.@_-]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .@_-."
+#         regex_text:
+#             en: "It can include uppercase, lowercase, numbers, spaces, and special characters: .@_-."
+#             fr: "Il peut comporter des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .@_-."
 #         max_length: 255
 #     password:
 #         type: password
@@ -40,7 +42,7 @@ set -e
 # https://freshrss.github.io/FreshRSS/en/admins/02_Prerequisites.html
 
 # Download
-wget -O- --no-hsts https://github.com/FreshRSS/FreshRSS/archive/1.26.0.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/FreshRSS/FreshRSS/archive/1.26.1.tar.gz | tar -xz --strip-components=1
 
 # Install
 ./cli/do-install.php --default_user "$FORM_USERNAME" --auth_type form --environment production --base_url https://$INSTALL_URL --language "$FORM_LANGUAGE" --title "Fresh RSS" --db-type mysql --db-host "$DATABASE_HOST":3306 --db-user "$DATABASE_USERNAME" --db-password "$DATABASE_PASSWORD" --db-base "$DATABASE_NAME"
