@@ -12,7 +12,7 @@
 
 set -e
 
-git clone https://github.com/muety/mininote .
+wget -O- --no-hsts https://github.com/muety/mininote/archive/refs/tags/1.0.3.tar.gz |tar -xz --strip-components=1
 npm install yarn
 
 ~/node_modules/yarn/bin/yarn
