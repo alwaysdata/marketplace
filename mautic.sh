@@ -4,13 +4,13 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.3'
 #     php_ini: |
 #         memory_limit = 4096M
 #         extension = imap.so
 #         extension = intl.so
 #         extension = sockets.so
-#         extension = {INSTALL_PATH}/redis-8.1.so
+#         extension = {INSTALL_PATH}/redis-8.3.so
 #         zend.assertions = -1
 #     ssl_force: true
 # database:
@@ -37,11 +37,13 @@
 #         min_length: 6
 #         max_length: 255
 #         regex: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*-+_!@#$%^&.,?])[A-Za-z\d*-+_!@#$%^&.,?]{6,}$
-#         regex_text: "Il doit comporter au moins 6 caractères ; dont au moins une majuscule, une minuscule, un chiffre et un de ces caractères spéciaux : *-+_!@#$%^&.,?."
+#         regex_text:
+#             en: "It must be at least 6 characters; including at least one uppercase, one lowercase, one digit, and one of these special characters: *-+_!@#$%^&.,?"
+#             fr: "Il doit comporter au moins 6 caractères ; dont au moins une majuscule, une minuscule, un chiffre et un de ces caractères spéciaux : *-+_!@#$%^&.,?."
 
 set -e
 
-# https://docs.mautic.org/en/5.x/getting_started/how_to_install_mautic.html#
+# https://docs.mautic.org/en/6.x/getting_started/how_to_install_mautic.html#
 
 ad_install_pecl redis
 
