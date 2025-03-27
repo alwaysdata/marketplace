@@ -15,7 +15,9 @@
 #             en: Project name
 #             fr: Nom du projet
 #         regex: ^[a-zA-Z0-9_]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres et le tiret bas (_)."
+#         regex_text:
+#             en: "It can include uppercase and lowercase, numbers and underscores (_)."
+#             fr: "Il peut comporter des majuscules, minuscules, des chiffres et le tiret bas (_)."
 #         max_length: 255
 #     email:
 #         type: email

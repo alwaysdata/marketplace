@@ -27,7 +27,9 @@
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[a-zA-Z0-9_-]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
+#         regex_text:
+#             en: "It can include uppercase, lowercase, numbers, hyphen (-) and underscore (_)."
+#             fr: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
 #         max_length: 255
 #     admin_password:
 #         type: password
@@ -35,7 +37,9 @@
 #             en: Administrator password
 #             fr: Mot de passe de l'administrateur
 #         regex: ^[a-zA-Z0-9!#$€%&'\[\]()*+,./:;<=>?@^_`{|}~-]+$
-#         regex_text: "Il doit comporter au moins 8 caractères qui peuvent être des majuscules, des minuscules, des chiffres, et les caractères spéciaux : !#$€%&'[]()*+,./:;<=>?@^_`{|}~-."
+#         regex_text:
+#             en: "It must include at least 8 characters which can be uppercase, lowercase, numbers, and special characters: !#$€%&'[]()*+,./:;<=>?@^_`{|}~-."
+#             fr: "Il doit comporter au moins 8 caractères qui peuvent être des majuscules, des minuscules, des chiffres, et les caractères spéciaux : !#$€%&'[]()*+,./:;<=>?@^_`{|}~-."
 #         max_length: 255
 #         min_length: 8
 

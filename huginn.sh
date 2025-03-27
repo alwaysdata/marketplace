@@ -12,14 +12,16 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 1000
+#     disk: 700
 # form:
 #     admin_username:
 #         label:
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[a-zA-Z]+$
-#         regex_text: "Il peut comporter des majuscules et des minuscules."
+#         regex_text:
+#             en: "It can include uppercase and lowercase."
+#             fr: "Il peut comporter des majuscules et des minuscules."
 #         max_length: 255
 #     admin_password:
 #         type: password

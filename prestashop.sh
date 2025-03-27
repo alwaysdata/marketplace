@@ -29,14 +29,18 @@
 #             fr: Prénom de l'administrateur
 #         max_length: 255
 #         regex: ^[a-zA-Z0-9.'`* _-]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres et les caractères spéciaux : .'`* _-."
+#         regex_text:
+#             en: "It can include uppercase, lowercase, numbers, and special characters: .'`* _-."
+#             fr: "Il peut comporter des majuscules, des minuscules, des chiffres et les caractères spéciaux : .'`* _-."
 #     admin_lastname:
 #         label:
 #             en: Administrator last name
 #             fr: Nom de l'administrateur
 #         max_length: 255
 #         regex: ^[a-zA-Z0-9.'`* _-]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres et les caractères spéciaux : .'`* _-."
+#         regex_text:
+#             en: "It can include uppercase, lowercase, numbers, and special characters: .'`* _-."
+#             fr: "Il peut comporter des majuscules, des minuscules, des chiffres et les caractères spéciaux : .'`* _-."
 #     admin_password:
 #         type: password
 #         label:

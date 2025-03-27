@@ -26,7 +26,9 @@
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[a-zA-Z0-9]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules et des chiffres."
+#         regex_text:
+#             en: "It can include uppercase, lowercase and numbers."
+#             fr: "Il peut comporter des majuscules, des minuscules et des chiffres."
 #         max_length: 30
 #     admin_password:
 #         type: password

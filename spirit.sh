@@ -19,7 +19,9 @@
 #             en: Project name
 #             fr: Nom du projet
 #         regex: ^[a-zA-Z][a-zA-Z0-9_]+$
-#         regex_text: "Il doit comporter des majuscules et minuscules et peut aussi utiliser des chiffres et le tiret bas (_)."
+#         regex_text:
+#             en: "It must include uppercase and lowercase, and numbers and underscores (_) can also be used."
+#             fr: "Il doit comporter des majuscules et minuscules et peut aussi utiliser des chiffres et le tiret bas (_)."
 #         max_length: 255
 #     email:
 #         type: email
@@ -32,7 +34,9 @@
 #             en: Administrator username
 #             fr: Nom d'utilisateur de l'administrateur
 #         regex: ^[ a-zA-Z0-9.+@_-]+$
-#         regex_text: "Il doit comporter au moins 5 caractères qui peuvent être des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .+@_-."
+#         regex_text:
+#             en: "It must include at least 5 characters which can be uppercase, lowercase, numbers, spaces and special characters: .+@_-."
+#             fr: "Il doit comporter au moins 5 caractères qui peuvent être des majuscules, des minuscules, des chiffres, des espaces et les caractères spéciaux : .+@_-."
 #         min_length: 5
 #         max_length: 150
 #     admin_password:

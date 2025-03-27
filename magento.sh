@@ -42,7 +42,9 @@
 #         min_length: 8
 #         max_length: 255
 #         regex: ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$
-#         regex_text: "Il doit comporter au moins 8 caractères ; dont au moins une majuscule, une minuscule et un chiffre."
+#         regex_text:
+#             en: "It must be at least 8 characters including at least one uppercase, one lowercase, and one digit."
+#             fr: "Il doit comporter au moins 8 caractères ; dont au moins une majuscule, une minuscule et un chiffre."
 
 set -e
 
