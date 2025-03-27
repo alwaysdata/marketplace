@@ -18,7 +18,9 @@
 #             en: Username
 #             fr: Nom d'utilisateur
 #         regex: ^[a-zA-Z0-9_-]+$
-#         regex_text: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
+#         regex_text:
+#             en: "It can include uppercase, lowercase, numbers, hyphen (-) and underscore (_)."
+#             fr: "Il peut comporter des majuscules, des minuscules, des chiffres, le tiret (-) et le tiret bas (_)."
 #         max_length: 255
 #     email:
 #         type: email
@@ -37,7 +39,7 @@
 set -e
 
 # Download and install dependancies
-git clone -b 2.30.0 --depth 1 https://github.com/kimai/kimai.git
+git clone -b 2.31.0 --depth 1 https://github.com/kimai/kimai.git
 cd kimai/
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install --no-dev --optimize-autoloader -n
