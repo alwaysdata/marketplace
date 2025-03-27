@@ -13,7 +13,7 @@
 # database:
 #     type: mysql
 # requirements:
-#     disk: 1200
+#     disk: 1500
 
 set -e
 
