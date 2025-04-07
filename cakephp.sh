@@ -7,7 +7,7 @@
 #     php_version: '8.3'
 #     php_ini: extension=intl.so
 # requirements:
-#     disk: 45
+#     disk: 50
 
 set -e
 
@@ -17,6 +17,12 @@ echo 'Y' | COMPOSER_CACHE_DIR=/dev/null composer2 create-project cakephp/app def
 
 sed -i "1i \ \ \ \ RewriteBase $INSTALL_URL_PATH" default/.htaccess
 sed -i "1i \ \ \ \ RewriteBase $INSTALL_URL_PATH" default/webroot/.htaccess
+
+cd default
+
+COMPOSER_CACHE_DIR=/dev/null composer2 require cakephp/cakephp
+
+cd
 
 # Clean install environment
 rm -rf .composer
