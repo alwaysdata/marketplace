@@ -9,11 +9,29 @@
 #     type: postgresql
 # requirements:
 #     disk: 60
+# form:
+#     email:
+#         type: email
+#         label:
+#             en: Email
+#             fr: Email
+#         max_length: 255
+#     username:
+#         label:
+#             en: Username
+#             fr: Nom d'utilisateur
+#         max_length: 255
+#     password:
+#         type: password
+#         label:
+#             en: Password
+#             fr: Mot de passe
+#         max_length: 255
 
 set -e
 
 # Download
-wget --no-hsts -O readeck https://codeberg.org/readeck/readeck/releases/download/0.17.1/readeck-0.17.1-linux-amd64
+wget --no-hsts -O readeck https://codeberg.org/readeck/readeck/releases/download/0.18.0/readeck-0.18.0-linux-amd64
 
 chmod +x  readeck
 
@@ -28,3 +46,5 @@ port = $PORT
 [database]
 source = "postgres://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST:5432/$DATABASE_NAME"
 EOF
+
+./readeck user -email $FORM_EMAIL -password $FORM_PASSWORD -user $FORM_USERNAME
