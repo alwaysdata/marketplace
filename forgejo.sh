@@ -14,7 +14,7 @@
 set -e
 
 # Download
-wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v10.0.1/forgejo-10.0.1-linux-amd64
+wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v10.0.3/forgejo-10.0.3-linux-amd64
 
 chmod +x  forgejo
 
@@ -27,6 +27,7 @@ cat << EOF > custom/conf/app.ini
 DOMAIN = $INSTALL_URL
 HTTP_ADDR = "::"
 HTTP_PORT = $PORT
+SSH_DOMAIN = ssh-$USER.$RESELLER_DOMAIN
 
 [database]
 DB_TYPE = postgres
