@@ -59,7 +59,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 cd recommended-project
 
-sed -i "/\"require\": {/a \ \ \ \ \ \ \ \ \"drush/drush\": \"^12.1\"," composer.json
+sed -i "/\"require\": {/a \ \ \ \ \ \ \ \ \"drush/drush\": \"^13\"," composer.json
 
 COMPOSER_CACHE_DIR=/dev/null composer2 update
 
