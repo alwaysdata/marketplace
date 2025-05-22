@@ -14,7 +14,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/maxpozdeev/mytinytodo/releases/download/v1.8.1/mytinytodo-v1.8.1.tar.gz| tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/maxpozdeev/mytinytodo/releases/download/v1.8.2/mytinytodo-v1.8.2.tar.gz| tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config.php
@@ -35,4 +35,4 @@ define("MTT_DB_PREFIX", "");
 define("MTT_SALT", "$(echo $RANDOM | md5sum | sed 's/ .*//')");
 EOF
 
-#As there is a "No token provided" with curl, the client will need to go to https://$INSTALL_URL/setup.php at the end, then removed the setup.php
+#As there is a "No token provided" with curl, the client will need to go to https://$INSTALL_URL/setup.php at the end, then removed the setup.php.
