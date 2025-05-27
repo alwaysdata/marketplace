@@ -49,7 +49,7 @@ sed -i "s|password = |password = $DATABASE_PASSWORD|" config.ini
 sed -i "s|database = |database = $DATABASE_NAME|" config.ini
 sed -i "s|host     = localhost|host = $DATABASE_HOST|" config.ini
 sed -i "s|site_name          = |site_name = $FORM_SITE_NAME|" config.ini
-sed -i "s|host               = http://localhost:8080|host = http://$INSTALL_URL|" config.ini
+sed -i "s|host                  = http://localhost:8080|host = http://$INSTALL_URL|" config.ini
 
 ./writefreely --init-db
 ./writefreely keys generate
