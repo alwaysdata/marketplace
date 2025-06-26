@@ -13,7 +13,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.5.6/Leantime-v3.5.6.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.5.8/Leantime-v3.5.8.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 cp config/sample.env config/.env
