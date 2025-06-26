@@ -13,7 +13,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.45.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.46.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 # https://docs.kanboard.org/en/latest/admin_guide/config_file.html
