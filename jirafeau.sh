@@ -26,15 +26,16 @@
 
 set -e
 
-# Download and install dependancies
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project mojo42/jirafeau
+# Download
+
+wget -O- --no-hsts https://gitlab.com/jirafeau/Jirafeau/-/archive/4.6.3/Jirafeau-4.6.3.tar.gz | tar -xz --strip-components=1
 
 # Configuration
-cp jirafeau/lib/config.original.php jirafeau/lib/config.local.php
+cp lib/config.original.php lib/config.local.php
 
-mkdir -p jirafeau/data/{files,links,async}
+mkdir -p data/{files,links,async}
 
-cat << EOF > jirafeau/lib/config.local.php
+cat << EOF > lib/config.local.php
 <?php
 \$cfg = array (
   'web_root' => '$INSTALL_URL',
@@ -81,11 +82,4 @@ cat << EOF > jirafeau/lib/config.local.php
   'installation_done' => true,
   'debug' => false,
 );
-
 EOF
-
-# Clean install environment
-rm -rf .config .local .subversion
-shopt -s dotglob
-mv jirafeau/* .
-rmdir jirafeau
