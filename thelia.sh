@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
-#     php_version: '8.3'
+#     php_version: '8.1'
 #     php_ini: extension=intl.so
 # database:
 #     type: mysql
@@ -44,7 +44,7 @@ set -e
 # https://github.com/thelia/thelia-project?tab=readme-ov-file#compatibility
 
 # Download
-COMPOSER_CACHE_DIR=/dev/null composer2 create-project thelia/thelia-project default
+echo 'n' | COMPOSER_CACHE_DIR=/dev/null composer2 create-project thelia/thelia-project default
 
 cd default
 
@@ -56,7 +56,7 @@ php Thelia admin:create -q --login_name "$FORM_ADMIN_USERNAME" --first_name "$FO
 
 # Clean install environment
 cd ..
-rm -rf .composer .subversion .local
+rm -rf .config .subversion .local
 
 shopt -s dotglob
 mv default/* .
