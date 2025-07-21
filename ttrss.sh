@@ -10,14 +10,14 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 105
+#     disk: 80
 
 set -e
 
-# https://git.tt-rss.org/fox/tt-rss/wiki/InstallationNotes
+# https://tt-rss.org/wiki/InstallationNotes
 
 # Download
-git clone https://tt-rss.org/git/tt-rss.git . --depth 1
+git clone https://gitlab.tt-rss.org/tt-rss/tt-rss.git  . --depth 1
 
 # Configuration
 cat << EOF > config.php
