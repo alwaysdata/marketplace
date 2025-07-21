@@ -6,6 +6,7 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: './forgejo web'
 #     path_trim: true
+#     ssl_force: true
 # database:
 #     type: postgresql
 # requirements:
@@ -14,7 +15,7 @@
 set -e
 
 # Download
-wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v11.0.3/forgejo-11.0.3-linux-amd64
+wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v12.0.0/forgejo-12.0.0-linux-amd64
 
 chmod +x  forgejo
 
@@ -28,6 +29,7 @@ DOMAIN = $INSTALL_URL
 HTTP_ADDR = "::"
 HTTP_PORT = $PORT
 SSH_DOMAIN = ssh-$USER.$RESELLER_DOMAIN
+ROOT_URL = https://$INSTALL_URL/
 
 [database]
 DB_TYPE = postgres
