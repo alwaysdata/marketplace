@@ -6,8 +6,10 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'env/bin/streamlit hello'
 #     ssl_force: true
+#     environment: |
+#          HOME={INSTALL_PATH}
 # requirements:
-#     disk: 500
+#     disk: 520
 
 set -e
 
