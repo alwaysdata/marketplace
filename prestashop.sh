@@ -55,7 +55,7 @@ set -e
 # https://devdocs.prestashop-project.org/8/basics/installation/advanced/install-from-cli/
 
 # Download
-wget -O- --no-hsts https://github.com/PrestaShop/PrestaShop/releases/download/8.2.1/prestashop_8.2.1.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://github.com/PrestaShop/PrestaShop/releases/download/8.2.2/prestashop_8.2.2.zip | bsdtar --strip-components=0 -xf -
 
 unzip -o prestashop.zip
 rm prestashop.zip
