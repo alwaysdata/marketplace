@@ -28,7 +28,7 @@ set -e
 # https://miniflux.app/docs/binary_installation.html
 
 # Download
-wget  --no-hsts -O miniflux https://github.com/miniflux/v2/releases/download/2.2.10/miniflux-linux-amd64
+wget  --no-hsts -O miniflux https://github.com/miniflux/v2/releases/download/2.2.11/miniflux-linux-amd64
 chmod +x miniflux
 
 # Configuration
