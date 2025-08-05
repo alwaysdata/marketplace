@@ -3,6 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: elixir
+#     elixir_version: '1.18'
 #     working_directory: '{INSTALL_PATH_RELATIVE}/hello'
 #     command: 'mix phx.server'
 #     environment: |
@@ -10,7 +11,7 @@
 #         MIX_ENV=prod
 #     path_trim: true
 # requirements:
-#     disk: 160
+#     disk: 110
 
 set -e
 
@@ -20,7 +21,7 @@ set -e
 
 mix local.hex --force
 mix local.rebar --force
-mix archive.install hex phx_new 1.7.14 --force
+mix archive.install hex phx_new 1.7.21 --force
 echo Y | mix phx.new hello --no-ecto
 cd hello
 
