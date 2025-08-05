@@ -8,7 +8,7 @@
 #     command: 'node app.js'
 #     environment: |
 #         NODE_ENV=production
-#         HOME='{INSTALL_PATH}'
+#         HOME={INSTALL_PATH}
 # database:
 #      type: postgresql
 # requirements:
@@ -36,7 +36,7 @@ set -e
 # https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
 
 # Download
-wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v4.4.4.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v4.4.5.tar.gz|tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config.json
