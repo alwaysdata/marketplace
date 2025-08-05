@@ -33,7 +33,7 @@ set -e
 # https://yourls.org/docs#requirements
 
 # Download
-wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.10.1.tar.gz| tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.10.2.tar.gz| tar -xz --strip-components=1
 
 # Configuration
 mv user/config-sample.php user/config.php
