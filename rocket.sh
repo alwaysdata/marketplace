@@ -7,7 +7,7 @@
 #     command: './target/release/{INSTALL_PATH_RELATIVE}'
 #     path_trim: true
 #     environment: |
-#         CARGO_HOME='{INSTALL_PATH}'
+#         CARGO_HOME={INSTALL_PATH}
 # requirements:
 #     disk: 400
 

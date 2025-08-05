@@ -7,8 +7,8 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'npx directus start'
 #     environment: |
-#         'HOME={INSTALL_PATH}'
-#         'PYTHON_VERSION=3.11'
+#         HOME={INSTALL_PATH}
+#         PYTHON_VERSION=3.11
 # database:
 #     type: mysql
 # requirements:
