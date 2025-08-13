@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/htdocs'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: |
 #         extension = imap.so
 #         extension = intl.so
@@ -23,7 +23,7 @@ set -e
 
 # https://wiki.dolibarr.org/index.php?title=Prerequisites
 
-wget -O- https://downloads.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/21.0.2/dolibarr-21.0.2.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://downloads.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/22.0.0/dolibarr-22.0.0.zip | bsdtar --strip-components=1 -xf -
 
 mkdir documents
 cp htdocs/install/install.forced.sample.php htdocs/install/install.forced.php 
