@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.1'
+#     php_version: '8.3'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -32,7 +32,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.3.2.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.4.0.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
