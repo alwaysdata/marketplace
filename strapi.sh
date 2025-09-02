@@ -19,7 +19,7 @@ set -e
 # https://docs.strapi.io/dev-docs/installation/cli
 
 npm install create-strapi-app
-npx create-strapi-app default  --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --no-run --skip-cloud --example --typescript --no-git-init --install
+echo N| npx create-strapi-app default  --dbclient=postgres --dbhost=$DATABASE_HOST --dbport=5432 --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD --no-run --skip-cloud --example --typescript --no-git-init --install
 
 cd default
 
