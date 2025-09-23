@@ -36,7 +36,7 @@ set -e
 
 # Install
 
-wget -O- --no-hsts https://github.com/tchapi/davis/archive/refs/tags/v5.1.2.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/tchapi/davis/archive/refs/tags/v5.2.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/polyfill-intl-messageformatter
 COMPOSER_CACHE_DIR=/dev/null composer2 install
@@ -58,11 +58,9 @@ AUTH_REALM=SabreDAV
 AUTH_METHOD=Basic
 CALDAV_ENABLED=true
 CARDDAV_ENABLED=true
-WEBDAV_ENABLED=true
+WEBDAV_ENABLED=false
 INVITE_FROM_ADDRESS=$USER@$RESELLER_DOMAIN
 MAILER_DSN="smtp://$SMTP_HOST:465?encryption=ssl"
-WEBDAV_PUBLIC_DIR='$INSTALL_PATH/public'
-WEBDAV_HOMES_DIR='$INSTALL_PATH/home'
 EOF
 
 # Set database
