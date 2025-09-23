@@ -5,7 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '8.3'
-#     php_ini: extension=intl.so
 # database:
 #     type: mysql
 # requirements:
@@ -14,7 +13,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v6.9.1/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v6.9.2/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
