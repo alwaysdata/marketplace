@@ -28,7 +28,7 @@ set -e
 
 # Download
 
-wget -O- --no-hsts https://gitlab.com/jirafeau/Jirafeau/-/archive/4.6.3/Jirafeau-4.6.3.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://gitlab.com/jirafeau/Jirafeau/-/archive/4.7.0/Jirafeau-4.7.0.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 cp lib/config.original.php lib/config.local.php
