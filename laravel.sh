@@ -5,9 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
 #     php_version: '8.3'
-#     php_ini: |
-#         extension=sqlite3.so
-#         extension=pdo_sqlite.so
 # requirements:
 #     disk: 80
 

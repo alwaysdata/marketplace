@@ -5,8 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web/'
 #     php_version: '8.0'
-#     php_ini: |
-#         extension=intl.so
 # database:
 #     type: mysql
 # requirements:

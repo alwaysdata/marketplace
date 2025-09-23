@@ -7,8 +7,6 @@
 #     php_version: '8.2'
 #     php_ini: |
 #         extension={INSTALL_PATH}/mcrypt-8.2.so
-#         extension=intl.so
-#         extension=sodium.so
 #     ssl_force: true
 # database:
 #     type: mysql

@@ -7,9 +7,6 @@
 #     php_version: '8.3'
 #     php_ini: |
 #         memory_limit = 4096M
-#         extension = imap.so
-#         extension = intl.so
-#         extension = sockets.so
 #         extension = {INSTALL_PATH}/redis-8.3.so
 #         zend.assertions = -1
 #     ssl_force: true

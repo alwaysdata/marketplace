@@ -5,9 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '7.4'
-#     php_ini: |
-#         extension=intl.so
-#         extension=sockets.so
 # database:
 #     type: mysql
 # requirements:

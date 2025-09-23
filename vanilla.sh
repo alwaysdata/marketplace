@@ -5,8 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8.2'
-#     php_ini: |
-#         extension=intl.so
 # database:
 #     type: mysql
 # requirements:

@@ -6,7 +6,6 @@
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '8.3'
 #     php_ini: |
-#         extension=intl.so
 #         memory_limit=512M
 # database:
 #     type: mysql

@@ -7,7 +7,6 @@
 #     php_version: '8.3'
 #     php_ini: |
 #         extension=mcrypt.so
-#         extension=sodium.so
 #     ssl_force: true
 # requirements:
 #     disk: 5

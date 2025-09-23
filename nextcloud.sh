@@ -6,8 +6,6 @@
 #     path: '{INSTALL_PATH_RELATIVE}/nextcloud'
 #     php_version: '8.2'
 #     php_ini: |
-#         extension=intl.so
-#         extension=gmp.so
 #         extension={INSTALL_PATH}/imagick-8.2.so
 #         memory_limit=512M
 # database:

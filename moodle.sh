@@ -6,7 +6,6 @@
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8.0'
 #     php_ini: |
-#         extension=intl.so
 #         max_input_vars=5000
 # database:
 #     type: mysql

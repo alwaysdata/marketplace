@@ -6,7 +6,6 @@
 #     php_version: '8.3'
 #     php_ini: |
 #         extension={INSTALL_PATH}/imagick-8.3.so
-#         extension=sodium.so
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     ssl_force: true
 # database:
