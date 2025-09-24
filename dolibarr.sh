@@ -5,7 +5,6 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/htdocs'
 #     php_version: '8.3'
-
 # database:
 #     type: mysql
 # requirements:
