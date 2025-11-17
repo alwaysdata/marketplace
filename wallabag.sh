@@ -49,7 +49,7 @@ set -e
 # https://doc.wallabag.org/en/admin/installation/requirements
 
 # Download
-wget -O- --no-hsts https://github.com/wallabag/wallabag/releases/download/2.6.13/wallabag-2.6.13.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/wallabag/wallabag/releases/download/2.6.14/wallabag-2.6.14.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 sed -i "s|database_host: 127.0.0.1|database_host: $DATABASE_HOST|" app/config/parameters.yml
