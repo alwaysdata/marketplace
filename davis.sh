@@ -36,7 +36,7 @@ set -e
 
 # Install
 
-wget -O- --no-hsts https://github.com/tchapi/davis/archive/refs/tags/v5.2.0.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/tchapi/davis/archive/refs/tags/v5.3.0.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 require symfony/polyfill-intl-messageformatter
 COMPOSER_CACHE_DIR=/dev/null composer2 install
