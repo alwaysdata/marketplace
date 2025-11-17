@@ -44,7 +44,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 mkdir $HOME/default
 cd $HOME/default
 
-wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.4.5.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.4.6.zip | bsdtar --strip-components=0 -xf -
 
 # Install
 ~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD"
