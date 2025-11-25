@@ -17,7 +17,7 @@ set -e
 
 # https://snipe-it.readme.io/docs/requirements
 
-git clone https://github.com/snipe/snipe-it .
+git clone https://github.com/grokability/snipe-it .
 ad_install_pecl imagick
 
 # Configuration
