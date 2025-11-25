@@ -4,34 +4,59 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.4'
 # database:
 #     type: mysql
 # requirements:
-#     disk: 100
+#     disk: 120
 # form:
 #     title:
 #         label:
 #             en: Site title
 #             fr: Titre du site
 #         max_length: 255
+#     admin_email:
+#         type: email
+#         label:
+#             en: Administrator email
+#             fr: Email de l'administrateur
+#         max_length: 255
+#     admin_name:
+#         label:
+#             en: Administrator name
+#             fr: Nom de l'administrateur
+#         max_length: 255
+#     admin_username:
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
+#         max_length: 255
+#     admin_password:
+#         type: password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
+#         min_length: 12
+#         max_length: 255
 
 set -e
 
-# https://downloads.joomla.org/technical-requirements
+# https://manual.joomla.org/docs/next/get-started/technical-requirements/
 # Joomlatools CLI: https://www.joomlatools.com/developer/tools/console/commands/
+# https://docs-core.sandbox.joomla.org/user-manual/command-line-interface/command-line-interface-joomla-cli-installation
 
 COMPOSER_CACHE_DIR=/dev/null composer2 global require joomlatools/console
 
 php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
 
-php .config/composer/vendor/bin/joomla site:install --www="$INSTALL_PATH" --mysql-login="$DATABASE_USERNAME":"$DATABASE_PASSWORD" --mysql-host="$DATABASE_HOST" --mysql-database="$DATABASE_NAME" --skip-exists-check --drop default
+cd default
 
-sed -i "s|\/default\/|\/|" default/configuration.php
-sed -i "s|name = 'default';|name = '$FORM_TITLE';|" default/configuration.php
-sed -i "s|admin@example.com|$USER@$RESELLER_DOMAIN|" default/configuration.php
+ php installation/joomla.php install --site-name="$FORM_TITLE" --admin-user="$FORM_ADMIN_NAME" --admin-username="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --admin-email=$FORM_ADMIN_EMAIL --db-type=mysqli --db-host=$DATABASE_HOST --db-user=$DATABASE_USERNAME --db-pass="$DATABASE_PASSWORD" --db-name=$DATABASE_NAME
+
+sed -i "s|\/default\/|\/|" configuration.php
 
 # Clean install environment
+cd
 rm -rf .config .local .subversion .joomlatools
 shopt -s dotglob
 mv default/* .
