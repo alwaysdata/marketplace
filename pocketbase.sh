@@ -26,7 +26,7 @@ set -e
 
 # https://pocketbase.io/docs/
 
-wget -O- --no-hsts https://github.com/pocketbase/pocketbase/releases/download/v0.33.0/pocketbase_0.33.0_linux_amd64.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://github.com/pocketbase/pocketbase/releases/download/v0.34.0/pocketbase_0.34.0_linux_amd64.zip | bsdtar --strip-components=0 -xf -
 chmod +x pocketbase
 
 ./pocketbase superuser upsert $FORM_EMAIL $FORM_PASSWORD
