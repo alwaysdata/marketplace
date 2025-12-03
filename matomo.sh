@@ -32,7 +32,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.5.2.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.6.1.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
