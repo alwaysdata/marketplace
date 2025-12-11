@@ -32,11 +32,11 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.6.1.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.6.2.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
-wget -O- --no-hsts https://github.com/digitalist-se/extratools/archive/refs/tags/5.1.2.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://github.com/Digitalist-Open-Cloud/Matomo-Plugin-ExtraTools/archive/refs/tags/5.1.2.zip | bsdtar --strip-components=0 -xf -
 mv Matomo-Plugin-ExtraTools-5.1.2 ExtraTools
 cd
 
