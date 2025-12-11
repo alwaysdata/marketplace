@@ -12,4 +12,4 @@
 
 set -e
 
-wget --no-hsts https://get.jenkins.io/war-stable/2.528.2/jenkins.war
+wget --no-hsts https://get.jenkins.io/war-stable/2.528.3/jenkins.war
