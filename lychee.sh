@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.3'
+#     php_version: '8.4'
 # database:
 #     type: mysql
 # requirements:
@@ -12,8 +12,9 @@
 
 set -e
 
+# https://lycheeorg.dev/docs/#server-requirements
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v6.10.3/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v6.10.4/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
 sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
