@@ -14,7 +14,7 @@ set -e
 
 # https://sanic.dev/en/guide/getting-started.html
 
-export PYTHON_VERSION=3.11
+export PYTHON_VERSION=3.14
 
 # Create a virtualenv
 python -m venv env

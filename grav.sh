@@ -10,6 +10,7 @@
 
 set -e
 
+# https://learn.getgrav.org/17/basics/requirements
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project getgrav/grav default
 
 # Clean install environment

@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.4'
 # requirements:
 #     disk: 5
 # form:
@@ -44,6 +44,8 @@
 #         min_length: 8
 
 set -e
+
+# https://wiki.pluxml.org/docs/install/install.html
 
 wget -O- --no-hsts https://www.pluxml.org/download/pluxml-latest.zip | bsdtar --strip-components=1 -xf -
 

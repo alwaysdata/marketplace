@@ -22,6 +22,7 @@ source env/bin/activate
 
 python -m pip install ihatemoney psycopg2
 
+# https://ihatemoney.readthedocs.io/en/latest/installation.html#manual-installation
 # Configuration
 ./env/bin/ihatemoney generate-config ihatemoney.cfg > ihatemoney.cfg
 sed -i "s|sqlite:////var/lib/ihatemoney/ihatemoney.sqlite|postgresql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME?client_encoding=utf8|" ihatemoney.cfg

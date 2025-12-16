@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
-#     php_version: '8.3'
+#     php_version: '8.5'
 # requirements:
 #     disk: 80
 

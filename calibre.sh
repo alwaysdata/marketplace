@@ -15,7 +15,7 @@ set -e
 
 # https://pypi.org/project/calibreweb/
 
-export PYTHON_VERSION=3.12
+export PYTHON_VERSION=3.14
 
 # Create virtualenv and install Calibre in it
 python -m venv env

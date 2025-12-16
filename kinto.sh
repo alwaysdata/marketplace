@@ -4,7 +4,7 @@
 # site:
 #     type: wsgi
 #     path: '{INSTALL_PATH_RELATIVE}/app.wsgi'
-#     python_version: '3.12'
+#     python_version: '3.14'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     ssl_force: true
@@ -24,6 +24,7 @@ python -m pip install kinto[postgresql]
 wget --no-hsts https://raw.githubusercontent.com/Kinto/kinto/master/app.wsgi
 
 # Configuration
+# https://docs.kinto-storage.org/en/latest/configuration/settings.html
 kinto init --ini config/kinto.ini --backend postgresql --cache-backend postgresql
 sed -i "s|postgresql://postgres:postgres@localhost/postgres|postgresql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME|" config/kinto.ini
 kinto migrate --ini config/kinto.ini

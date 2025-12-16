@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/p'
-#     php_version: '8.3'
+#     php_version: '8.5'
 # database:
 #     type: mysql
 # requirements:

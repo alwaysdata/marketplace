@@ -4,7 +4,7 @@
 # site:
 #     type: wsgi
 #     path_trim: true
-#     python_version: '3.12'
+#     python_version: '3.14'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
@@ -43,7 +43,7 @@
 
 set -e
 
-# https://docs.django-cms.org/en/latest/how_to/install.html
+# https://docs.django-cms.org/en/latest/index.html#requirements
 
 # Create virtualenv and install dependancies
 python -m venv env

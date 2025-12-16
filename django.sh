@@ -4,7 +4,7 @@
 # site:
 #     type: wsgi
 #     path_trim: true
-#     python_version: '3.12'
+#     python_version: '3.14'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
 #     path: '{INSTALL_PATH_RELATIVE}/{FORM_PROJECT}/wsgi.py'
@@ -23,7 +23,7 @@
 
 set -e
 
-# https://docs.djangoproject.com/en/5.0/faq/install/
+# https://docs.djangoproject.com/en/6.0/faq/install/
 
 # Create a virtualenv and install Django in it
 python -m venv env

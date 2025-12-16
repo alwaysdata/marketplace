@@ -2,7 +2,7 @@
 
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
-#     python_version: '3.12'
+#     python_version: '3.14'
 #     type: 'wsgi'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     virtualenv_directory: '{INSTALL_PATH_RELATIVE}/env'
@@ -13,7 +13,7 @@
 
 set -e
 
-# https://flask.palletsprojects.com/en/2.2.0/installation/#install-flask
+# https://flask.palletsprojects.com/en/stable/installation/
 
 # Create virtualenv and install Flask in it
 python -m venv env

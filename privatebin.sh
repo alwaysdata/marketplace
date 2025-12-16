@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.5'
 #     php_ini: |
 #         extension=mcrypt.so
 #     ssl_force: true

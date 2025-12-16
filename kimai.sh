@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.3'
+#     php_version: '8.5'
 #     php_ini: |
 #         memory_limit=512M
 # database:
@@ -36,6 +36,8 @@
 #         max_length: 255
 
 set -e
+
+# https://www.kimai.org/documentation/installation.html
 
 # Download and install dependancies
 git clone -b 2.44.0 --depth 1 https://github.com/kimai/kimai.git

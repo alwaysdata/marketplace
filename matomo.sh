@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.5'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -31,6 +31,7 @@
 
 set -e
 
+# https://matomo.org/faq/on-premise/matomo-requirements/
 # Download
 wget -O- --no-hsts https://builds.matomo.org/matomo-5.6.2.zip | bsdtar --strip-components=1 -xf -
 

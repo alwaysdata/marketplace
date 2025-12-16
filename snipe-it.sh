@@ -3,9 +3,9 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
-#     php_version: '8.3'
+#     php_version: '8.4'
 #     php_ini: |
-#         extension={INSTALL_PATH}/imagick-8.3.so
+#         extension={INSTALL_PATH}/imagick-8.4.so
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     ssl_force: true
 # database:

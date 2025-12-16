@@ -4,9 +4,9 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/nextcloud'
-#     php_version: '8.2'
+#     php_version: '8.4'
 #     php_ini: |
-#         extension={INSTALL_PATH}/imagick-8.2.so
+#         extension={INSTALL_PATH}/imagick-8.4.so
 #         memory_limit=512M
 # database:
 #     type: mysql

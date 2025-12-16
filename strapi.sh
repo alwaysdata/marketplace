@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
-#     nodejs_version: '20'
+#     nodejs_version: '22'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'npm run start'
 #     path_trim: true

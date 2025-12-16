@@ -4,9 +4,9 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.2'
+#     php_version: '8.3'
 #     php_ini: |
-#         extension={INSTALL_PATH}/mcrypt-8.2.so
+#         extension={INSTALL_PATH}/mcrypt-8.3.so
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -33,6 +33,7 @@
 #         min_length: 8
 set -e
 
+# http://docs.microweber.com/guides/start.md
 ad_install_pecl mcrypt
 
 # Download

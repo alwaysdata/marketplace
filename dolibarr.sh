@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/htdocs'
-#     php_version: '8.3'
+#     php_version: '8.4'
 # database:
 #     type: mysql
 # requirements:

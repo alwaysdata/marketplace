@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.4'
 #     ssl_force: true
 # database:
 #     type: mysql
@@ -32,7 +32,7 @@
 
 set -e
 
-# Requirements: https://www.spip.net/en_article6807.html
+# Requirements: https://www.spip.net/en_article7023.html
 # https://www.spip.net/fr_article6500.html
 # https://contrib.spip.net/SPIP-Cli
 

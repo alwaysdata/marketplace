@@ -3,8 +3,8 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
-#     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.0'
+#     path: '{INSTALL_PATH_RELATIVE}/public'
+#     php_version: '8.4'
 #     php_ini: |
 #         max_input_vars=5000
 # database:
@@ -56,7 +56,7 @@
 
 set -e
 
-# https://docs.moodle.org/310/en/Installing_Moodle
+# https://docs.moodle.org/501/en/Installation_quick_guide
 
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project moodle/moodle
 

@@ -7,7 +7,7 @@
 #     command: './bin/rails server -b "::"'
 #     environment: |
 #         RAILS_ENV=production
-#         RUBY_VERSION=3.2
+#         RUBY_VERSION=3.4
 # requirements:
 #     disk: 240
 
@@ -15,10 +15,10 @@ set -e
 
 # https://guides.rubyonrails.org/getting_started.html
 
-export RUBY_VERSION=3.2
+export RUBY_VERSION=3.4
 
 gem install rails
-.local/share/gem/ruby/3.2.0/bin/rails new .
+.local/share/gem/ruby/3.4.0/bin/rails new .
 
 bundle config set deployment 'true'
 bundle install

@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.5'
 #     ssl_force: true
 # database:
 #     type: postgresql
@@ -13,7 +13,7 @@
 
 set -e
 
-# https://tt-rss.org/wiki/InstallationNotes
+# https://tt-rss.org/docs/Installation-Guide.html
 
 # Download
 git clone https://gitlab.tt-rss.org/tt-rss/tt-rss.git  . --depth 1

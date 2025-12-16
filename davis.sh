@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.3'
+#     php_version: '8.5'
 #     ssl_force: true
 #     vhost_additional_directives: |
 #          RewriteEngine On

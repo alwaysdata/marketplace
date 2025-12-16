@@ -2,7 +2,7 @@
 
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
-#     ruby_version: '3.3'
+#     ruby_version: '3.4'
 #     type: 'ruby_rack'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     path: '{INSTALL_PATH_RELATIVE}/config.ru'

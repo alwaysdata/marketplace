@@ -31,7 +31,7 @@ set -e
 
 export PYTHON_VERSION=3.11
 
-# https://docs.directus.io/self-hosted/cli.html
+# https://directus.io/docs/guides/extensions/cli
 
 # Install Directus & dependancies
 npm init -y
@@ -39,7 +39,7 @@ npm install directus --omit=dev --max-old-space-size=256 --max-semi-space-size=2
 npm install mysql  --max-old-space-size=256 --max-semi-space-size=256
 
 # Configuration
-# https://docs.directus.io/configuration/config-options/
+# https://directus.io/docs/configuration/general
 # https://github.com/directus/directus/blob/main/api/src/cli/utils/create-env/env-stub.liquid
 cat << EOF > .env
 ##################

@@ -45,7 +45,7 @@
 
 set -e
 
-# https://docs.flarum.org/install.html#server-requirements
+# https://docs.flarum.org/install#server-requirements
 
 # Download and install dependancies
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project flarum/flarum default

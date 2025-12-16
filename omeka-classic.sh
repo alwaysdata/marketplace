@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
-#     php_version: '8.3'
+#     php_version: '8.5'
 # database:
 #     type: mysql
 # requirements:
@@ -40,7 +40,7 @@
 
 set -e
 
-# https://omeka.org/docs/user-manual/install/
+# https://omeka.org/classic/docs/Installation/System_Requirements/
 
 # Download & install dependancies
 wget -O- --no-hsts https://github.com/omeka/Omeka/archive/v3.2.tar.gz | tar -xz --strip-components=1

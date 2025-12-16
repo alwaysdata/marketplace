@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
-#     php_version: '8.3'
+#     php_version: '8.4'
 #     path: '{INSTALL_PATH_RELATIVE}'
 # database:
 #     type: postgresql
@@ -12,6 +12,7 @@
 
 set -e
 
+# https://docs.kanboard.org/v1/admin/requirements/
 # Download
 wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.48.tar.gz | tar -xz --strip-components=1
 

@@ -5,7 +5,7 @@
 #     type: nodejs
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'node server'
-#     nodejs_version: '20'
+#     nodejs_version: '22'
 # database:
 #     type: postgresql
 # requirements:

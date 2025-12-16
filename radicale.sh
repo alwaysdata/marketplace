@@ -25,7 +25,7 @@ set -e
 
 # https://radicale.org/v3.html
 
-PYTHON_VERSION='3.12'
+PYTHON_VERSION='3.14'
 
 # Create a virtualenv and install Radicale in it
 python -m venv env

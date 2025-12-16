@@ -4,7 +4,7 @@
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
-#     php_version: '8.3'
+#     php_version: '8.4'
 #     php_ini: |
 #         memory_limit=4096M
 #         max_execution_time=360

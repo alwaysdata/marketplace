@@ -10,7 +10,7 @@
 #     environment: |
 #         NODE_ENV=production
 #         HOME={INSTALL_PATH}
-#         PYTHON_VERSION=3.13
+#         PYTHON_VERSION=3.14
 # database:
 #     type: mysql
 # requirements:
@@ -21,7 +21,7 @@ set -e
 # https://ghost.org/docs/faq/node-versions/
 # https://ghost.org/docs/install/local/
 
-export PYTHON_VERSION=3.13
+export PYTHON_VERSION=3.14
 pip install setuptools
 
 npm install ghost-cli

@@ -12,14 +12,14 @@
 
 set -e
 
-# https://www.odoo.com/documentation/18.0/administration/install/source.html
-# https://www.odoo.com/documentation/18.0/administration/on_premise/deploy.html#builtin-server
-# https://www.odoo.com/documentation/18.0/developer/reference/cli.html
+# https://www.odoo.com/documentation/19.0/administration/install/source.html
+# https://www.odoo.com/documentation/19.0/administration/on_premise/deploy.html#builtin-server
+# https://www.odoo.com/documentation/19.0/developer/reference/cli.html
 
-export PYTHON_VERSION=3.11
-export NODEJS_VERSION=20
+export PYTHON_VERSION=3.13
+export NODEJS_VERSION=22
 
-git clone -b 18.0 --depth 1 https://github.com/odoo/odoo.git .
+git clone -b 19.0 --depth 1 https://github.com/odoo/odoo.git .
 
 npm install -g rtlcss
 

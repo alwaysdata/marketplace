@@ -40,8 +40,7 @@
 
 set -e
 
-# https://docs.mautic.org/en/6.x/getting_started/how_to_install_mautic.html#
-
+# https://docs.mautic.org/en/7.0/getting_started/how_to_install_mautic.html
 ad_install_pecl redis
 
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project mautic/core
