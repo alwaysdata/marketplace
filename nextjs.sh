@@ -3,37 +3,28 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: nodejs
-#     nodejs_version: '20'
+#     nodejs_version: '24'
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: 'npx next start --port $PORT --hostname $IP'
+#     environment: |
+#         HOME={INSTALL_PATH}
 # requirements:
-#     disk: 360
+#     disk: 600
 
 set -e
 
 export NPM_CONFIG_CACHE=`mktemp -d`
 export XDG_CONFIG_HOME=`mktemp -d`
 
-# Do NOT use `npx` cause it triggers the `.npm-packages missing` bug
-# @see https://github.com/npm/cli/issues/5942
-npm create -y --force next-app -- \
-    --use-npm \
-    --typescript \
-    --tailwind \
-    --eslint \
-    --no-app \
-    --src-dir \
-    --import-alias='@/*' \
-    $INSTALL_PATH
+echo "Y"|pnpm create next-app@latest default --yes
+
+cd default
 
 cat << EOF > next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: '',
   reactStrictMode: true,
-  experimental: {
-    appDir: false
-  }
 }
 
 module.exports = nextConfig
@@ -42,7 +33,13 @@ EOF
 if [ "$INSTALL_URL_PATH" != "/" ]
 then
     sed -i "s,basePath: '',basePath:'$INSTALL_URL_PATH',g" next.config.js
-    sed -i 's,src=",src="'$INSTALL_URL_PATH',g' src/pages/index.tsx
 fi
 
 npx next build
+
+# Clean install environment
+cd
+rm -rf .cache .local
+shopt -s dotglob
+mv default/* .
+rmdir default
