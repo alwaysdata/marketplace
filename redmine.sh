@@ -2,11 +2,13 @@
 
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
-#     type: ruby_rack
-#     ruby_version: '3.2'
-#     path: '{INSTALL_PATH_RELATIVE}/config.ru'
-#     environment: 'RAILS_ENV=production'
-#     bundler: true
+#     type: user_program
+#     working_directory: '{INSTALL_PATH_RELATIVE}'
+#     command: './bin/rails server -b "::"'
+#     environment: |
+#         RAILS_ENV=production
+#         RUBY_VERSION=3.4
+#         HOME={INSTALL_PATH}
 #     path_trim: true
 # database:
 #     type: postgresql
@@ -29,8 +31,10 @@ set -e
 
 # https://www.redmine.org/projects/redmine/wiki/RedmineInstall
 
+export RUBY_VERSION=3.4
+
 # Download
-wget -O- https://www.redmine.org/releases/redmine-5.1.7.tar.gz | tar -xz --strip-components=1
+wget -O- https://www.redmine.org/releases/redmine-6.1.0.tar.gz| tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config/database.yml
@@ -52,8 +56,14 @@ production:
       domain: $INSTALL_URL_HOSTNAME
 EOF
 
+cat << EOF > Gemfile.local
+# Gemfile.local
+gem 'puma'
+EOF
+
 # Install
-bundle install --path vendor/bundle --without development test
+bundle config set without 'development test'
+bundle install
 bundle exec rake generate_secret_token
 
 RAILS_ENV=production bundle exec rake db:migrate
