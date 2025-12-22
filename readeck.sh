@@ -31,7 +31,7 @@
 set -e
 
 # Download
-wget --no-hsts -O readeck https://codeberg.org/readeck/readeck/releases/download/0.21.4/readeck-0.21.4-linux-amd64
+wget --no-hsts -O readeck https://codeberg.org/readeck/readeck/releases/download/0.21.5/readeck-0.21.5-linux-amd64
 
 chmod +x  readeck
 
