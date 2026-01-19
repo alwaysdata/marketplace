@@ -5,6 +5,7 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8.5'
+#     ssl: true
 # database:
 #     type: mysql
 # requirements:
@@ -33,7 +34,7 @@ set -e
 # https://yourls.org/docs#requirements
 
 # Download
-wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.10.2.tar.gz| tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.10.3.tar.gz| tar -xz --strip-components=1
 
 # Configuration
 mv user/config-sample.php user/config.php
@@ -42,7 +43,7 @@ sed -i "s|'your db user name'|'$DATABASE_USERNAME'|" user/config.php
 sed -i "s|'your db password'|'$DATABASE_PASSWORD'|" user/config.php
 sed -i "s|'YOURLS_DB_NAME', 'yourls'|'YOURLS_DB_NAME', '$DATABASE_NAME'|" user/config.php
 sed -i "s|'localhost'|'$DATABASE_HOST'|" user/config.php
-sed -i "s|'http://your-own-domain-here.com'|'http://$INSTALL_URL'|" user/config.php
+sed -i "s|'https://your-own-domain-here.com'|'https://$INSTALL_URL'|" user/config.php
 sed -i "s|'username' => 'password'|'$FORM_ADMIN_USERNAME' => '$FORM_ADMIN_PASSWORD'|" user/config.php
 
 # Install
