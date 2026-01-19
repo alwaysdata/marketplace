@@ -5,6 +5,11 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
 #     php_version: '8.4'
+#     php_ini: |
+#         extension={INSTALL_PATH}/imagick-8.4.so
+#         max_execution_time=200
+#         zend.assertions=-1
+#     ssl: true
 # database:
 #     type: mysql
 # requirements:
@@ -13,11 +18,13 @@
 set -e
 
 # https://lycheeorg.dev/docs/#server-requirements
+ad_install_pecl imagick
+
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v6.10.4/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v7.0.1/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
-sed -i "s|http://localhost|http://$INSTALL_URL|" .env.example
+sed -i "s|http://localhost|https://$INSTALL_URL|" .env.example
 sed -i "s|DB_CONNECTION=sqlite|DB_CONNECTION=mysql|" .env.example
 sed -i "s|DB_HOST=|DB_HOST=$DATABASE_HOST|" .env.example
 sed -i "s|#DB_DATABASE=|DB_DATABASE=$DATABASE_NAME|" .env.example
