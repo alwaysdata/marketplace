@@ -5,6 +5,7 @@
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
 #     php_version: '8.4'
+#     ssl_force: true
 # database:
 #     type: mysql
 # form:
@@ -36,8 +37,8 @@ sed -i "s|'DC_DBUSER', ''|'DC_DBUSER', '$DATABASE_USERNAME'|" inc/config.php
 sed -i "s|'DC_DBPASSWORD', ''|'DC_DBPASSWORD', '$DATABASE_PASSWORD'|" inc/config.php
 sed -i "s|'DC_DBNAME', ''|'DC_DBNAME', '$DATABASE_NAME'|" inc/config.php
 sed -i "s|'DC_MASTER_KEY', ''|'DC_MASTER_KEY', '$(date | sha256sum -b | sed 's/ .*//')'|" inc/config.php
-sed -i "s|'DC_ADMIN_URL', ''|'DC_ADMIN_URL', '$INSTALL_URL/admin'|" inc/config.php
+sed -i "s|'DC_ADMIN_URL', ''|'DC_ADMIN_URL', 'https://$INSTALL_URL/admin'|" inc/config.php
 sed -i "s|'DC_ADMIN_MAILFROM', ''|'DC_ADMIN_MAILFROM', '$USER@$RESELLER_DOMAIN'|" inc/config.php
 
 # Install
-curl -L -X POST -F u_login="$FORM_ADMIN_USERNAME" -F u_pwd="$FORM_ADMIN_PASSWORD" -F u_pwd2="$FORM_ADMIN_PASSWORD" $INSTALL_URL/admin/install/index.php
+curl -L -X POST -F u_login="$FORM_ADMIN_USERNAME" -F u_pwd="$FORM_ADMIN_PASSWORD" -F u_pwd2="$FORM_ADMIN_PASSWORD" https://$INSTALL_URL/admin/install/index.php
