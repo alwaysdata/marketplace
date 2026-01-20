@@ -10,12 +10,22 @@
 #     type: mysql
 # form:
 #     admin_username:
-#         label: Administrator username
+#         label:
+#             en: Administrator username
+#             fr: Nom d'utilisateur de l'administrateur
 #         min_length: 2
+#         max_length: 255
+#     admin_email:
+#         type: email
+#         label:
+#             en: Administrator email
+#             fr: Email de l'administrateur
 #         max_length: 255
 #     admin_password:
 #         type: password
-#         label: Administrator password
+#         label:
+#             en: Administrator password
+#             fr: Mot de passe de l'administrateur
 #         min_length: 5
 #         max_length: 255
 # requirements:
@@ -41,4 +51,5 @@ sed -i "s|'DC_ADMIN_URL', ''|'DC_ADMIN_URL', 'https://$INSTALL_URL/admin'|" inc/
 sed -i "s|'DC_ADMIN_MAILFROM', ''|'DC_ADMIN_MAILFROM', '$USER@$RESELLER_DOMAIN'|" inc/config.php
 
 # Install
-curl -L -X POST -F u_login="$FORM_ADMIN_USERNAME" -F u_pwd="$FORM_ADMIN_PASSWORD" -F u_pwd2="$FORM_ADMIN_PASSWORD" https://$INSTALL_URL/admin/install/index.php
+
+php admin/install/index.php -n --uemail="$FORM_ADMIN_EMAIL" --ulogin="$FORM_ADMIN_USERNAME" --upassword=$FORM_ADMIN_PASSWORD -ufirstname="" --ulastname="" --blogurl=https://$INSTALL_URL
