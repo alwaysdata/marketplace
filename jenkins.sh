@@ -4,7 +4,7 @@
 # site:
 #     type: user_program
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
-#     command: "java17 -Xmx512m -jar jenkins.war --httpListenAddress=0.0.0.0 --httpPort=$PORT"
+#     command: "java25 -Xmx512m -jar jenkins.war --httpListenAddress=0.0.0.0 --httpPort=$PORT"
 #     environment: |
 #          JENKINS_HOME={INSTALL_PATH}
 # requirements:
@@ -12,4 +12,4 @@
 
 set -e
 
-wget --no-hsts https://get.jenkins.io/war-stable/2.528.3/jenkins.war
+wget --no-hsts https://get.jenkins.io/war-stable/2.541.1/jenkins.war
