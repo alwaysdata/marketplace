@@ -6,17 +6,14 @@
 #     path: '{INSTALL_PATH_RELATIVE}/public/'
 #     php_version: '8.5'
 # requirements:
-#     disk: 100
+#     disk: 50
 
 set -e
 
 # https://symfony.com/doc/current/setup.html
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project symfony/skeleton default
-cd default
-echo "n"|COMPOSER_CACHE_DIR=/dev/null composer2 require webapp
 
 # Clean install environment
-cd
 rm -rf .config .local .subversion
 
 shopt -s dotglob
