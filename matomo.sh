@@ -33,7 +33,7 @@ set -e
 
 # https://matomo.org/faq/on-premise/matomo-requirements/
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.6.2.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-5.7.1.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
