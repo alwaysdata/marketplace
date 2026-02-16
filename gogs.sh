@@ -14,7 +14,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/gogs/gogs/releases/download/v0.13.4/gogs_0.13.4_linux_amd64.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/gogs/gogs/releases/download/v0.14.1/gogs_0.14.1_linux_amd64.tar.gz|tar -xz --strip-components=1
 
 # Configuration
 mkdir -p custom/conf
