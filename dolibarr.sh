@@ -20,7 +20,7 @@ set -e
 
 # https://wiki.dolibarr.org/index.php?title=Prerequisites
 
-wget -O- https://downloads.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/22.0.4/dolibarr-22.0.4.zip | bsdtar --strip-components=1 -xf -
+wget -O- https://downloads.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/23.0.0/dolibarr-23.0.0.zip | bsdtar --strip-components=1 -xf -
 
 mkdir documents
 cp htdocs/install/install.forced.sample.php htdocs/install/install.forced.php 
