@@ -22,7 +22,7 @@ set -e
 ad_install_pecl imagick
 
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v7.5.0/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v7.5.3/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
 sed -i "s|http://localhost|https://$INSTALL_URL|" .env.example
