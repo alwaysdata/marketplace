@@ -47,7 +47,7 @@ set -e
 
 COMPOSER_CACHE_DIR=/dev/null composer2 global require joomlatools/console
 
-php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" default
+php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" --release=6.0.4 default
 
 cd default
 
