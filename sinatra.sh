@@ -2,65 +2,32 @@
 
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
-#     ruby_version: '3.4'
-#     type: 'ruby_rack'
+#     type: user_program
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
-#     path: '{INSTALL_PATH_RELATIVE}/config.ru'
-#     path_trim: true
+#     command: 'ruby myapp.rb'
+#     environment: |
+#         RUBY_VERSION=4.0
+#         HOME={INSTALL_PATH}
+#         APP_ENV=production
 # requirements:
-#     disk: 20
+#     disk: 70
 
 set -e
 
 # http://sinatrarb.com/documentation.html
+# https://github.com/sinatra/sinatra
 
-cat << EOF > Gemfile
-source "http://rubygems.org"
+export RUBY_VERSION=4.0
 
-gem 'sinatra', '3.2.0', require: 'sinatra/base'
-gem 'sinatra-reloader', require: 'sinatra/reloader'
+gem install sinatra rackup puma
 
-EOF
-bundle install --path vendor/bundle
+cat  << EOF > myapp.rb
+require 'sinatra'
+set :bind, '::'
 
-cat << EOF > server.rb
-# Requires the Gemfile
-require 'bundler' ; Bundler.require
-
-# Sinatra server
-module Server
-  class App < Sinatra::Base
-    register Sinatra::Reloader
-
-    get '/' do
-      erb :index
-    end
-  end
+get '/' do
+  'Hello world!'
 end
-
 EOF
 
-cat << EOF > config.ru
-require './server.rb'
-
-run Server::App
-
-EOF
-
-mkdir views
-cat << EOF > views/index.erb
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<title>Hello World!</title>
-</head>
-
-<body>
-	<h1>Hello World!</h1>
-	<p>Today is <%= Time.now.strftime('%A') %></p>
-</body>
-
-</html>
-
-EOF
+rm -rf .cache
