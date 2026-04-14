@@ -17,7 +17,7 @@ set -e
 # https://www.odoo.com/documentation/19.0/developer/reference/cli.html
 
 export PYTHON_VERSION=3.13
-export NODEJS_VERSION=22
+export NODEJS_VERSION=24
 
 git clone -b 19.0 --depth 1 https://github.com/odoo/odoo.git .
 
