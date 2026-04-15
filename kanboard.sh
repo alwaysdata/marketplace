@@ -3,7 +3,7 @@
 # Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
 # site:
 #     type: php
-#     php_version: '8.4'
+#     php_version: '8.5'
 #     path: '{INSTALL_PATH_RELATIVE}'
 # database:
 #     type: postgresql
