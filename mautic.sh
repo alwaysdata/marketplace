@@ -40,7 +40,8 @@
 
 set -e
 
-# https://docs.mautic.org/en/7.0/getting_started/how_to_install_mautic.html
+# https://docs.mautic.org/en/7.1/getting_started/how_to_install_mautic.html
+# https://mautic.org/mautic-requirements/
 ad_install_pecl redis
 
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project mautic/core
@@ -56,3 +57,5 @@ rm -rf .config .local .subversion vendor
 shopt -s dotglob
 mv core/* .
 rmdir core
+
+# L'extension PHP imap n'est pas compatible avec les versions supérieures à PHP 8.3.
