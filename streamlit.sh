@@ -15,7 +15,7 @@ set -e
 
 # https://docs.streamlit.io/library/get-started/installation
 
-export PYTHON_VERSION=3.13
+export PYTHON_VERSION=3.14
 
 # Create a virtualenv and install Streamlit in it
 python -m venv env

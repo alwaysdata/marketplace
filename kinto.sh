@@ -6,7 +6,7 @@
 #     working_directory: '{INSTALL_PATH_RELATIVE}'
 #     command: './env/bin/kinto start'
 #     environment: |
-#         PYTHON_VERSION=3.11
+#         PYTHON_VERSION=3.14
 #     ssl_force: true
 # database:
 #     type: postgresql
@@ -15,7 +15,7 @@
 
 set -e
 
-export PYTHON_VERSION=3.11
+export PYTHON_VERSION=3.14
 
 # Create virtualenv and install Kinto in it
 python -m venv env
