@@ -56,7 +56,7 @@
 
 set -e
 
-# https://docs.moodle.org/501/en/Installation_quick_guide
+# https://docs.moodle.org/502/en/Installation_quick_guide
 
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project moodle/moodle
 
