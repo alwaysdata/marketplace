@@ -20,7 +20,7 @@ set -e
 
 npm install pnpm
 
-wget -O- --no-hsts https://github.com/ether/etherpad-lite/archive/2.6.1.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/ether/etherpad-lite/archive/2.7.2.tar.gz | tar -xz --strip-components=1
 
 cp settings.json.template settings.json
 
