@@ -30,6 +30,7 @@ HTTP_ADDR = "::"
 HTTP_PORT = $PORT
 SSH_DOMAIN = ssh-$USER.$RESELLER_DOMAIN
 ROOT_URL = https://$INSTALL_URL/
+LOCAL_ROOT_URL = https://$INSTALL_URL/
 
 [database]
 DB_TYPE = postgres
