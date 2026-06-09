@@ -42,22 +42,8 @@
 set -e
 
 # https://manual.joomla.org/docs/next/get-started/technical-requirements/
-# Joomlatools CLI: https://www.joomlatools.com/developer/tools/console/commands/
 # https://docs-core.sandbox.joomla.org/user-manual/command-line-interface/command-line-interface-joomla-cli-installation
 
-COMPOSER_CACHE_DIR=/dev/null composer2 global require joomlatools/console
+wget -O- --no-hsts https://downloads.joomla.org/cms/joomla6/6-1-1/Joomla_6-1-1-Stable-Full_Package.zip | bsdtar --strip-components=0 -xf -
 
-php .config/composer/vendor/bin/joomla site:download --www="$INSTALL_PATH" --release=6.1.0 default
-
-cd default
-
- php installation/joomla.php install --site-name="$FORM_TITLE" --admin-user="$FORM_ADMIN_NAME" --admin-username="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --admin-email=$FORM_ADMIN_EMAIL --db-type=mysqli --db-host=$DATABASE_HOST --db-user=$DATABASE_USERNAME --db-pass="$DATABASE_PASSWORD" --db-name=$DATABASE_NAME
-
-sed -i "s|\/default\/|\/|" configuration.php
-
-# Clean install environment
-cd
-rm -rf .config .local .subversion .joomlatools
-shopt -s dotglob
-mv default/* .
-rmdir default
+php installation/joomla.php install --site-name="$FORM_TITLE" --admin-user="$FORM_ADMIN_NAME" --admin-username="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --admin-email=$FORM_ADMIN_EMAIL --db-type=mysqli --db-host=$DATABASE_HOST --db-user=$DATABASE_USERNAME --db-pass="$DATABASE_PASSWORD" --db-name=$DATABASE_NAME
