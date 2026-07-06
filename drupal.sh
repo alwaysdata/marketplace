@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/web'
@@ -54,7 +54,7 @@ set -e
 
 # https://www.drupal.org/docs/system-requirements
 
-# Download & install dependancies
+# Download & install dependencies
 COMPOSER_CACHE_DIR=/dev/null composer2 create-project drupal/recommended-project
 
 cd recommended-project

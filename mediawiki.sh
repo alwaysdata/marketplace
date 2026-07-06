@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -43,7 +43,7 @@ set -e
 
 # https://www.mediawiki.org/wiki/Compatibility
 
-# Download & install dependancies
+# Download & install dependencies
 wget -O- --no-hsts https://releases.wikimedia.org/mediawiki/1.45/mediawiki-1.45.3.tar.gz | tar -xz --strip-components=1
 
 COMPOSER_CACHE_DIR=/dev/null composer2 install

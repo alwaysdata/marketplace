@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: wsgi
 #     path_trim: true
@@ -45,7 +45,7 @@ set -e
 
 # https://docs.django-cms.org/en/latest/index.html#requirements
 
-# Create virtualenv and install dependancies
+# Create virtualenv and install dependencies
 python -m venv env
 source env/bin/activate
 python -m pip install django-cms Django psycopg2

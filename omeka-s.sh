@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}'
@@ -48,7 +48,7 @@ set -e
 
 # https://omeka.org/s/docs/user-manual/install/
 
-# Download & install dependancies
+# Download & install dependencies
 wget -O- --no-hsts https://github.com/omeka/omeka-s/archive/v4.2.1.tar.gz | tar -xz --strip-components=1
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 

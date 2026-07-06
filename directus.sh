@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: nodejs
 #     nodejs_version: '20'
@@ -33,7 +33,7 @@ export PYTHON_VERSION=3.11
 
 # https://directus.io/docs/guides/extensions/cli
 
-# Install Directus & dependancies
+# Install Directus & dependencies
 npm init -y
 npm install directus --omit=dev --max-old-space-size=256 --max-semi-space-size=256
 npm install mysql  --max-old-space-size=256 --max-semi-space-size=256

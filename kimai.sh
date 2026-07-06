@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Declare site in YAML, as documented on the documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+# Declare site in YAML, as documented here: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 # site:
 #     type: php
 #     path: '{INSTALL_PATH_RELATIVE}/public'
@@ -39,7 +39,7 @@ set -e
 
 # https://www.kimai.org/documentation/installation.html
 
-# Download and install dependancies
+# Download and install dependencies
 git clone -b 2.61.0 --depth 1 https://github.com/kimai/kimai.git
 cd kimai/
 
