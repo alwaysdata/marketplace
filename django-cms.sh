@@ -12,7 +12,7 @@
 # database:
 #     type: postgresql
 # requirements:
-#     disk: 90
+#     disk: 180
 # form:
 #     project:
 #         label:
@@ -48,14 +48,13 @@ set -e
 # Create virtualenv and install dependencies
 python -m venv env
 source env/bin/activate
-python -m pip install django-cms Django psycopg2
+python -m pip install django-cms Django psycopg2 djangocms-text djangocms-frontend django-filer djangocms-versioning djangocms-alias
 django-admin startproject $FORM_PROJECT $INSTALL_PATH
 
 # Configuration
 sed -i "s|DEBUG = True|DEBUG = False|" $FORM_PROJECT/settings.py
 sed -i "s|^ALLOWED_HOSTS = .*|ALLOWED_HOSTS = [\'*']|" $FORM_PROJECT/settings.py
 
-sed -i "/INSTALLED_APPS = \[/a \ \ \ \ 'djangocms_admin_style'," $FORM_PROJECT/settings.py
 cat << EOF | sed -i "/'django.contrib.staticfiles',/r /dev/stdin" $FORM_PROJECT/settings.py
     'django.contrib.sites',
     'cms',
