@@ -2,7 +2,7 @@
 
 Set of application installation scripts managed by the alwaysdata team.
 
-More information to create your own script is available on our documentation: https://help.alwaysdata.com/en/marketplace/build-application-script/
+More information to create your own script is available on our documentation: https://help.alwaysdata.com/en/docs/development/marketplace/build-application-script/
 
 ## LICENSE
 
