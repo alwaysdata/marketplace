@@ -7,20 +7,17 @@
 #     command: './gotify-linux-amd64'
 # requirements:
 #     disk: 25
-
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/gotify/server/releases/download/v2.9.1/gotify-linux-amd64.zip | bsdtar -xf -
+wget -O- --no-hsts https://github.com/gotify/server/releases/download/v3.0.0/gotify-linux-amd64.zip | bsdtar -xf -
 chmod +x gotify-linux-amd64
 
 # Configuration
-wget --no-hsts -O config.yml https://raw.githubusercontent.com/gotify/server/master/config.example.yml
-
-sed -i "s|listenaddr: \"\"|listenaddr: \"0.0.0.0\"|" config.yml
-sed -i "s|port: 80|port: $PORT|" config.yml
-
-sed -i '/name:/d' config.yml
-sed -i '/pass:/d' config.yml
+cat << EOF > gotify-server.env
+# Documentation: https://gotify.net/docs/config
+GOTIFY_SERVER_LISTENADDR=0.0.0.0
+GOTIFY_SERVER_PORT=$PORT
+EOF
 
 # Default credentials for first login: admin / admin
