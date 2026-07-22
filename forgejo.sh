@@ -15,7 +15,7 @@
 set -e
 
 # Download
-wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v16.0.0/forgejo-16.0.0-linux-amd64
+wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v16.0.1/forgejo-16.0.1-linux-amd64
 
 chmod +x  forgejo
 
