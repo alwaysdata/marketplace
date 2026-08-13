@@ -37,7 +37,7 @@
 set -e
 
 # Download
-wget -O- --no-hsts https://github.com/writefreely/writefreely/releases/download/v0.17.1/writefreely_0.17.1_linux_amd64.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/writefreely/writefreely/releases/download/v0.17.2/writefreely_0.17.2_linux_amd64.tar.gz|tar -xz --strip-components=1
 
 # Configuration
 ./writefreely config generate
