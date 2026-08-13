@@ -26,7 +26,7 @@ python -m pip install ihatemoney psycopg2
 # Configuration
 ./env/bin/ihatemoney generate-config ihatemoney.cfg > ihatemoney.cfg
 sed -i "s|sqlite:////var/lib/ihatemoney/ihatemoney.sqlite|postgresql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_NAME?client_encoding=utf8|" ihatemoney.cfg
-sed -i "s|budget@notmyidea.org|$USER@$RESELLER_DOMAIN|" ihatemoney.cfg
+sed -i "s|Budget manager <admin@example.com>\" \# CUSTOMIZE|Budget manager <$USER@$RESELLER_DOMAIN>\"|" ihatemoney.cfg
 echo "MAIL_SERVER = \"smtp-$USER.$RESELLER_DOMAIN\"" >> ihatemoney.cfg
  
 cat << EOF > wsgi.py
