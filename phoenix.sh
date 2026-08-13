@@ -11,17 +11,15 @@
 #         MIX_ENV=prod
 #     path_trim: true
 # requirements:
-#     disk: 110
+#     disk: 260
 
 set -e
 
 # https://hexdocs.pm/phoenix
 
-#export MIX_HOME=$INSTALL_PATH/.mix
-
 mix local.hex --force
 mix local.rebar --force
-mix archive.install hex phx_new 1.7.21 --force
+mix archive.install hex phx_new --force
 echo Y | mix phx.new hello --no-ecto
 cd hello
 
@@ -30,6 +28,9 @@ sed -z -i 's/# The secret.*"""\n\n  //' config/runtime.exs
 sed -i "s/secret_key_base: secret_key_base/secret_key_base: \"$(mix phx.gen.secret | tr / A)\"/" config/runtime.exs
 
 export MIX_ENV=prod
-mix assets.deploy
 mix phx.digest
 mix compile
+mix assets.deploy 
+
+cd
+rm -rf .cache
