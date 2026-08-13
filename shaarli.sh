@@ -39,6 +39,6 @@ set -e
 
 # https://shaarli.readthedocs.io/en/latest/Server-configuration.html
 
-wget -O- --no-hsts https://github.com/shaarli/Shaarli/releases/download/v0.16.3/shaarli-v0.16.3-full.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/shaarli/Shaarli/releases/download/v0.16.5/shaarli-v0.16.5-full.zip | bsdtar --strip-components=1 -xf -
 
 curl -X POST -F setlogin="$FORM_USERNAME" -F setpassword="$FORM_PASSWORD" -F title="$FORM_TITLE" -F language="$FORM_LANGUAGE" -F Save=Install http://$INSTALL_URL/install
