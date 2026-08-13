@@ -37,8 +37,8 @@ wget -O- --no-hsts https://builds.matomo.org/matomo-5.12.0.zip | bsdtar --strip-
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
-wget -O- --no-hsts https://github.com/Digitalist-Open-Cloud/Matomo-Plugin-ExtraTools/archive/refs/tags/5.1.2.zip | bsdtar --strip-components=0 -xf -
-mv Matomo-Plugin-ExtraTools-5.1.2 ExtraTools
+wget -O- --no-hsts https://github.com/Digitalist-Open-Cloud/Matomo-Plugin-ExtraTools/archive/refs/tags/5.3.0.zip | bsdtar --strip-components=0 -xf -
+mv Matomo-Plugin-ExtraTools-5.3.0 ExtraTools
 cd
 
 php console plugin:activate ExtraTools --quiet || true
