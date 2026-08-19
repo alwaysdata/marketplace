@@ -32,6 +32,8 @@
 
 set -e
 
+export SPIP_VERSION=v4.4.20
+
 # Requirements: https://www.spip.net/en_article7023.html
 # https://www.spip.net/fr_article6500.html
 # https://contrib.spip.net/SPIP-Cli
@@ -44,7 +46,7 @@ COMPOSER_CACHE_DIR=/dev/null composer2 update
 mkdir $HOME/default
 cd $HOME/default
 
-wget -O- --no-hsts https://files.spip.net/spip/archives/spip-v4.4.19.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://files.spip.net/spip/archives/spip-$SPIP_VERSION.zip | bsdtar --strip-components=0 -xf -
 
 # Install
 ~/spip-cli/bin/spip install --db-server "mysql" --db-host "$DATABASE_HOST" --db-login "$DATABASE_USERNAME" --db-pass "$DATABASE_PASSWORD" --db-database "$DATABASE_NAME" --admin-login "$FORM_ADMIN_USERNAME" --admin-email "$FORM_ADMIN_EMAIL" --admin-pass "$FORM_ADMIN_PASSWORD"
