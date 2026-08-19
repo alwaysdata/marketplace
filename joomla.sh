@@ -41,9 +41,11 @@
 
 set -e
 
+export JOOMLA_VERSION="6-1-3"
+
 # https://manual.joomla.org/docs/next/get-started/technical-requirements/
 # https://docs-core.sandbox.joomla.org/user-manual/command-line-interface/command-line-interface-joomla-cli-installation
 
-wget -O- --no-hsts https://downloads.joomla.org/cms/joomla6/6-1-2/Joomla_6-1-2-Stable-Full_Package.zip | bsdtar --strip-components=0 -xf -
+wget -O- --no-hsts https://downloads.joomla.org/cms/joomla6/$VERSION/Joomla_$JOOMLA_VERSION-Stable-Full_Package.zip | bsdtar --strip-components=0 -xf -
 
 php installation/joomla.php install --site-name="$FORM_TITLE" --admin-user="$FORM_ADMIN_NAME" --admin-username="$FORM_ADMIN_USERNAME" --admin-password="$FORM_ADMIN_PASSWORD" --admin-email=$FORM_ADMIN_EMAIL --db-type=mysqli --db-host=$DATABASE_HOST --db-user=$DATABASE_USERNAME --db-pass="$DATABASE_PASSWORD" --db-name=$DATABASE_NAME
