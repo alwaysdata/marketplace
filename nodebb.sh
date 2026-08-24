@@ -33,10 +33,12 @@
 #         max_length: 255
 set -e
 
+export NODEBB_VERSION=v4.15.1
+
 # https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
 
 # Download
-wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/v4.15.0.tar.gz|tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/NodeBB/NodeBB/archive/refs/tags/$NODEBB_VERSION.tar.gz|tar -xz --strip-components=1
 
 # Configuration
 cat << EOF > config.json
