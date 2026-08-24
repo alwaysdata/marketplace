@@ -18,11 +18,13 @@
 
 set -e
 
+export LYCHEE_VERSION=v7.7.5
+
 # https://lycheeorg.dev/docs/#server-requirements
 ad_install_pecl imagick
 
 # Download
-wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/v7.7.3/Lychee.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://github.com/LycheeOrg/Lychee/releases/download/$LYCHEE_VERSION/Lychee.zip | bsdtar --strip-components=1 -xf -
 
 # Configuration
 sed -i "s|http://localhost|https://$INSTALL_URL|" .env.example
