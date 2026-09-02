@@ -12,9 +12,11 @@
 
 set -e
 
+export KANBOARD_VERSION=v1.2.54
+
 # https://docs.kanboard.org/v1/admin/requirements/
 # Download
-wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/v1.2.53.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/kanboard/kanboard/archive/refs/tags/$KANBOARD_VERSION.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 # https://docs.kanboard.org/en/latest/admin_guide/config_file.html
