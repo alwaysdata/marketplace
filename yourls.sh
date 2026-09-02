@@ -31,10 +31,12 @@
 
 set -e
 
+export YOURLS_VERSION=1.10.6
+
 # https://yourls.org/docs#requirements
 
 # Download
-wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/1.10.4.tar.gz| tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/YOURLS/YOURLS/archive/refs/tags/$YOURLS_VERSION.tar.gz| tar -xz --strip-components=1
 
 # Configuration
 mv user/config-sample.php user/config.php
@@ -45,6 +47,7 @@ sed -i "s|'YOURLS_DB_NAME', 'yourls'|'YOURLS_DB_NAME', '$DATABASE_NAME'|" user/c
 sed -i "s|'localhost'|'$DATABASE_HOST'|" user/config.php
 sed -i "s|'https://your-own-domain-here.com'|'https://$INSTALL_URL'|" user/config.php
 sed -i "s|'username' => 'password'|'$FORM_ADMIN_USERNAME' => '$FORM_ADMIN_PASSWORD'|" user/config.php
+sed -i "s|'modify this text with something random'|'$(openssl rand -base64 32)'|" user/config.php
 
 # Install
 curl -X POST -F install="Install YOURLS" http://$INSTALL_URL/admin/install.php
