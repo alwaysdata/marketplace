@@ -30,7 +30,7 @@
 
 set -e
 
-export READECK_VERSION=0.23.1
+export READECK_VERSION=0.23.2
 
 # Download
 wget --no-hsts -O readeck https://codeberg.org/readeck/readeck/releases/download/$READECK_VERSION/readeck-$READECK_VERSION-linux-amd64
