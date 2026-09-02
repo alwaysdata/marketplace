@@ -14,10 +14,12 @@
 
 set -e
 
+export GITEA_VERSION=1.27.3
+
 # https://docs.gitea.io/en-us/install-from-binary/
 
 # Download
-wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v1.27.2/gitea-1.27.2-linux-amd64
+wget  --no-hsts -O gitea https://github.com/go-gitea/gitea/releases/download/v$GITEA_VERSION/gitea-$GITEA_VERSION-linux-amd64
 chmod +x gitea
 
 # Configuration
