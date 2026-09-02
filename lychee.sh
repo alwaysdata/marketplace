@@ -18,7 +18,7 @@
 
 set -e
 
-export LYCHEE_VERSION=v7.7.5
+export LYCHEE_VERSION=v7.8.3
 
 # https://lycheeorg.dev/docs/#server-requirements
 ad_install_pecl imagick
