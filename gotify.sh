@@ -9,8 +9,10 @@
 #     disk: 25
 set -e
 
+export GOTIFY_VERSION=v3.1.0
+
 # Download
-wget -O- --no-hsts https://github.com/gotify/server/releases/download/v3.0.0/gotify-linux-amd64.zip | bsdtar -xf -
+wget -O- --no-hsts https://github.com/gotify/server/releases/download/$GOTIFY_VERSION/gotify-linux-amd64.zip | bsdtar -xf -
 chmod +x gotify-linux-amd64
 
 # Configuration
