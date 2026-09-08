@@ -24,7 +24,7 @@
 
 set -e
 
-export DOLIBARR_VERSION=24.0.0
+export DOLIBARR_VERSION=24.0.1
 
 # https://wiki.dolibarr.org/index.php?title=Prerequisites
 
