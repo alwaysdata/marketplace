@@ -24,7 +24,7 @@
 
 set -e
 
-export POCKETBASE_VERSION=0.40.1
+export POCKETBASE_VERSION=0.40.3
 
 # https://pocketbase.io/docs/
 
