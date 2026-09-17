@@ -16,9 +16,11 @@
 
 set -e
 
+export ETHERPAD_VERSION=3.3.5
+
 # https://github.com/ether/etherpad-lite#installation
 
-wget -O- --no-hsts https://github.com/ether/etherpad-lite/archive/3.3.3.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/ether/etherpad-lite/archive/$ETHERPAD_VERSION.tar.gz | tar -xz --strip-components=1
 
 cp settings.json.template settings.json
 
