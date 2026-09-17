@@ -9,7 +9,7 @@
 #     disk: 25
 set -e
 
-export GOTIFY_VERSION=v3.1.0
+export GOTIFY_VERSION=v3.1.1
 
 # Download
 wget -O- --no-hsts https://github.com/gotify/server/releases/download/$GOTIFY_VERSION/gotify-linux-amd64.zip | bsdtar -xf -
