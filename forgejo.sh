@@ -14,7 +14,7 @@
 
 set -e
 
-export FORGEJO_VERSION=16.0.4
+export FORGEJO_VERSION=16.0.5
 
 # Download
 wget --no-hsts -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v$FORGEJO_VERSION/forgejo-$FORGEJO_VERSION-linux-amd64
