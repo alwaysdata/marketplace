@@ -31,14 +31,17 @@
 
 set -e
 
+export MATOMO_VERSION=5.14.0
+export EXTRATOOLS_VERSION=5.3.0
+
 # https://matomo.org/faq/on-premise/matomo-requirements/
 # Download
-wget -O- --no-hsts https://builds.matomo.org/matomo-5.13.0.zip | bsdtar --strip-components=1 -xf -
+wget -O- --no-hsts https://builds.matomo.org/matomo-$MATOMO_VERSION.zip | bsdtar --strip-components=1 -xf -
 
 # https://plugins.matomo.org/ExtraTools#documentation
 cd plugins
-wget -O- --no-hsts https://github.com/Digitalist-Open-Cloud/Matomo-Plugin-ExtraTools/archive/refs/tags/5.3.0.zip | bsdtar --strip-components=0 -xf -
-mv Matomo-Plugin-ExtraTools-5.3.0 ExtraTools
+wget -O- --no-hsts https://github.com/Digitalist-Open-Cloud/Matomo-Plugin-ExtraTools/archive/refs/tags/$EXTRATOOLS_VERSION.zip | bsdtar --strip-components=0 -xf -
+mv Matomo-Plugin-ExtraTools-$EXTRATOOLS_VERSION ExtraTools
 cd
 
 php console plugin:activate ExtraTools --quiet || true
