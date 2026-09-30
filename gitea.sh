@@ -14,7 +14,7 @@
 
 set -e
 
-export GITEA_VERSION=1.27.3
+export GITEA_VERSION=28.0.0
 
 # https://docs.gitea.io/en-us/install-from-binary/
 
