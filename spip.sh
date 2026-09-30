@@ -32,7 +32,7 @@
 
 set -e
 
-export SPIP_VERSION=v4.4.24
+export SPIP_VERSION=v4.4.25
 
 # Requirements: https://www.spip.net/en_article7023.html
 # https://www.spip.net/fr_article6500.html
