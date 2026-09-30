@@ -12,8 +12,11 @@
 
 set -e
 
+
+export LEANTIME_VERSION=v3.10.0
+
 # Download
-wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/v3.9.8/Leantime-v3.9.8.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/$LEANTIME_VERSION/Leantime-$LEANTIME_VERSION.tar.gz | tar -xz --strip-components=1
 
 # Configuration
 cp config/sample.env config/.env
