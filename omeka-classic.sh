@@ -40,10 +40,12 @@
 
 set -e
 
+export OMEKA_VERSION=v3.2.2
+
 # https://omeka.org/classic/docs/Installation/System_Requirements/
 
 # Download & install dependencies
-wget -O- --no-hsts https://github.com/omeka/Omeka/archive/v3.2.1.tar.gz | tar -xz --strip-components=1
+wget -O- --no-hsts https://github.com/omeka/Omeka/archive/$OMEKA_VERSION.tar.gz | tar -xz --strip-components=1
 COMPOSER_CACHE_DIR=/dev/null composer2 install
 
 # Configuration
