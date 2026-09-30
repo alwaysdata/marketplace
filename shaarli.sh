@@ -37,7 +37,7 @@
 
 set -e
 
-export SHAARLI_VERSION=v0.16.7
+export SHAARLI_VERSION=v0.16.8
 
 # https://shaarli.readthedocs.io/en/latest/Server-configuration.html
 
