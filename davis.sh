@@ -34,7 +34,7 @@
 
 set -e
 
-export DAVIS_VERSION=v5.4.4
+export DAVIS_VERSION=v5.5.0
 
 # Install
 
