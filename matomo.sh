@@ -31,7 +31,7 @@
 
 set -e
 
-export MATOMO_VERSION=5.14.0
+export MATOMO_VERSION=5.14.1
 export EXTRATOOLS_VERSION=5.3.0
 
 # https://matomo.org/faq/on-premise/matomo-requirements/
