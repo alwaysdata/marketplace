@@ -33,7 +33,7 @@
 #         max_length: 255
 set -e
 
-export NODEBB_VERSION=v4.16.0
+export NODEBB_VERSION=v4.16.2
 
 # https://docs.nodebb.org/installing/os/ubuntu/#installing-nodebb
 
