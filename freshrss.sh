@@ -39,7 +39,7 @@
 
 set -e
 
-export FRESHRSS_VERSION=1.30.0
+export FRESHRSS_VERSION=1.30.1
 
 # https://freshrss.github.io/FreshRSS/en/admins/02_Prerequisites.html
 
