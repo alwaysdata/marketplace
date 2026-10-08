@@ -16,7 +16,7 @@
 
 set -e
 
-export ETHERPAD_VERSION=3.3.6
+export ETHERPAD_VERSION=3.3.7
 
 # https://github.com/ether/etherpad-lite#installation
 
