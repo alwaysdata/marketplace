@@ -13,7 +13,7 @@
 set -e
 
 
-export LEANTIME_VERSION=v3.10.0
+export LEANTIME_VERSION=v3.10.4
 
 # Download
 wget -O- --no-hsts https://github.com/Leantime/leantime/releases/download/$LEANTIME_VERSION/Leantime-$LEANTIME_VERSION.tar.gz | tar -xz --strip-components=1
