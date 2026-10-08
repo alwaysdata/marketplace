@@ -37,7 +37,7 @@
 
 set -e
 
-export KIMAI_VERSION=2.67.0
+export KIMAI_VERSION=2.69.0
 
 # https://www.kimai.org/documentation/installation.html
 
