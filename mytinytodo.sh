@@ -34,7 +34,7 @@ define("MTT_DB_PASSWORD", "$DATABASE_PASSWORD");
 
 define("MTT_DB_PREFIX", "");
 
-define("MTT_SALT", "$(echo $RANDOM | md5sum | sed 's/ .*//')");
+define("MTT_SALT", "$(openssl rand -hex 32)");
 EOF
 
 #As there is a "No token provided" with curl, the client will need to go to https://$INSTALL_URL/setup.php at the end, then removed the setup.php.

@@ -52,7 +52,7 @@ cat << EOF > .env
 DATABASE_URL=mysql://$DATABASE_USERNAME:$DATABASE_PASSWORD@$DATABASE_HOST:3306/$DATABASE_NAME
 MAILER_FROM=$USER@$RESELLER_DOMAIN
 APP_ENV=prod
-APP_SECRET="$(echo $RANDOM | md5sum | sed 's/ .*//')"
+APP_SECRET="$(openssl rand -hex 32)"
 CORS_ALLOW_ORIGIN=^https?://localhost(:[0-9]+)?$
 EOF
 

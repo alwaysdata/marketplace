@@ -46,7 +46,7 @@ sed -i "s|'DC_DBHOST', ''|'DC_DBHOST', '$DATABASE_HOST'|" inc/config.php
 sed -i "s|'DC_DBUSER', ''|'DC_DBUSER', '$DATABASE_USERNAME'|" inc/config.php
 sed -i "s|'DC_DBPASSWORD', ''|'DC_DBPASSWORD', '$DATABASE_PASSWORD'|" inc/config.php
 sed -i "s|'DC_DBNAME', ''|'DC_DBNAME', '$DATABASE_NAME'|" inc/config.php
-sed -i "s|'DC_MASTER_KEY', ''|'DC_MASTER_KEY', '$(date | sha256sum -b | sed 's/ .*//')'|" inc/config.php
+sed -i "s|'DC_MASTER_KEY', ''|'DC_MASTER_KEY', '$(openssl rand -hex 32)'|" inc/config.php
 sed -i "s|'DC_ADMIN_URL', ''|'DC_ADMIN_URL', 'https://$INSTALL_URL/admin'|" inc/config.php
 sed -i "s|'DC_ADMIN_MAILFROM', ''|'DC_ADMIN_MAILFROM', '$USER@$RESELLER_DOMAIN'|" inc/config.php
 
